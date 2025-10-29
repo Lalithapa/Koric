@@ -1,0 +1,27 @@
+{
+  "name": "koric.com",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000K\u0000o\u0000r\u0000i\u0000c\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/tailwind.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/tailwind.css",
+    "theme": "theme watch --allow-live"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lalithapa/Koric.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lalithapa/Koric/issues"
+  },
+  "homepage": "https://github.com/Lalithapa/Koric#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.16",
+    "tailwindcss": "^4.1.16"
+  }
+}

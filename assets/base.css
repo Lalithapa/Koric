@@ -1572,7 +1572,6 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container 
   /* Needed for safari to stretch to full grid height */
   height: 100%;
 }
-
 .product-media :is(deferred-media, product-model) {
   position: absolute;
 }
@@ -1591,6 +1590,9 @@ media-gallery.media-gallery--grid .media-gallery__grid .product-media-container 
 
   .media-gallery--two-column .media-gallery__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .media-gallery__grid .product-media-container:first-child {
+    grid-column: 1 / -1;
   }
 
   .media-gallery--large-first-image .product-media-container:first-child,

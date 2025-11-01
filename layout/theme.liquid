@@ -30,7 +30,6 @@
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
-
     {{ content_for_header }}
   </head>
 
@@ -39,7 +38,6 @@
     <div id="header-group">
       {% sections 'header-group' %}
     </div>
-
     <script
       src="{{ 'critical.js' | asset_url }}"
       type="module"

@@ -1,5 +1,10 @@
 {
   "current": {
+    "logo": "shopify:\/\/shop_images\/Koric_logo-Deep_blue.png",
+    "logo_inverse": "shopify:\/\/shop_images\/Koric_logo-sky_blue.png",
+    "logo_height": 30,
+    "logo_height_mobile": 24,
+    "favicon": "shopify:\/\/shop_images\/Koric_logo_mark-Deep_blue.png",
     "type_body_font": "inter_n4",
     "type_subheading_font": "inter_n5",
     "type_heading_font": "inter_n7",
@@ -65,6 +70,19 @@
     "variant_button_border_width": 1,
     "variant_button_radius": 14,
     "variant_button_width": "equal-width-buttons",
+    "content_for_index": [],
+    "blocks": {
+      "14060646107696862457": {
+        "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/judgeme_core\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+        "disabled": false,
+        "settings": {}
+      },
+      "1232542678405107163": {
+        "type": "shopify:\/\/apps\/instafeed\/blocks\/head-block\/c447db20-095d-4a10-9725-b5977662c9d5",
+        "disabled": false,
+        "settings": {}
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -112,7 +130,7 @@
           "foreground": "#000000cf",
           "primary": "#000000cf",
           "primary_hover": "#ffffff",
-          "border": "#DFDFDF",
+          "border": "#dfdfdf",
           "shadow": "#000000",
           "primary_button_background": "#000000",
           "primary_button_text": "#ffffff",
@@ -185,17 +203,17 @@
       },
       "scheme-4": {
         "settings": {
-          "background": "#e1edf5",
-          "foreground_heading": "#000000",
-          "foreground": "#000000cf",
+          "background": "#2a5072",
+          "foreground_heading": "#f7f5f2",
+          "foreground": "#c4e0f8",
           "primary": "#000000cf",
           "primary_hover": "#000000",
           "border": "#1d368680",
           "shadow": "#000000",
-          "primary_button_background": "#000000",
-          "primary_button_text": "#ffffff",
+          "primary_button_background": "#2a5072",
+          "primary_button_text": "#f7f5f2",
           "primary_button_border": "#1d3686",
-          "primary_button_hover_background": "#333333",
+          "primary_button_hover_background": "#2a5072bf",
           "primary_button_hover_text": "#ffffff",
           "primary_button_hover_border": "#000000",
           "secondary_button_background": "rgba(0,0,0,0)",
@@ -203,7 +221,7 @@
           "secondary_button_border": "#000000",
           "secondary_button_hover_background": "#ffffff5c",
           "secondary_button_hover_text": "#000000cf",
-          "secondary_button_hover_border": "#000000cf",
+          "secondary_button_hover_border": "#2a5072",
           "input_background": "rgba(0,0,0,0)",
           "input_text_color": "#000000cf",
           "input_border_color": "#000000cf",
@@ -338,10 +356,47 @@
           "selected_variant_hover_text_color": "#ffffff",
           "selected_variant_hover_border_color": "#1a1a1a"
         }
+      },
+      "scheme-64a32c15-c0f6-4e04-9a56-5100bd6a9a68": {
+        "settings": {
+          "background": "#f7f5f2",
+          "foreground_heading": "#000000",
+          "foreground": "#2a5072",
+          "primary": "#000000cf",
+          "primary_hover": "#000000",
+          "border": "#0000000f",
+          "shadow": "#000000",
+          "primary_button_background": "#2a5072",
+          "primary_button_text": "#ffffff",
+          "primary_button_border": "#2a5072",
+          "primary_button_hover_background": "#2a5072ac",
+          "primary_button_hover_text": "#ffffff",
+          "primary_button_hover_border": "#2a5072ac",
+          "secondary_button_background": "rgba(0,0,0,0)",
+          "secondary_button_text": "#000000",
+          "secondary_button_border": "#000000",
+          "secondary_button_hover_background": "#fafafa",
+          "secondary_button_hover_text": "#333333",
+          "secondary_button_hover_border": "#333333",
+          "input_background": "#ffffffc7",
+          "input_text_color": "#212121",
+          "input_border_color": "#363636",
+          "input_hover_background": "#00000003",
+          "variant_background_color": "#ffffff",
+          "variant_text_color": "#000000",
+          "variant_border_color": "#00000021",
+          "variant_hover_background_color": "#f5f5f5",
+          "variant_hover_text_color": "#000000",
+          "variant_hover_border_color": "#e6e6e6",
+          "selected_variant_background_color": "#000000",
+          "selected_variant_text_color": "#ffffff",
+          "selected_variant_border_color": "#000000",
+          "selected_variant_hover_background_color": "#1a1a1a",
+          "selected_variant_hover_text_color": "#ffffff",
+          "selected_variant_hover_border_color": "#1a1a1a"
+        }
       }
-    },
-    "logo_height": 36,
-    "logo_height_mobile": 28
+    }
   },
   "presets": {
     "Horizon": {

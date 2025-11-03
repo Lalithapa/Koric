@@ -1,0 +1,267 @@
+{% assign coll = section.settings.collection %}
+{% assign show = section.settings.products_to_show | default: 4 %}
+<section class="py-12 md:py-16 {{ section.settings.bg_class | default: 'bg-[#294e6b]' }} text-white">
+  <div class="lg:max-w-[80%] xl:max-w-[80%] mx-auto px-4 md:px-6 max-w-[95%]">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row  md:justify-between gap-4 md:gap-8 mb-[56px] md:mb-[56px] items-center">
+
+      {% if section.settings.heading != blank %}
+      <h2 class="text-[#F7F5F2]  text-[38px] not-italic font-medium leading-none max-w-[450px]">
+        {{ section.settings.heading }}
+      </h2>
+      {% endif %}
+      {% if section.settings.copy != blank %}
+      <p class="text-white  text-[14px] not-italic font-normal leading-normal max-w-[324px] ">{{ section.settings.copy
+        }}</p>
+      {% endif %}
+      {% if section.settings.cta_label and section.settings.cta_link %}
+      <div class="md:text-right md:pt-2 lg:w-auto w-full">
+        <a href="{{ section.settings.cta_link }}"
+          class="inline-flex items-center gap-2 text-[14px] font-medium uppercase whitespace-nowrap !text-[#fff] ">
+          <span class="border-b border-white">{{ section.settings.cta_label }}</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+
+    {% if coll and coll.products_count > 0 %}
+    <!-- Mobile Swiper -->
+    <div class="lg:hidden">
+      <div class="swiper swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for product in coll.products limit: show %}
+          {% assign v = product.selected_or_first_available_variant %}
+          <div class="swiper-slide">
+            <article class="rounded-[16px] bg-[#ADD1F2] py-[12px] px-[22px]">
+              {% if product.tags contains 'bestseller' %}
+              <span
+                class="inline-block bg-[#EDE1DD] text-[#1E1E1E] text-[11px] font-semibold px-[10px] py-[5px] rounded-full leading-normal">
+                Bestseller
+              </span>
+              {% endif %}
+              <div class="rounded-xl p-4 h-full flex flex-col">
+                <a href="{{ product.url }}" class="block group text-center">
+                    <p
+                class="inline-block border border-[#2A5072] text-[#2A5072] text-[13px] font-medium px-[14px] py-[4px] mx-[4px] my-[10px] rounded-full leading-none">
+                Retinol + Vitamin E
+              </p>
+              <div
+                class=" ">
+                {% if v.compare_at_price > v.price %}
+                <span class="text-[#2A5072] text-center text-[14px] not-italic font-normal leading-normal">Yours at {{
+                  v.price | money }}</span>
+                {% endif %}
+              </div>
+                  <h3 class="text-[#2A5072]! text-[20px]! not-italic font-medium! leading-normal max-w-[450px]">
+                  {{ product.title | escape |truncatewords: 4}}</h3>
+                  
+                 
+                  <div class="overflow-hidden flex items-center justify-center ">
+                    {{
+                    product.featured_image
+                    | image_url: width: 740
+                    | image_tag:
+                    loading: 'lazy',
+                    class: 'h-full w-full object-contain '
+                    }}
+                  </div>
+                </a>
+
+                <div class="mt-auto">
+
+              <div class="mt-auto">
+
+                {% assign v = product.selected_or_first_available_variant %}
+                {% if v and v.available %}
+                {% assign can_add_to_cart = true %}
+                {% assign add_to_cart_text = 'products.product.add_to_cart' | t %}
+                {% else %}
+                {% assign can_add_to_cart = false %}
+                {% assign add_to_cart_text = 'products.product.sold_out' | t %}
+                {% endif %}
+
+                {%- assign product_form_id = 'BuyButtons-ProductForm-'
+                | append: section.id
+                | append: '-'
+                | append: product.id
+                -%}
+
+                <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ product.id }}"
+                  data-product-url="{{ product.url }}" on:submit="/handleSubmit"
+                  data-quantity-default="{% if v.quantity_rule.min %}{{ v.quantity_rule.min }}{% else %}1{% endif %}">
+                  {%- form 'product', product, id: product_form_id, data-type: 'add-to-cart-form' -%}
+                  <input type="hidden" name="id" ref="variantId" value="{{ v.id }}">
+                   <div class="atc-wrap">
+            {%
+              render 'add-to-cart-button',
+              can_add_to_cart: can_add_to_cart,
+              add_to_cart_text: add_to_cart_text,
+              product: product,
+              icon_only_on_mobile: true,
+              id: 'atc-' | append: product.id
+            %}
+          </div>
+                  {%- endform -%}
+                </product-form-component>
+                
+              </div>
+              <p class="text-[#2A5072]! text-[10.5px]! not-italic font-normal leading-normal text-center">{{ product.metafields.custom.product_features }}</p>
+            </div>
+              </div>
+            </article>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Swiper Controls -->
+        <div class="mt-4 flex items-center justify-between">
+          <div class="swiper-pagination"></div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Desktop Grid -->
+    <div class="hidden! lg:block!">
+      <ul class="lg:grid grid-cols-4 gap-6 ">
+        {% for product in coll.products limit: show %}
+        {% assign v = product.selected_or_first_available_variant %}
+        <li class="card-outer rounded-[16px] bg-[#ADD1F2] py-[12px] px-[22px] relative group
+           transform transition-all duration-500 ease-in-out 
+           hover:scale-y-110 hover:shadow-lg ">
+          <div class="h-full flex flex-col">
+            {% if product.tags contains 'bestseller' %}
+            <span
+              class="inline-block bg-[#EDE1DD] text-[#1E1E1E] text-[11px] font-semibold px-[10px] py-[5px] rounded-full leading-normal max-w-[75px]">
+              Bestseller
+            </span>
+            {% endif %}
+            <a href="{{ product.url }}" class="block group text-center">
+
+              <p
+                class="inline-block border border-[#2A5072] text-[#2A5072] text-[13px] font-medium px-[14px] py-[4px] mx-[4px] my-[10px] rounded-full leading-none">
+                Retinol + Vitamin E
+              </p>
+              <div
+                class="hidden! group-hover:block! translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-in-out">
+                {% if v.compare_at_price > v.price %}
+                <span class="text-[#2A5072] text-center text-[14px] not-italic font-normal leading-normal">Yours at {{
+                  v.price | money }}</span>
+                {% endif %}
+              </div>
+              <h3 class="text-[#2A5072]! text-[20px]! not-italic  max-w-[450px]   font-bold leading-normal">{{
+                product.title | escape |truncatewords: 4}}</h3>
+
+              <div class="  overflow-hidden  flex items-center justify-center">
+                {{
+                product.featured_image
+                | image_url: width: 740
+                | image_tag:
+                loading: 'lazy',
+                class: 'h-full w-full object-contain'
+                }}
+              </div>
+            </a>
+
+
+              <div class="">
+
+                {% assign v = product.selected_or_first_available_variant %}
+                {% if v and v.available %}
+                {% assign can_add_to_cart = true %}
+                {% assign add_to_cart_text = 'products.product.add_to_cart' | t %}
+                {% else %}
+                {% assign can_add_to_cart = false %}
+                {% assign add_to_cart_text = 'products.product.sold_out' | t %}
+                {% endif %}
+
+                {%- assign product_form_id = 'BuyButtons-ProductForm-'
+                | append: section.id
+                | append: '-'
+                | append: product.id
+                -%}
+
+                <product-form-component data-section-id="{{ section.id }}" data-product-id="{{ product.id }}"
+                  data-product-url="{{ product.url }}" on:submit="/handleSubmit"
+                  data-quantity-default="{% if v.quantity_rule.min %}{{ v.quantity_rule.min }}{% else %}1{% endif %}">
+                  {%- form 'product', product, id: product_form_id, data-type: 'add-to-cart-form' -%}
+                  <input type="hidden" name="id" ref="variantId" value="{{ v.id }}">
+                   <div class="atc-wrap">
+            {%
+              render 'add-to-cart-button',
+              can_add_to_cart: can_add_to_cart,
+              add_to_cart_text: add_to_cart_text,
+              product: product,
+              icon_only_on_mobile: true,
+              id: 'atc-' | append: product.id
+            %}
+          </div>
+                  {%- endform -%}
+                </product-form-component>
+
+              </div>
+
+          <p class="text-[#2A5072]! text-[10.5px]! not-italic font-normal leading-normal text-center">{{ product.metafields.custom.product_features }}</p>
+
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% else %}
+    <p class="text-white/80 text-sm">Select a collection in section settings.</p>
+    {% endif %}
+  </div>
+
+  <!-- Swiper init (mobile only) -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.querySelector('.swiper-{{ section.id }}');
+      if (!root) return;
+      const mq = window.matchMedia('(max-width: 1023px)');
+      function setup() {
+        if (mq.matches && !root._swiper) {
+          root._swiper = new Swiper(root, {
+            slidesPerView: 1.15,
+            spaceBetween: 16,
+            pagination: { el: root.querySelector('.swiper-pagination'), clickable: true },
+            navigation: {
+              nextEl: root.querySelector('.swiper-next-{{ section.id }}'),
+              prevEl: root.querySelector('.swiper-prev-{{ section.id }}'),
+            },
+          });
+        } else if (!mq.matches && root._swiper) {
+          root._swiper.destroy(true, true);
+          root._swiper = null;
+        }
+      }
+      setup();
+      mq.addEventListener('change', setup);
+    });
+  </script>
+</section>
+
+{% schema %}
+{
+"name": "Collection Cards (Swiper)",
+"settings": [
+{ "type": "collection", "id": "collection", "label": "Collection" },
+{
+"type": "range",
+"id": "products_to_show",
+"label": "Products to show",
+"min": 2,
+"max": 12,
+"step": 1,
+"default": 4
+},
+{ "type": "text", "id": "heading", "label": "Heading", "default": "Good skin starts\nwith a good cleanse" },
+{ "type": "textarea", "id": "copy", "label": "Right side copy" },
+{ "type": "text", "id": "cta_label", "label": "CTA label" },
+{ "type": "url", "id": "cta_link", "label": "CTA link" },
+{ "type": "text", "id": "text-area", "label": "CTA label" }
+],
+"presets": [{ "name": "Collection Cards (Swiper)", "category": "Products" }]
+}
+{% endschema %}

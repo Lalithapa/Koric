@@ -44,7 +44,7 @@
     min="{{ min | default: 1 }}"
     on:blur="/setQuantity"
     on:focus="/selectInputValue"
-    ref="quantityInput"
+    ref="quantityInput" readonly
     aria-label="{{ 'accessibility.quantity' | t }}"
     {% if line_index %}
       data-cart-line="{{ line_index | plus: 1 }}"

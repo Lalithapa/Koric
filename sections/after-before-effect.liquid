@@ -1,0 +1,316 @@
+<!-- sections/offer-before-effect.liquid -->
+{%- style -%}
+  .section-{{ section.id }}-margin {
+    margin-top: {{ section.settings.margin_top_desktop }}px;
+    margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_desktop }}px;
+    padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .section-{{ section.id }}-margin {
+      margin-top: {{ section.settings.margin_top_mobile }}px;
+      margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top_mobile }}px;
+      padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    }
+  }
+{%- endstyle -%}
+<section id="ba-swiper-{{ section.id }}" class="w-full section-{{ section.id }}-margin section-{{ section.id }}-padding">
+  <div class="mx-auto max-w-[100%] px-4 md:px-6 py-10">
+    {% if section.settings.heading != blank %}
+      <h2 class="text-center text-3xl md:text-5xl font-bold text-[#274b6b]">{{ section.settings.heading }}</h2>
+    {% endif %}
+    {% if section.settings.subheading != blank %}
+      <p class="mt-2 text-center text-sm md:text-base text-[#274b6b]/70">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <!-- Swiper -->
+    <div class="swiper ba-swiper overflow-hidden">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div
+            class="swiper-slide rounded-[20px] overflow-hidden bg-white transition-[transform,opacity,box-shadow] duration-300 ease-[cubic-bezier(.2,.8,.2,1)] scale-[.92] opacity-80 [&.swiper-slide-active]:scale-100 [&.swiper-slide-active]:opacity-100 [&.swiper-slide-active]:shadow-[0_12px_30px_rgba(0,0,0,.12)]"
+            {{ block.shopify_attributes }}
+          >
+            <!-- Slider container fills the slide -->
+            <div class="relative m-0 w-full h-[420px] md:h-[460px] lg:h-[520px]">
+              <!-- BEFORE -->
+              <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
+                {% if block.settings.before_image %}
+                  <img
+                    class="w-full h-full object-cover select-none pointer-events-none"
+                    src="{{ block.settings.before_image | image_url: width: 1600 }}"
+                    alt="{{ block.settings.before_alt }}"
+                    loading="lazy"
+                    width="100%"
+                    height="auto"
+                  >
+                {% endif %}
+                <div class="absolute left-5 top-[85%] z-[5]  text-[14px] font-semibold text-[#3a3a3a] px-5 py-2 bg-white/60 rounded-[.3rem] tracking-[.12em]">
+                  {{ block.settings.before_label }}
+                </div>
+              </div>
+
+              <!-- AFTER -->
+              <div class="absolute inset-0 flex items-center justify-center overflow-hidden [clip-path:inset(0_50%_0_0)]">
+                {% if block.settings.after_image %}
+                  <img
+                    class="w-full h-full object-cover select-none pointer-events-none"
+                    src="{{ block.settings.after_image | image_url: width: 1600 }}"
+                    alt="{{ block.settings.after_alt }}"
+                    loading="lazy"
+                    width="100%"
+                    height="auto"
+                  >
+                {% endif %}
+                <div class="absolute right-5 top-[85%] z-[3]  text-[14px] font-semibold text-[#3a3a3a] px-5 py-2 bg-white/60 rounded-[.3rem] tracking-[.12em]">
+                  {{ block.settings.after_label }}
+                </div>
+              </div>
+
+              <!-- Handle (hit area) -->
+              <div class="slider-handle absolute top-0 left-1/2 w-0 h-full bg-white cursor-pointer z-20"></div>
+
+              <!-- Divider + grip -->
+              <div
+                class="
+                  slider-line relative absolute top-0 left-1/2 w-[2px] h-full flex items-center justify-center bg-white z-10
+                  after:content-[''] after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2
+                  after:w-[18px] after:h-[70px] after:rounded-[10px] after:bg-[#f7f7f7] after:border after:border-black/10
+                  after:shadow-[0_2px_6px_rgba(0,0,0,0.15)] after:z-[5]
+                  before:content-['||'] before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2
+                  before:text-[14px] before:text-[#666] before:font-semibold before:tracking-[1px] before:z-[6]
+                "
+              >
+                <!-- (optional) center SVG arrows -->
+                <svg
+                  class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[3] cursor-pointer"
+                  fill="none"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  aria-hidden="true"
+                >
+                  <g>
+                    <rect width="50" height="50" rx="25" fill="#ffffff"></rect>
+                    <path d="m19.25 19-6 6 6 6m11.5 0 6-6-6-6" stroke="#000000" stroke-width=".75" stroke-linecap="square"></path>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <!-- UI -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev hidden"></div>
+      <div class="swiper-button-next hidden"></div>
+    </div>
+  </div>
+</section>
+
+{% unless content_for_header contains 'swiper-bundle.min.css' %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+{% endunless %}
+{% unless content_for_header contains 'swiper-bundle.min.js' %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+{% endunless %}
+
+<style>
+  /* Minimal CSS just for Swiper bullets color */
+  #ba-swiper-{{ section.id }} .swiper-pagination-bullet{ background:#274b6b; }
+</style>
+
+<script>
+(function initBASwiper(){
+  function initSliders(){
+    const wrapper = document.querySelector('#ba-swiper-{{ section.id }} .ba-swiper');
+    if(!wrapper || typeof Swiper === 'undefined') return;
+
+    if(wrapper.swiper) wrapper.swiper.destroy(true,true);
+
+    const swiper = new Swiper(wrapper, {
+      slidesPerView: 1.2,
+      spaceBetween: 10,
+      centeredSlides: true,
+      loop: {{ section.settings.loop | json }},
+      autoplay: {{ section.settings.autoplay | json }}
+        ? { delay: {{ section.settings.autoplay_delay | times: 1000 }}, disableOnInteraction: false }
+        : false,
+      pagination: { el: wrapper.querySelector(".swiper-pagination"), clickable: true },
+      // navigation: { nextEl: wrapper.querySelector(".swiper-button-next"), prevEl: wrapper.querySelector(".swiper-button-prev") },
+      allowTouchMove: false,
+      simulateTouch: false,
+    });
+
+    // Drag logic
+    wrapper.querySelectorAll('.swiper-slide .relative').forEach(wrap=>{
+      const handle=wrap.querySelector('.slider-handle'),
+            line=wrap.querySelector('.slider-line'),
+            before=wrap.querySelector(':scope > div:nth-child(1)'),
+            after=wrap.querySelector(':scope > div:nth-child(2)');
+      if(!handle||!line||!before||!after) return;
+
+      let dragging=false;
+      const set=(x)=>{
+        const r=wrap.getBoundingClientRect();
+        let off=x-r.left;
+        if(off<0) off=0; if(off>r.width) off=r.width;
+        const pct=(off/r.width)*100;
+        handle.style.left=pct+'%';
+        line.style.left=pct+'%';
+        before.style.clipPath=`inset(0 ${100-pct}% 0 0)`;
+        after.style.clipPath=`inset(0 0 0 ${pct}%)`;
+      };
+      const start=()=>{ dragging=true; handle.style.transition='none'; line.style.transition='none'; };
+      const end=()=>{ dragging=false; handle.style.transition='left .3s'; line.style.transition='left .3s'; };
+      const move=(e)=>{ if(!dragging) return; const x=e.touches?e.touches[0].clientX:e.clientX; set(x); };
+
+      handle.addEventListener('mousedown',start); line.addEventListener('mousedown',start);
+      window.addEventListener('mousemove',move); window.addEventListener('mouseup',end);
+
+      handle.addEventListener('touchstart',start,{passive:true});
+      line.addEventListener('touchstart',start,{passive:true});
+      window.addEventListener('touchmove',move,{passive:true});
+      window.addEventListener('touchend',end,{passive:true});
+
+      // init center
+      handle.style.left='50%';
+      line.style.left='50%';
+      before.style.clipPath='inset(0 50% 0 0)';
+      after.style.clipPath='inset(0 0 0 50%)';
+    });
+  }
+
+  function waitForSwiper(){
+    if(typeof Swiper!=='undefined'){initSliders();}
+    else setTimeout(waitForSwiper,150);
+  }
+  waitForSwiper();
+
+  document.addEventListener('shopify:section:load', waitForSwiper);
+  document.addEventListener('shopify:section:reorder', waitForSwiper);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Before/After Swiper",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "See the results" },
+    { "type": "text", "id": "subheading", "label": "Subheading", "default": "Drag to compare" },
+    { "type": "checkbox", "id": "loop", "label": "Loop slides", "default": true },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay", "default": false },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Autoplay delay (sec)",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 30,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Before/After Slide",
+      "settings": [
+        { "type": "image_picker", "id": "before_image", "label": "Before image" },
+        { "type": "text", "id": "before_alt", "label": "Before alt", "default": "Before" },
+        { "type": "image_picker", "id": "after_image", "label": "After image" },
+        { "type": "text", "id": "after_alt", "label": "After alt", "default": "After" },
+        { "type": "text", "id": "before_label", "label": "Left label", "default": "Before" },
+        { "type": "text", "id": "after_label", "label": "Right label", "default": "After" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Before/After Swiper (Blocks)", "category": "Image", "blocks": [{ "type": "slide" }] }]
+}
+{% endschema %}

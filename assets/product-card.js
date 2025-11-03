@@ -232,7 +232,7 @@ export class ProductCard extends Component {
   }
 
   /**
-   * Toggles the add to cart button state.
+   * Toggles the Add to Bag button state.
    * @param {boolean} enable - Whether to enable or disable the button.
    */
   #toggleAddToCartButton(enable) {

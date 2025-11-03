@@ -1,0 +1,523 @@
+{%- style -%}
+  .section-{{ section.id }}-margin {
+  margin-top: {{ section.settings.margin_top_desktop }}px;
+  margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+  .section-{{ section.id }}-margin {
+  margin-top: {{ section.settings.margin_top_mobile }}px;
+  margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top_mobile }}px;
+  padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  }
+{%- endstyle -%}
+<section
+  id="skinneed-{{ section.id }}"
+  class="w-full section-{{ section.id }}-margin section-{{ section.id }}-padding"
+  style="background-color: {{ section.settings.bg | default: '#BFD7EA' }}"
+>
+  <div class="lg:max-w-[80%] xl:max-w-[80%] mx-auto px-4 md:px-6 max-w-[95%]">
+    <div class="flex flex-col md:flex-row  md:justify-between gap-4 md:gap-8 mb-[56px] md:mb-[56px] items-center">
+      {% if section.settings.heading != blank %}
+        <h2 class="!text-[#2A5072] text-[28px] md:text-[38px] font-medium leading-none">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.subtext != blank %}
+        <p class="!text-[#2A5072] text-[14px] font-normal leading-normal max-w-[324px]">
+          {{ section.settings.subtext }}
+        </p>
+      {% endif %}
+      <div class="md:justify-self-end">
+        {% if section.settings.cta_url != blank and section.settings.cta_label != blank %}
+          <a
+            href="{{ section.settings.cta_url }}"
+            class="inline-flex items-center gap-2 text-[#23384a]! text-[12px] font-semibold uppercase tracking-wide underline underline-offset-4 decoration-[#23384a]/50 hover:opacity-80"
+          >
+            {{ section.settings.cta_label }}
+            <span aria-hidden="true">→</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+   <!-- Desktop row: use flex, not grid -->
+<div class="cards-row hidden! lg:flex! mt-6 lg:mt-8 gap-4 lg:gap-6">
+  {% for block in section.blocks %}
+    {% assign b = block.settings %}
+   <a href="{{ b.link | default: '#' }}" class="card-item">
+  <img src="{{ b.image | image_url: width: 1200 }}" alt="{{ b.title }}">
+  
+  <div class="card-content">
+    <h3>{{ b.title-bottom }}</h3>
+    <p>{{ b.text }}</p>
+    <span>{{ b.cta_text | default: 'View Product' }}</span>
+  </div>
+</a>
+  {% endfor %}
+</div>
+
+ <!-- Mobile swiper -->
+    <div class="md:hidden mt-4">
+      <div class="swiper skinneed-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% assign b = block.settings %}
+            <div class="swiper-slide">
+              <a
+                href="{{ b.link | default: '#' }}"
+                class="block rounded-[18px] overflow-hidden bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
+              >
+                <div class="relative aspect-[3/4]">
+                  {% if b.image %}
+                    <img
+                      src="{{ b.image | image_url: width: 1000 }}"
+                      alt="{{ b.title | escape }}"
+                      width="100%"
+                      height="auto"
+                      class="absolute inset-0 h-full w-full object-cover"
+                    >
+                  {% endif %}
+                  {% if b.title != blank %}
+                    <div class="absolute left-3 top-3 z-10 text-white text-[13px] font-bold tracking-[.18em]">
+                      {{ b.title | upcase }}
+                    </div>
+                  {% endif %}
+                  <div class="absolute left-1/2 -translate-x-1/2 bottom-[15%] w-[80%] m-b-[24px]">
+                  {% if b.title-bottom != blank %}
+                    <h3 class="text-[#000] font-[900] font-[Inter] text-[20px] leading-[19px] tracking-[-0.421px] mb-2">
+                     {{b.title-bottom}}
+                    </h3>
+                    {% endif %}
+                    {% if b.text != blank %}
+                    <p class="text-[#000] font-[Inter] text-[16px] leading-snug">
+                      {{b.text}}
+                    </p>
+                    {% endif %}
+                  </div>
+
+                  <div class="absolute left-1/2 -translate-x-1/2 bottom-3">
+                    <span
+                      class="inline-flex items-center rounded-full px-[80px] py-[15px] text-[14px]  text-[#23384a] bg-[#ADD1F2]  whitespace-nowrap not-italic font-bold leading-normal uppercase"
+                    >
+                      {{ b.cta_text | default: 'View Product' }}
+                    </span>
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-black/0 to-black/0"></div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination mt-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} Swiper assets (load once) {%- endcomment -%}
+{% unless content_for_header contains 'swiper-bundle.min.css' %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+{% endunless %}
+{% unless content_for_header contains 'swiper-bundle.min.js' %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+{% endunless %}
+
+<style>
+    /* Keep overlays above the image always */
+#skinneed-{{ section.id }} .card-item h3,
+#skinneed-{{ section.id }} .card-item p,
+#skinneed-{{ section.id }} .card-item span {
+  position: relative;
+  z-index: 5;
+}
+/* Always keep overlays above the image */
+#skinneed-{{ section.id }} .card-item {
+  position: relative;
+  isolation: isolate; /* create new stacking context */
+}
+
+#skinneed-{{ section.id }} .card-item img {
+  position: absolute;
+  inset: 0;
+  z-index: 0; /* image behind everything */
+}
+
+/* Content wrapper */
+#skinneed-{{ section.id }} .card-content {
+  position: absolute;
+  left: 50%;
+  bottom: 15%;
+  transform: translateX(-50%);
+  width: 80%;
+  text-align: center;
+  color: #232323;
+  z-index: 2; /* text/button stay above image */
+  transition: all 0.8s ease-in-out;
+}
+
+/* On hover → move to center */
+#skinneed-{{ section.id }} .card-item:hover .card-content {
+  top: 55%;
+  width: 50%;
+  bottom: auto;
+  left: 45%;
+  transform: translate(-50%, -50%);
+}
+
+/* Text/Button inside content always visible */
+#skinneed-{{ section.id }} .card-content h3,
+#skinneed-{{ section.id }} .card-content p,
+#skinneed-{{ section.id }} .card-content span {
+  z-index: 3;
+  position: relative;
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+
+/* Helper: default position is lower area (as per your layout) */
+#skinneed-{{ section.id }} .card-item .center-on-hover {
+  /* already centered horizontally by your Tailwind classes */
+  transition: top .6s ease, bottom .6s ease, transform .6s ease, opacity .3s ease;
+}
+
+/* On hover: move both body + CTA to exact center */
+#skinneed-{{ section.id }} .card-item:hover .center-on-hover {
+  top: 50%;
+  bottom: auto !important;               /* override bottom classes */
+  transform: translate(-50%, -50%);      /* already has -translate-x-1/2 from Tailwind */
+}
+
+/* Image stays behind content (no hide on hover) */
+#skinneed-{{ section.id }} .card-item img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transform-origin: left center;
+  transform: scale(1.45) translateX(-8%);  /* partial view in normal */
+  transition: transform 1s ease-in-out;
+  z-index: 0;
+}
+#skinneed-{{ section.id }} .card-item:hover img {
+  transform: scale(1) translateX(0);       /* full view on hover */
+}
+
+ /* Row Container */
+/* Row Container */
+#skinneed-{{ section.id }} .cards-row {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  overflow: hidden;    
+  width: 100%;
+  position: relative;
+}
+
+/* Each Card */
+#skinneed-{{ section.id }} .card-item {
+  flex: 0 0 23%;    
+  min-width: 0;
+  height: 427px;
+  border-radius: 18px;
+  position: relative;
+  background: rgba(255,255,255,0.1);
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;         
+  isolation: isolate; 
+  cursor: pointer;
+}
+
+#skinneed-{{ section.id }} .card-item:hover {
+  flex: 0 0 50%;           
+  background-color: rgba(234,241,224,0.6);
+  z-index: 2;       
+}
+
+#skinneed-{{ section.id }} .card-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: left center;
+  transform: scale(1.45) translateX(-8%);
+  transition: transform 1s ease-in-out;
+  z-index: 0;
+}
+
+#skinneed-{{ section.id }} .card-item:hover img {
+  transform: scale(1) translateX(0);
+}
+
+/* Text & button always visible */
+#skinneed-{{ section.id }} .card-item h3,
+#skinneed-{{ section.id }} .card-item p,
+#skinneed-{{ section.id }} .card-item span {
+  position: relative;
+  z-index: 5;
+  transition: none;
+}
+
+/* Optional: smoother CTA hover */
+#skinneed-{{ section.id }} .card-item span {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+ #skinneed- {
+      {
+      section.id
+    }
+  }
+
+  .skinneed-swiper {
+    overflow: hidden;
+  }
+
+  #skinneed- {
+      {
+      section.id
+    }
+  }
+
+  .skinneed-swiper .swiper-slide {
+    transform: scale(0.96);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    opacity: .9;
+  }
+
+  #skinneed- {
+      {
+      section.id
+    }
+  }
+
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const root = document.getElementById('skinneed-{{ section.id }}');
+    if (!root) return;
+
+    const swEl = root.querySelector('.skinneed-swiper');
+    let swiper = null;
+
+    function setSwiper() {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      if (isMobile && typeof Swiper !== 'undefined') {
+        if (!swiper) {
+          swiper = new Swiper(swEl, {
+            centeredSlides: false,
+            slidesPerView: 1.2,
+            spaceBetween: 14,
+            pagination: { el: root.querySelector('.swiper-pagination'), clickable: true },
+          });
+        }
+      } else {
+        if (swiper) {
+          swiper.destroy(true, true);
+          swiper = null;
+        }
+      }
+    }
+
+    setSwiper();
+    window.addEventListener('resize', setSwiper);
+    document.addEventListener('shopify:section:load', setSwiper);
+    document.addEventListener('shopify:section:reorder', setSwiper);
+  });
+</script>
+{% schema %}
+{
+  "name": "Shop by skin need",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by skin need"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Each Koric bar is powered by micro-foaming technology and clinically backed actives."
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Header link URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Header link label (desktop)",
+      "default": "KNOW MORE"
+    },
+    {
+      "type": "text",
+      "id": "cta_label_mobile",
+      "label": "Header link label (mobile)",
+      "default": "BROWSE ALL"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background color",
+      "default": "#BFD7EA"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 30,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Skin need card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Overlay title",
+          "default": "SUN TAN"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "View Product"
+        },
+        {
+          "type": "text",
+          "id": "title-bottom",
+          "label": "Title bottom",
+          "default": "ALPHA ARBUTIN"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description Bottom",
+          "default": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by skin need",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

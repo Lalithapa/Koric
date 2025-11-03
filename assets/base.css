@@ -831,6 +831,7 @@ h3,
   font-family: var(--font-h3--family);
   font-style: var(--font-h3--style);
   font-weight: var(--font-h3--weight);
+  font-weight: var(--font-h3--weight);
   font-size: var(--font-h3--size);
   line-height: var(--font-h3--line-height);
   letter-spacing: var(--font-h3--letter-spacing);
@@ -2581,7 +2582,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   color: var(--input-disabled-text-color);
 }
 
-/* Add to cart button */
+/* Add to Bag button */
 .button[id^='BuyButtons-ProductSubmitButton-'] {
   position: relative;
   overflow: hidden;
@@ -2622,7 +2623,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 
 /* Quantity selector */
 .quantity-selector {
-  --quantity-selector-width: 124px;
+  --quantity-selector-width: 178px;
 
   display: flex;
   justify-content: space-between;

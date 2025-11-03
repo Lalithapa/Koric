@@ -7,10 +7,10 @@ import { morph } from '@theme/morph';
 export const ADD_TO_CART_TEXT_ANIMATION_DURATION = 2000;
 
 /**
- * A custom element that manages an add to cart button.
+ * A custom element that manages an Add to Bag button.
  *
  * @typedef {object} AddToCartRefs
- * @property {HTMLButtonElement} addToCartButton - The add to cart button.
+ * @property {HTMLButtonElement} addToCartButton - The Add to Bag button.
  * @extends Component<AddToCartRefs>
  */
 export class AddToCartComponent extends Component {
@@ -37,21 +37,21 @@ export class AddToCartComponent extends Component {
   }
 
   /**
-   * Disables the add to cart button.
+   * Disables the Add to Bag button.
    */
   disable() {
     this.refs.addToCartButton.disabled = true;
   }
 
   /**
-   * Enables the add to cart button.
+   * Enables the Add to Bag button.
    */
   enable() {
     this.refs.addToCartButton.disabled = false;
   }
 
   /**
-   * Handles the click event for the add to cart button.
+   * Handles the click event for the Add to Bag button.
    * @param {MouseEvent & {target: HTMLElement}} event - The click event.
    */
   handleClick(event) {
@@ -96,7 +96,7 @@ export class AddToCartComponent extends Component {
   }
 
   /**
-   * Animates the add to cart button.
+   * Animates the Add to Bag button.
    */
   animateAddToCart() {
     const { addToCartButton } = this.refs;
@@ -125,8 +125,8 @@ if (!customElements.get('add-to-cart-component')) {
  *
  * @typedef {object} ProductFormRefs
  * @property {HTMLInputElement} variantId - The form input for submitting the variant ID.
- * @property {AddToCartComponent | undefined} addToCartButtonContainer - The add to cart button container element.
- * @property {HTMLElement | undefined} addToCartTextError - The add to cart text error.
+ * @property {AddToCartComponent | undefined} addToCartButtonContainer - The Add to Bag button container element.
+ * @property {HTMLElement | undefined} addToCartTextError - The Add to Bag text error.
  * @property {HTMLElement | undefined} acceleratedCheckoutButtonContainer - The accelerated checkout button container element.
  * @property {HTMLElement} liveRegion - The live region.
  *
@@ -166,10 +166,10 @@ class ProductFormComponent extends Component {
 
     if (this.#timeout) clearTimeout(this.#timeout);
 
-    // Check if the add to cart button is disabled and do an early return if it is
+    // Check if the Add to Bag button is disabled and do an early return if it is
     if (this.refs.addToCartButtonContainer?.refs.addToCartButton?.getAttribute('disabled') === 'true') return;
 
-    // Send the add to cart information to the cart
+    // Send the Add to Bag information to the cart
     const form = this.querySelector('form');
 
     if (!form) throw new Error('Product form element missing');
@@ -319,7 +319,7 @@ class ProductFormComponent extends Component {
         addToCartButtonContainer.enable();
       }
 
-      // Update the add to cart button text and icon
+      // Update the Add to Bag button text and icon
       if (newAddToCartButton) {
         morph(currentAddToCartButton, newAddToCartButton);
       }
@@ -333,7 +333,7 @@ class ProductFormComponent extends Component {
       }
     }
 
-    // Set the data attribute for the add to cart button to the product variant media if it exists
+    // Set the data attribute for the Add to Bag button to the product variant media if it exists
     if (event.detail.resource) {
       const productVariantMedia = event.detail.resource.featured_media?.preview_image?.src;
       productVariantMedia &&
@@ -342,7 +342,7 @@ class ProductFormComponent extends Component {
   };
 
   /**
-   * Disable the add to cart button while the UI is updating before #onVariantUpdate is called.
+   * Disable the Add to Bag button while the UI is updating before #onVariantUpdate is called.
    * Accelerated checkout button is also disabled via its own event listener not exposed to the theme.
    */
   #onVariantSelected = () => {

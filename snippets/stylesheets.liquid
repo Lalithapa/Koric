@@ -1,5 +1,28 @@
 {% comment %} TT Commons Pro Adobe Fonts {% endcomment %}
 <link rel="stylesheet" href="https://use.typekit.net/bar0ogo.css">
+<style>
+ @font-face {
+    font-family: 'Groteska';
+    src: url('{{ "Groteska-Regular.woff2" | asset_url }}') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+ @font-face {
+    font-family: 'Groteska';
+    src: url('{{ "Groteska-Medium.woff2" | asset_url }}') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+ @font-face {
+    font-family: 'Groteska';
+    src: url('{{ "Groteska-Bold.woff2" | asset_url }}') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+</style>
 {{ 'overflow-list.css' | asset_url | preload_tag: as: 'style' }}
 {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
 {{ 'tailwind.css' | asset_url | stylesheet_tag }} 

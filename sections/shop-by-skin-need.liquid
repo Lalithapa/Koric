@@ -1,0 +1,439 @@
+  <!--section/shop-by-skin-need.liquid-->
+  {%- style -%}
+  .section-{{ section.id }}-margin {
+  margin-top: {{ section.settings.margin_top_desktop }}px;
+  margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+  .section-{{ section.id }}-margin {
+  margin-top: {{ section.settings.margin_top_mobile }}px;
+  margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top_mobile }}px;
+  padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  }
+{%- endstyle -%}
+<section
+  id="skinneed-{{ section.id }}"
+  class="w-full section-{{ section.id }}-margin section-{{ section.id }}-padding"
+  style="background-color: {{ section.settings.bg | default: '#BFD7EA' }}"
+>
+  <div class="lg:max-w-[80%] xl:max-w-[80%] mx-auto px-4 md:px-6 max-w-[95%]">
+    <div class="flex flex-col md:flex-row  md:justify-between gap-4 md:gap-8 mb-[56px] md:mb-[56px] items-center">
+      {% if section.settings.heading != blank %}
+        <h2 class="!text-[#2A5072] text-[28px] md:text-[38px] font-medium leading-none">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.subtext != blank %}
+        <p class="!text-[#2A5072] text-[14px] font-normal leading-normal max-w-[324px]">
+          {{ section.settings.subtext }}
+        </p>
+      {% endif %}
+      <div class="md:justify-self-end">
+        {% if section.settings.cta_url != blank and section.settings.cta_label != blank %}
+          <a
+            href="{{ section.settings.cta_url }}"
+            class="inline-flex items-center gap-2 text-[#23384a]! text-[12px] font-semibold uppercase tracking-wide underline underline-offset-4 decoration-[#23384a]/50 hover:opacity-80"
+          >
+            {{ section.settings.cta_label }}
+            <span aria-hidden="true">→</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Desktop grid -->
+    <div class="hidden lg:!grid mt-6 lg:mt-8 grid-cols-4 gap-4 lg:gap-6 ">
+      {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        <a
+          href="{{ b.link | default: '#' }}"
+          class="group rounded-[18px] overflow-hidden bg-white/10 backdrop-blur-[0.5px]  ring-1 "
+        >
+          <div class=" relative aspect-[3/4]">
+            {% if b.image %}
+              <img
+                src="{{ b.image | image_url: width: 1200 }}"
+                alt="{{ b.title | escape }}"
+                width="100%"
+                height="auto"
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-300 "
+              >
+            {% endif %}
+
+            <!-- Title -->
+            {% if b.title != blank %}
+              <div
+                class="absolute left-[50%] top-[5%] -translate-x-1/2 z-10 text-white text-center  text-[24px] not-italic font-bold leading-none uppercase"
+              >
+                {{ b.title | upcase }}
+              </div>
+            {% endif %}
+             <div class="absolute left-1/2 -translate-x-1/2 bottom-[15%] w-[80%] m-b-[24px]">
+                  {% if b.title-bottom != blank %}
+                    <h3 class="text-[#232323] font-[900]  text-[20px] leading-[19px] tracking-[-0.421px] mb-2">
+                     {{b.title-bottom}}
+                    </h3>
+                    {% endif %}
+                    {% if b.text != blank %}
+                    <p class="text-[#595959]  text-[16px] leading-snug">
+                      {{b.text}}
+                    </p>
+                    {% endif %}
+                  </div>
+            <!-- CTA pill -->
+            <div class="absolute left-1/2 -translate-x-1/2 bottom-4">
+              <span
+                class="inline-flex items-center rounded-full px-[80px] py-[15px] text-[14px]! font-semibold text-[#23384a] bg-[#ADD1F2] whitespace-nowrap"
+              >
+                {{ b.cta_text | default: 'View Product' }}
+              </span>
+            </div>
+
+            <!-- subtle overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/5 via-black/0 to-black/0"></div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+    <!-- Mobile swiper -->
+    <div class="md:hidden mt-4">
+      <div class="swiper skinneed-swiper">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            {% assign b = block.settings %}
+            <div class="swiper-slide">
+              <a
+                href="{{ b.link | default: '#' }}"
+                class="block rounded-[18px] overflow-hidden bg-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.08)] ring-1 ring-black/5"
+              >
+                <div class="relative aspect-[3/4]">
+                  {% if b.image %}
+                    <img
+                      src="{{ b.image | image_url: width: 1000 }}"
+                      alt="{{ b.title | escape }}"
+                      width="100%"
+                      height="auto"
+                      class="absolute inset-0 h-full w-full object-cover"
+                    >
+                  {% endif %}
+                  {% if b.title != blank %}
+                    <div class="absolute left-3 top-3 z-10 text-white text-[13px] font-bold tracking-[.18em]">
+                      {{ b.title | upcase }}
+                    </div>
+                  {% endif %}
+                  <div class="absolute left-1/2 -translate-x-1/2 bottom-[15%] w-[80%] m-b-[24px]">
+                  {% if b.title-bottom != blank %}
+                    <h3 class="text-[#000] font-[900] font-[Inter] text-[20px] leading-[19px] tracking-[-0.421px] mb-2">
+                     {{b.title-bottom}}
+                    </h3>
+                    {% endif %}
+                    {% if b.text != blank %}
+                    <p class="text-[#000] font-[Inter] text-[16px] leading-snug">
+                      {{b.text}}
+                    </p>
+                    {% endif %}
+                  </div>
+
+                  <div class="absolute left-1/2 -translate-x-1/2 bottom-3">
+                    <span
+                      class="inline-flex items-center rounded-full px-[80px] py-[15px] text-[14px]  text-[#23384a] bg-[#ADD1F2]  whitespace-nowrap not-italic font-bold leading-normal uppercase"
+                    >
+                      {{ b.cta_text | default: 'View Product' }}
+                    </span>
+                  </div>
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/10 via-black/0 to-black/0"></div>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination mt-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- comment -%} Swiper assets (load once) {%- endcomment -%}
+{% unless content_for_header contains 'swiper-bundle.min.css' %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+{% endunless %}
+{% unless content_for_header contains 'swiper-bundle.min.js' %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js" defer></script>
+{% endunless %}
+
+<style>
+ 
+
+.card-content-main {
+  transform: scaleX(1);
+  transition: transform 1s ease;
+  width: 350pxpx;
+  max-width: 500px;
+  
+}
+
+.card-content-main:hover {
+  transform: scaleX(1.5);
+}
+ #skinneed- {
+      {
+      section.id
+    }
+  }
+
+  .skinneed-swiper {
+    overflow: hidden;
+  }
+
+  #skinneed- {
+      {
+      section.id
+    }
+  }
+
+  .skinneed-swiper .swiper-slide {
+    transform: scale(0.96);
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    opacity: .9;
+  }
+
+  #skinneed- {
+      {
+      section.id
+    }
+  }
+/* 
+  .skinneed-swiper .swiper-slide-active {
+    transform: scale(1);
+    opacity: 1;
+  } */
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const root = document.getElementById('skinneed-{{ section.id }}');
+    if (!root) return;
+
+    const swEl = root.querySelector('.skinneed-swiper');
+    let swiper = null;
+
+    function setSwiper() {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      if (isMobile && typeof Swiper !== 'undefined') {
+        if (!swiper) {
+          swiper = new Swiper(swEl, {
+            centeredSlides: false,
+            slidesPerView: 1.2,
+            spaceBetween: 14,
+            pagination: { el: root.querySelector('.swiper-pagination'), clickable: true },
+          });
+        }
+      } else {
+        if (swiper) {
+          swiper.destroy(true, true);
+          swiper = null;
+        }
+      }
+    }
+
+    setSwiper();
+    window.addEventListener('resize', setSwiper);
+
+    // Theme editor hot reload
+    document.addEventListener('shopify:section:load', setSwiper);
+    document.addEventListener('shopify:section:reorder', setSwiper);
+  });
+</script>
+{% schema %}
+{
+  "name": "Shop by skin need",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop by skin need"
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Each Koric bar is powered by micro-foaming technology and clinically backed actives."
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Header link URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Header link label (desktop)",
+      "default": "KNOW MORE"
+    },
+    {
+      "type": "text",
+      "id": "cta_label_mobile",
+      "label": "Header link label (mobile)",
+      "default": "BROWSE ALL"
+    },
+    {
+      "type": "color",
+      "id": "bg",
+      "label": "Background color",
+      "default": "#BFD7EA"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 30,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Skin need card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Overlay title",
+          "default": "SUN TAN"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA text",
+          "default": "View Product"
+        },
+        {
+          "type": "text",
+          "id": "title-bottom",
+          "label": "Title bottom",
+          "default": "ALPHA ARBUTIN"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description Bottom",
+          "default": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Card link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop by skin need",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        },
+        {
+          "type": "card"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

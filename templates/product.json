@@ -704,52 +704,95 @@
       "name": "Product Features Collage",
       "settings": {
         "hero_img": "shopify:\/\/shop_images\/skin-care.png",
+        "hero_img_mobile": "shopify:\/\/shop_images\/Frame_38448.png",
         "hero_alt": "Your skin needs morethan cleansing",
         "left_img": "shopify:\/\/shop_images\/soap.png",
+        "left_img_mobile": "shopify:\/\/shop_images\/soap_2f145f5b-2785-4707-b375-009a1a2906f3.png",
         "left_alt": "Koric Product image",
         "right_img": "shopify:\/\/shop_images\/Dual-action.png",
+        "right_img_mobile": "shopify:\/\/shop_images\/Frame_38434.png",
         "right_alt": "Smart Dual-ActionFormula"
       }
     },
     "clinically_backed_collage_7Emc4p": {
       "type": "clinically-backed-collage",
       "blocks": {
-        "tile_BNnNNt": {
-          "type": "tile",
+        "ingredient_RJAF7A": {
+          "type": "ingredient",
           "settings": {
-            "alt": "ingredients"
+            "title": "Alpha Arbutin",
+            "subtitle": "Visibly brightens and evens skin tone",
+            "image": "shopify:\/\/shop_images\/ingredient_1.png",
+            "image_alt": "Ingredient molecule structure",
+            "footer_heading": "Why it's essential",
+            "footer_text": "Targets hyperpigmentation, promotes uniform radiance, and reveals a more luminous"
           }
         },
-        "tile_9nFUQb": {
-          "type": "tile",
+        "ingredient_6VMCRP": {
+          "type": "ingredient",
           "settings": {
-            "alt": "ingredients"
+            "title": "Niacinamide (Vitamin B3)",
+            "subtitle": "Strengthens skin barrier + re nes texturet",
+            "image": "shopify:\/\/shop_images\/ingredient_2.png",
+            "image_alt": "Ingredient molecule structure",
+            "footer_heading": "Why it's essential",
+            "footer_text": "A stable, water-soluble form of Vitamin B3 that’s easily absorbed to strengthen and soothe the skin barrier."
           }
         },
-        "tile_zUe8W3": {
-          "type": "tile",
+        "ingredient_GPRp3P": {
+          "type": "ingredient",
           "settings": {
-            "alt": "ingredients"
+            "title": "Glutathione",
+            "subtitle": "Nourishes and replenishes the skin",
+            "image": "shopify:\/\/shop_images\/ingredient_3.png",
+            "image_alt": "Ingredient molecule structure",
+            "footer_heading": "Why it's essential",
+            "footer_text": "A traditional Korean skincare ingredient known for its brightening and hydrating properties - maintaining skin vitality"
           }
         },
-        "tile_mjyCtX": {
-          "type": "tile",
+        "ingredient_xenJzN": {
+          "type": "ingredient",
           "settings": {
-            "alt": "ingredients"
+            "title": "Vitamin C",
+            "subtitle": "Powerful antioxidant duo for glow",
+            "image": "shopify:\/\/shop_images\/ingredient_1.png",
+            "image_alt": "Ingredient molecule structure",
+            "footer_heading": "Why it's essential",
+            "footer_text": "L-Glutathione and Ascorbic Acid - active, highly absorbable forms that support bright, healthy, and even-toned skin."
           }
         }
       },
       "block_order": [
-        "tile_BNnNNt",
-        "tile_9nFUQb",
-        "tile_zUe8W3",
-        "tile_mjyCtX"
+        "ingredient_RJAF7A",
+        "ingredient_6VMCRP",
+        "ingredient_GPRp3P",
+        "ingredient_xenJzN"
       ],
       "name": "Clinically Backed",
       "settings": {
         "heading": "Clinically backed ingredients",
-        "copy": "Each Koric Cleansing Bar is formulated with clinically validated actives..."
+        "subheading": "Each Koric Cleansing Bar is formulated with clinically validated actives that do more than cleanse — they repair, brighten, and balance the skin barrier."
       }
+    },
+    "responsive_banner_RdrLHj": {
+      "type": "responsive-banner",
+      "blocks": {
+        "banner_3WmxYq": {
+          "type": "banner",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/choose_best.png",
+            "mobile_image": "shopify:\/\/shop_images\/choose_best_mobile.png",
+            "alt": "Banner",
+            "link": "#",
+            "link_target": "_self"
+          }
+        }
+      },
+      "block_order": [
+        "banner_3WmxYq"
+      ],
+      "name": "Responsive Banner",
+      "settings": {}
     }
   },
   "order": [
@@ -757,6 +800,7 @@
     "product_recommendations_qggXJq",
     "visible_radiance_xwx6tw",
     "image_collage_3up_yf6YA3",
-    "clinically_backed_collage_7Emc4p"
+    "clinically_backed_collage_7Emc4p",
+    "responsive_banner_RdrLHj"
   ]
 }

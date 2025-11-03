@@ -1,0 +1,126 @@
+{% comment %}
+  Section: Image Collage (3-up)
+  Layout only — images only, no text.
+  - Top: wide hero image
+  - Bottom: 2 columns (left portrait, right wide)
+  - Mobile: stacks 1 / 1 / 1
+{% endcomment %}
+{% assign image_style = "block w-full h-full! object-cover" %}
+{% assign round_hide = "rounded-[20px] overflow-hidden" %}
+<section id="collage-{{ section.id }}" class="w-full">
+  <div class="mx-auto section section--page-width">
+
+    <div class="d-grid grid-cols-1 gap-4 md:gap-6">
+      <!-- Row 1: Wide hero -->
+      <div class="{{ round_hide }}">
+        {% if section.settings.hero_img != blank %}
+          <img
+            src="{{ section.settings.hero_img | image_url: width: 1800 }}"
+            srcset="
+              {{ section.settings.hero_img | image_url: width: 640 }} 640w,
+              {{ section.settings.hero_img | image_url: width: 1024 }} 1024w,
+              {{ section.settings.hero_img | image_url: width: 1440 }} 1440w,
+              {{ section.settings.hero_img | image_url: width: 1800 }} 1800w
+            "
+            sizes="100vw"
+            alt="{{ section.settings.hero_alt | escape }}"
+            width="{{ section.settings.hero_img.width }}"
+            height="{{ section.settings.hero_img.height }}"
+            class="{{ image_style }} desktop_screen">
+        {% else %}
+          <div class="bg-slate-200 desktop_screen"></div>
+        {% endif %}
+        {% if section.settings.hero_img_mobile != blank %}
+          <img
+            src="{{ section.settings.hero_img_mobile | image_url: width: 1800 }}"
+            srcset="
+              {{ section.settings.hero_img_mobile | image_url: width: 640 }} 640w,
+              {{ section.settings.hero_img_mobile | image_url: width: 1024 }} 1024w,
+              {{ section.settings.hero_img_mobile | image_url: width: 1440 }} 1440w,
+              {{ section.settings.hero_img_mobile | image_url: width: 1800 }} 1800w
+            "
+            sizes="100vw"
+            alt="{{ section.settings.hero_alt | escape }}"
+            width="{{ section.settings.hero_img_mobile.width }}"
+            height="{{ section.settings.hero_img_mobile.height }}"
+            class="{{ image_style }} mobile_screen">
+        {% else %}
+          <div class="bg-slate-200 mobile_screen"></div>
+        {% endif %}
+      </div>
+
+      <!-- Row 2: 2 columns -->
+      <div class="d-grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <!-- Left: portrait tile -->
+        <div class="md:col-span-1 {{ round_hide }}">
+          {% if section.settings.left_img != blank %}
+            <img
+              src="{{ section.settings.left_img | image_url: width: 900 }}"
+              alt="{{ section.settings.left_alt | escape }}"
+              width="{{ section.settings.left_img.width }}"
+              height="{{ section.settings.left_img.height }}"
+              class="{{ image_style }} desktop_screen">
+          {% else %}
+            <div class="bg-slate-200 desktop_screen"></div>
+          {% endif %}
+          {% if section.settings.left_img_mobile != blank %}
+            <img
+              src="{{ section.settings.left_img_mobile | image_url: width: 900 }}"
+              alt="{{ section.settings.left_alt | escape }}"
+              width="{{ section.settings.left_img_mobile.width }}"
+              height="{{ section.settings.left_img_mobile.height }}"
+              class="{{ image_style }} mobile_screen">
+          {% else %}
+            <div class="bg-slate-200 mobile_screen"></div>
+          {% endif %}
+        </div>
+
+        <!-- Right: larger landscape tile -->
+        <div class="md:col-span-2 {{ round_hide }}">
+          {% if section.settings.right_img != blank %}
+            <img
+              src="{{ section.settings.right_img | image_url: width: 1600 }}"
+              alt="{{ section.settings.right_alt | escape }}"
+              width="{{ section.settings.right_img.width }}"
+              height="{{ section.settings.right_img.height }}"
+              class="{{ image_style }} desktop_screen">
+          {% else %}
+            <div class="bg-slate-200 desktop_screen"></div>
+          {% endif %}
+          {% if section.settings.right_img_mobile != blank %}
+            <img
+              src="{{ section.settings.right_img_mobile | image_url: width: 1600 }}"
+              alt="{{ section.settings.right_alt | escape }}"
+              width="{{ section.settings.right_img_mobile.width }}"
+              height="{{ section.settings.right_img_mobile.height }}"
+              class="{{ image_style }} mobile_screen">
+          {% else %}
+            <div class="bg-slate-200 mobile_screen"></div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Product Features Collage",
+  "settings": [
+    { "type": "image_picker", "id": "hero_img", "label": "Top wide image" },
+    { "type": "image_picker", "id": "hero_img_mobile", "label": "Top wide image Mobile" },
+    { "type": "text", "id": "hero_alt", "label": "Top image alt", "default": "Product Feature 1" },
+
+    { "type": "image_picker", "id": "left_img", "label": "Bottom left image (portrait)" },
+    { "type": "image_picker", "id": "left_img_mobile", "label": "Bottom left image Mobile (portrait)" },
+    { "type": "text", "id": "left_alt", "label": "Bottom left alt", "default": "Product Feature 2" },
+
+    { "type": "image_picker", "id": "right_img", "label": "Bottom right image (landscape)" },
+    { "type": "image_picker", "id": "right_img_mobile", "label": "Bottom right image Mobile(landscape)" },
+    { "type": "text", "id": "right_alt", "label": "Bottom right alt", "default": "Product Feature 3" }
+  ],
+  "presets": [
+    { "name": "Product Features Collage" }
+  ]
+}
+{% endschema %}

@@ -479,6 +479,15 @@
                 "accordion_row_UwLqkY",
                 "accordion_row_4MVAAm"
               ]
+            },
+            "you_may_also_like_R4JXV3": {
+              "type": "_you-may-also-like",
+              "name": "You may also like (list)",
+              "settings": {
+                "heading": "You may also like",
+                "product": "superfood-overnight-clear-skin-mask-copy1-copy"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
@@ -488,7 +497,8 @@
             "buy_buttons_eYQEYi",
             "divider_VJhene",
             "reasons_to_love_t8C7dY",
-            "accordion_43EF9B"
+            "accordion_43EF9B",
+            "you_may_also_like_R4JXV3"
           ]
         }
       },
@@ -625,6 +635,7 @@
       "block_order": [
         "text_cbcgyb"
       ],
+      "disabled": true,
       "name": "t:names.product_recommendations",
       "settings": {
         "product": "{{ closest.product }}",
@@ -644,10 +655,108 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "visible_radiance_xwx6tw": {
+      "type": "visible-radiance",
+      "blocks": {
+        "row_fakizG": {
+          "type": "row",
+          "settings": {
+            "badge": "7 days",
+            "title": "Visibly Brightens Skin",
+            "desc": "Reduces tan and dullness\nInstantly improves clarity and softness\nSkin feels smoother and refreshed"
+          }
+        },
+        "row_Jwi9WE": {
+          "type": "row",
+          "settings": {
+            "badge": "4 weeks",
+            "title": "Refines Texture + Restores Balance",
+            "desc": "Reduces tan and dullness\nInstantly improves clarity and softness\nSkin feels smoother and refreshed"
+          }
+        },
+        "row_KzEH6L": {
+          "type": "row",
+          "settings": {
+            "badge": "3 months",
+            "title": "Long-Term Brightness + Barrier Strength",
+            "desc": "Reduces tan and dullness\nInstantly improves clarity and softness\nSkin feels smoother and refreshed"
+          }
+        }
+      },
+      "block_order": [
+        "row_fakizG",
+        "row_Jwi9WE",
+        "row_KzEH6L"
+      ],
+      "name": "Visible radiance",
+      "settings": {
+        "heading": "Visible radiance injust 7 days",
+        "image": "shopify:\/\/shop_images\/Screenshot_2025-10-30_at_1.46.10_PM_1.png",
+        "image_alt": "Before \/ After skin",
+        "link_url": "shopify:\/\/collections\/all-products",
+        "link_label": "BROWSE ALL",
+        "bg": "#274b6b"
+      }
+    },
+    "image_collage_3up_yf6YA3": {
+      "type": "image-collage-3up",
+      "name": "Product Features Collage",
+      "settings": {
+        "hero_img": "shopify:\/\/shop_images\/skin-care.png",
+        "hero_alt": "Your skin needs morethan cleansing",
+        "left_img": "shopify:\/\/shop_images\/soap.png",
+        "left_alt": "Koric Product image",
+        "right_img": "shopify:\/\/shop_images\/Dual-action.png",
+        "right_alt": "Smart Dual-ActionFormula"
+      }
+    },
+    "clinically_backed_collage_7Emc4p": {
+      "type": "clinically-backed-collage",
+      "blocks": {
+        "tile_BNnNNt": {
+          "type": "tile",
+          "settings": {
+            "alt": "ingredients"
+          }
+        },
+        "tile_9nFUQb": {
+          "type": "tile",
+          "settings": {
+            "alt": "ingredients"
+          }
+        },
+        "tile_zUe8W3": {
+          "type": "tile",
+          "settings": {
+            "alt": "ingredients"
+          }
+        },
+        "tile_mjyCtX": {
+          "type": "tile",
+          "settings": {
+            "alt": "ingredients"
+          }
+        }
+      },
+      "block_order": [
+        "tile_BNnNNt",
+        "tile_9nFUQb",
+        "tile_zUe8W3",
+        "tile_mjyCtX"
+      ],
+      "name": "Clinically Backed",
+      "settings": {
+        "heading": "Clinically backed ingredients",
+        "copy": "Each Koric Cleansing Bar is formulated with clinically validated actives..."
+      }
     }
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "visible_radiance_xwx6tw",
+    "image_collage_3up_yf6YA3",
+    "clinically_backed_collage_7Emc4p"
   ]
 }

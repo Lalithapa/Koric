@@ -64,7 +64,15 @@ select {
   background-color: var(--color-background);
   color: currentcolor;
 }
-
+.d-grid{
+  display:grid;
+}
+ .desktop_screen{
+  display:none;
+}
+.mobile_screen{
+  display:flex;
+}
 .product-card,
 .collection-card,
 .resource-card,
@@ -181,7 +189,14 @@ select {
     box-shadow: none;
   }
 }
-
+@media screen and (min-width: 750px) {
+.desktop_screen{
+  display:flex;
+}
+.mobile_screen{
+  display:none;
+}
+}
 dialog {
   /* the ::backdrop inherits from the originating element, custom properties must be set on the dialog element */
   --backdrop-color-rgb: var(--color-shadow-rgb);

@@ -1,0 +1,52 @@
+{% comment %}
+  Section: Clinically Backed (images only)
+  - Top: left heading, right small paragraph (optional)
+  - Grid: 4 image tiles, rounded cards, equal heights
+  - Mobile: 2 columns, Desktop: 4 columns
+{% endcomment %}
+
+<section id="cbc-{{ section.id }}" class="w-full bg-[#F7F5F2]">
+  <div class="mx-auto section section--page-width">
+
+    <!-- Header row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-start">
+      <div>
+        {% if section.settings.heading != blank %}
+          <h2 class="text-[24px] md:text-[32px] font-extrabold leading-tight text-[#2A5072]">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+      </div>
+      <div>
+        {% if section.settings.copy != blank %}
+          <p class="text-[13px] md:text-[14px] text-[#2A5072]/80 leading-relaxed">
+            {{ section.settings.copy }}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Cards grid: images only -->
+    <div class="mt-6 md:mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+      {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        <div class="rounded-[14px] bg-white ring-1 ring-black/5 shadow-[0_8px_20px_rgba(0,0,0,0.05)] p-4 md:p-5 overflow-hidden" {{ block.shopify_attributes }}>
+          {% if b.image %}
+            <div class="aspect-4/5 md:aspect-3/4 w-full overflow-hidden rounded-[10px] bg-[#F2EFE9]">
+              <img
+                src="{{ b.image | image_url: width: 800 }}"
+                alt="{{ b.alt | append: " " | append: forloop.index | escape }}"
+                width="{{ b.image.width }}"
+                height="{{ b.image.height }}"
+                class="w-full h-full object-contain"
+                loading="lazy">
+            </div>
+          {% else %}
+            <div class="aspect-4/5 md:aspect-3/4 w-full rounded-[10px] bg-slate-200"></div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

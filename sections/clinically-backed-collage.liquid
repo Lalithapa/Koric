@@ -1,0 +1,115 @@
+{% comment %}
+  Section: Clinically Backed (images only)
+  - Top: left heading, right small paragraph (optional)
+  - Grid: 4 image tiles, rounded cards, equal heights
+  - Mobile: 2 columns, Desktop: 4 columns
+{% endcomment %}
+<section id="cbc-{{ section.id }}" class="w-full bg-[#EDE5E2]">
+  <div class="mx-auto section section--page-width py-[72px] my-25 lg:my-30">
+    <!-- Header row -->
+    <div class="d-grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+      <div>
+        {% if section.settings.heading != blank %}
+          <p class="text-[24px] md:text-[32px] font-extrabold leading-tight text-[#2A5072] max-w-[390px]">
+            {{ section.settings.heading }}
+          </p>
+        {% endif %}
+      </div>
+      <div>
+        {% if section.settings.subheading != blank %}
+          <p class="text-[13px] md:text-[17px] text-[#2A5072] font-medium leading-[22px] ml-auto max-w-[320px]  lg:max-w-[450px]">
+            {{ section.settings.subheading }}
+          </p>
+        {% endif %}
+      </div>
+    </div>
+    <!-- Cards grid: images only -->
+    <div class="mt-6 md:mt-14 d-grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+     {% for block in section.blocks %}
+        {% assign b = block.settings %}
+        <div class="rounded-2xl bg-[#F7F5F2] p-5 md:p-6 flex flex-col text-left" {{ block.shopify_attributes }}>
+          <div class="flex gap-0! flex-col">
+            <!-- Top Heading -->
+            {% if b.title != blank %}
+              <p class="text-[15px] md:text-[17px] font-medium text-black">
+                {{ b.title }}
+              </p>
+            {% endif %}
+            <!-- Subheading -->
+            {% if b.subtitle != blank %}
+              <p class="text-[13px] md:text-[12px] text-black mb-0">
+                {{ b.subtitle }}
+              </p>
+            {% endif %}
+          </div>
+          <!-- Molecule Image -->
+          {% if b.image %}
+            <div class="flex justify-center md:justify-start my-4">
+              <img
+                src="{{ b.image | image_url }}"
+                alt="{{ b.image_alt | escape }}"
+                width="{{ b.image.width }}"
+                height="{{ b.image.height }}"
+                class="h-[190px]! md:h-[190px]! w-auto object-contain mix-blend-multiply"
+                loading="lazy">
+            </div>
+          {% else %}
+            <div class="h-[190px]! md:h-[190px]! w-auto mx-auto md:mx-0 bg-slate-200 rounded-md my-3"></div>
+          {% endif %}
+
+          <div class="flex gap-2! flex-col">
+              <!-- Footer Text -->
+            {% if b.footer_heading != blank %}
+              <p class="font-semibold text-[12px] md:text-[12px] text-black uppercase tracking-wide">
+                {{ b.footer_heading }}
+              </p>
+            {% endif %}
+            {% if b.footer_text != blank %}
+              <p class="text-[12px] md:text-[12px] text-black leading-snug">
+                {{ b.footer_text }}
+              </p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Clinically Backed",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Main Heading", "default": "Clinically backed ingredients" },
+    { "type": "textarea", "id": "subheading", "label": "Intro Paragraph", "default": "Each Koric Cleansing Bar is formulated with clinically validated actives that do more than cleanse—they repair, brighten, and balance the skin barrier." }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient Card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Ingredient Name", "default": "Alpha Arbutin" },
+        { "type": "text", "id": "subtitle", "label": "Short Benefit", "default": "Visibly brightens and evens skin tone" },
+        { "type": "image_picker", "id": "image", "label": "Molecule Image" },
+        { "type": "text", "id": "image_alt", "label": "Image Alt Text", "default": "Ingredient molecule structure" },
+        { "type": "text", "id": "footer_heading", "label": "Footer Heading", "default": "Why it's essential" },
+        { "type": "textarea", "id": "footer_text", "label": "Footer Description", "default": "Targets hyperpigmentation, promotes uniform radiance, and reveals a more luminous complexion." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Clinically Backed",
+      "category": "Content",
+      "blocks": [
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" }
+      ]
+    }
+  ]
+}
+{% endschema %}

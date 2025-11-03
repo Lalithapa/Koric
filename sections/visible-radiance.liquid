@@ -1,0 +1,135 @@
+{% comment %}
+  Section: Visible radiance (image + info list)
+  - Tailwind classes only
+  - Desktop: 2 columns (image left, content right)
+  - Mobile: stacks (image on top, content below)
+{% endcomment %}
+
+<section id="radiance-{{ section.id }}" class="w-full mb-25 lg:mb-30" style="background-color: {{ section.settings.bg | default: '#274b6b' }}">
+  <div class="mx-auto section section--page-width py-10 md:py-14">
+
+    <!-- Top row: heading + browse -->
+    <div class="flex items-start justify-between gap-4">
+      <p class="max-w-[620px] text-[28px] leading-[1.1] md:text-[40px] font-extrabold text-white">
+        {{ section.settings.heading | default: 'Visible radiance in<br>just 7 days' }}
+      </p>
+
+      {% if section.settings.link_url != blank and section.settings.link_label != blank %}
+        <a href="{{ section.settings.link_url }}"
+           class="hidden md:inline-flex items-center text-[12px] font-extrabold tracking-wide text-white underline underline-offset-4 hover:opacity-90">
+          {{ section.settings.link_label }} →
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Main body -->
+    <div class="mt-6 md:mt-8 d-grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+
+      <!-- Left: image -->
+      <div class="w-full">
+        <div class="relative rounded-[18px] overflow-hidden ring-1 ring-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+          {% if section.settings.image %}
+            <img
+              src="{{ section.settings.image | image_url: width: 1400 }}"
+              srcset="
+                {{ section.settings.image | image_url: width: 640 }} 640w,
+                {{ section.settings.image | image_url: width: 960 }} 960w,
+                {{ section.settings.image | image_url: width: 1280 }} 1280w,
+                {{ section.settings.image | image_url: width: 1400 }} 1400w
+              "
+              sizes="(min-width: 768px) 50vw, 100vw"
+              alt="{{ section.settings.image_alt | escape }}"
+              width="{{ section.settings.image.width }}"
+              height="{{ section.settings.image.height }}"
+              class="block w-full h-auto object-cover">
+          {% else %}
+            <div class="aspect-4/3 bg-white/10"></div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- Right: info list -->
+      <div class="w-full">
+        <div class="rounded-[18px] bg-white/6 ring-1 ring-white/10 backdrop-blur-[1px] p-4 md:p-6 text-white">
+          {% if section.settings.link_url != blank and section.settings.link_label != blank %}
+            <a href="{{ section.settings.link_url }}"
+               class="md:hidden inline-flex mb-3 text-[12px] font-extrabold tracking-wide underline underline-offset-4">
+              {{ section.settings.link_label }} →
+            </a>
+          {% endif %}
+
+          <ul class="divide-y divide-white/15">
+            {% for block in section.blocks %}
+              {% assign b = block.settings %}
+              <li class="py-3 md:py-4" {{ block.shopify_attributes }}>
+                <div class="flex items-start gap-3">
+                  {% if b.badge != blank %}
+                    <span class="shrink-0 inline-flex items-center rounded-full bg-white text-[#274b6b] px-2.5 py-1 text-[11px] font-bold leading-none">
+                      {{ b.badge }}
+                    </span>
+                  {% endif %}
+
+                  <div class="min-w-0 flex-1">
+                    {% if b.title != blank %}
+                      <div class="text-[16px] md:text-[18px] font-semibold leading-snug text-white">
+                        {{ b.title }}
+                      </div>
+                    {% endif %}
+                    {% if b.desc != blank %}
+                      <p class="mt-1 text-[12px] md:text-[13px] text-white/80 leading-relaxed">
+                        {{ b.desc }}
+                      </p>
+                    {% endif %}
+                  </div>
+
+                  <!-- plus icon (decorative) -->
+                  <span class="shrink-0 mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/30 text-white/80">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Visible radiance",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading (supports <br>)", "default": "Visible radiance in<br>just 7 days" },
+    { "type": "image_picker", "id": "image", "label": "Left image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt", "default": "Before / After skin" },
+    { "type": "url", "id": "link_url", "label": "Browse all link URL" },
+    { "type": "text", "id": "link_label", "label": "Browse all label", "default": "BROWSE ALL" },
+    { "type": "color", "id": "bg", "label": "Background color", "default": "#274b6b" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Info row",
+      "settings": [
+        { "type": "text", "id": "badge", "label": "Badge (e.g. '7 days')", "default": "7 days" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Visibly Brightens Skin" },
+        { "type": "textarea", "id": "desc", "label": "Description (multi-line allowed)", "default": "Reduces tan and dullness\nInstantly improves clarity and softness\nSkin feels smoother and refreshed" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Visible radiance",
+      "blocks": [
+        { "type": "row" },
+        { "type": "row", "settings": { "badge": "4 weeks", "title": "Refines Texture + Restores Balance" } },
+        { "type": "row", "settings": { "badge": "3 months", "title": "Long-Term Brightness + Barrier Strength" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

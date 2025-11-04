@@ -1,0 +1,223 @@
+{% comment %}
+  New Footer (Tailwind)
+  - Newsletter left, menus + contact right (desktop)
+  - Stacked vertically on mobile
+  - Uses dynamic menus, logo, address, phone numbers (blocks) and payment icons
+{% endcomment %}
+
+<section id="footer-{{ section.id }}" class="w-full bg-[#BFD9F0] text-[#274b6b]">
+  <div class="mx-auto section section--page-width py-10 md:py-14">
+    <!-- Top d-grid -->
+    <div class="d-grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12">
+
+      <!-- COLUMN: Newsletter / Copy -->
+      <div class="lg:col-span-5">
+        {% if section.settings.headline != blank %}
+          <h3 class="text-[26px] leading-tight md:text-[32px] font-bold tracking-[-0.3px]">
+            {{ section.settings.headline }}
+          </h3>
+        {% endif %}
+
+        {% if section.settings.kicker != blank %}
+          <p class="mt-4 text-[13px] text-[#274b6b]/80">
+            {{ section.settings.kicker }}
+          </p>
+        {% endif %}
+
+        <!-- Newsletter form -->
+        <div class="mt-4">
+          {% form 'customer', class: 'mt-2' %}
+            {% if form.posted_successfully? %}
+              <p class="text-[13px] text-[#274b6b]">Thanks! Please check your inbox.</p>
+            {% else %}
+              <div class="flex items-stretch gap-2 bg-transparent">
+                <input
+                  class="flex-1 rounded-[10px] border border-[#274b6b]/30 bg-transparent px-3 py-2 text-[14px] placeholder:text-[#274b6b]/50 focus:outline-none focus:ring-2 focus:ring-[#274b6b]/40"
+                  type="email"
+                  name="contact[email]"
+                  value="{{ customer.email }}"
+                  placeholder="Email"
+                  aria-label="Email"
+                  required
+                >
+                <button
+                  class="shrink-0 inline-flex items-center justify-center rounded-[10px] border border-[#274b6b]/30 px-3 py-2 text-[14px] font-semibold hover:bg-[#274b6b] hover:text-white transition"
+                  type="submit"
+                >
+                  → 
+                </button>
+              </div>
+              {% if form.errors %}
+                <p class="mt-2 text-[12px] text-red-700">{{ form.errors | default_errors }}</p>
+              {% endif %}
+            {% endif %}
+          {% endform %}
+        </div>
+
+        <!-- Payment icons -->
+        {% if section.settings.show_payments %}
+          <div class="mt-4 flex items-center gap-3">
+            {% for type in shop.enabled_payment_types %}
+              {{ type | payment_type_svg_tag: class: 'h-5 w-auto' }}
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <!-- Big brand mark -->
+        <div class="mt-8 md:mt-10">
+          {% if section.settings.logo != blank %}
+            <img
+              src="{{ section.settings.logo | image_url: width: 900 }}"
+              alt="{{ section.settings.logo_alt | default: shop.name | escape }}"
+              width="{{ section.settings.logo.width }}"
+              height="{{ section.settings.logo.height }}"
+              class="h-auto w-[240px] md:w-[360px] object-contain"
+              loading="lazy">
+          {% else %}
+            <div class="text-[40px] md:text-[64px] font-black">{{ shop.name }}</div>
+          {% endif %}
+        </div>
+      </div>
+
+      <!-- COLUMN: Menus + Contact -->
+      <div class="lg:col-span-7">
+        <p class="text-[14px] text-[#274b6b]/80 max-w-[48ch]">
+          {{ section.settings.short_copy | default: "We make care simple — because good skin shouldn’t be complicated." }}
+        </p>
+
+        <div class="mt-6 d-grid grid-cols-2 gap-10">
+          <!-- Menu 1 -->
+          <div>
+            {% if section.settings.menu_1_title != blank %}
+              <div class="text-[13px] font-semibold mb-3">{{ section.settings.menu_1_title }}</div>
+            {% endif %}
+            {% if section.settings.menu_1 != blank %}
+              <ul class="space-y-2">
+                {% for link in linklists[section.settings.menu_1].links %}
+                  <li>
+                    <a href="{{ link.url }}" class="text-[13px] text-[#274b6b]/90 hover:underline decoration-white/0 hover:decoration-[#274b6b]">
+                      {{ link.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+
+          <!-- Menu 2 -->
+          <div>
+            {% if section.settings.menu_2_title != blank %}
+              <div class="text-[13px] font-semibold mb-3">{{ section.settings.menu_2_title }}</div>
+            {% endif %}
+            {% if section.settings.menu_2 != blank %}
+              <ul class="space-y-2">
+                {% for link in linklists[section.settings.menu_2].links %}
+                  <li>
+                    <a href="{{ link.url }}" class="text-[13px] text-[#274b6b]/90 hover:underline decoration-white/0 hover:decoration-[#274b6b]">
+                      {{ link.title }}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        <!-- Contact/Address -->
+          <div>
+            {% if section.settings.address_heading != blank %}
+              <div class="text-[13px] font-semibold mb-3">{{ section.settings.address_heading }}</div>
+            {% endif %}
+            {% if section.settings.address %}
+              <div class="text-[12px] text-[#274b6b]/90 whitespace-pre-line">
+                {{ section.settings.address }}
+              </div>
+            {% endif %}
+            {% if section.settings.hours %}
+              <div class="mt-2 text-[12px] text-[#274b6b]/90">
+                {{ section.settings.hours }}
+              </div>
+            {% endif %}
+            {% if section.settings.show_payments_mobile %}
+              <div class="mt-4 flex items-center gap-3 md:hidden">
+                <img src="https://cdn.shopify.com/s/files/1/0730/4269/0301/files/Frame_38502.png?v=1762255970" alt="Payment icons" width="100%" height="100%" loading="lazy">
+                {% comment %} {% for type in shop.enabled_payment_types %}
+                  {{ type | payment_type_svg_tag: class: 'h-5 w-auto' }}
+                {% endfor %} {% endcomment %}
+              </div>
+            {% endif %}
+          </div>
+          <div>
+            {% if section.blocks.size > 0 %}
+              <div class="mt-4">
+                <div class="text-[13px] font-semibold mb-2">{{ section.settings.call_heading | default: 'Call us:' }}</div>
+                <ul class="space-y-1">
+                  {% for block in section.blocks %}
+                    {% assign bs = block.settings %}
+                    <li class="text-[12px]">
+                      {% if bs.phone_url != blank %}<a href="{{ bs.phone_url }}" class="hover:underline decoration-white/0 hover:decoration-[#274b6b]">{% endif %}
+                        {{ bs.phone_label | default: bs.phone_text }}
+                      {% if bs.phone_url != blank %}</a>{% endif %}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-10 md:mt-14 border-t border-[#274b6b]/20 pt-4 text-[12px] text-[#274b6b]/70 flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
+      <div>
+        Made with care © {{ 'now' | date: '%Y' }} <span class="font-semibold">{{ shop.name | escape }}</span>. All rights reserved.
+      </div>
+      {% if section.settings.bottom_note != blank %}
+        <div class="text-[#274b6b]/80">{{ section.settings.bottom_note }}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "New Footer",
+  "settings": [
+    { "type": "text", "id": "headline", "label": "Newsletter headline", "default": "Your inbox deserves a bubble or two" },
+    { "type": "text", "id": "kicker", "label": "Newsletter helper text", "default": "Join The Clean Crew\nBy signing up you consent to receive emails." },
+    { "type": "richtext", "id": "short_copy", "label": "Short mission copy", "default": "<p>We make care simple — because good skin shouldn’t be complicated.</p>" },
+
+    { "type": "image_picker", "id": "logo", "label": "Large footer logo" },
+    { "type": "text", "id": "logo_alt", "label": "Logo alt text" },
+
+    { "type": "link_list", "id": "menu_1", "label": "Menu 1" },
+    { "type": "text", "id": "menu_1_title", "label": "Menu 1 title", "default": "Shop by Concern" },
+
+    { "type": "link_list", "id": "menu_2", "label": "Menu 2" },
+    { "type": "text", "id": "menu_2_title", "label": "Menu 2 title", "default": "Help" },
+
+    { "type": "text", "id": "address_heading", "label": "Address heading", "default": "Locate us at :" },
+    { "type": "textarea", "id": "address", "label": "Address", "default": "A-26, Ground Floor, Phase-2, Naraina Industrial Area, New Delhi-110028" },
+    { "type": "text", "id": "hours", "label": "Working hours", "default": "Mon–Fri | 10 AM - 7 PM" },
+    { "type": "text", "id": "call_heading", "label": "Call heading", "default": "Call us:" },
+
+    { "type": "checkbox", "id": "show_payments", "label": "Show payment icons (desktop)", "default": true },
+    { "type": "checkbox", "id": "show_payments_mobile", "label": "Show payment icons (mobile in contact column)", "default": true },
+
+    { "type": "text", "id": "bottom_note", "label": "Bottom right note" }
+  ],
+  "blocks": [
+    {
+      "type": "phone",
+      "name": "Phone number",
+      "settings": [
+        { "type": "text", "id": "phone_label", "label": "Label / Number", "default": "+91 8130267067" },
+        { "type": "url", "id": "phone_url", "label": "Link (tel:… or WhatsApp)" },
+        { "type": "text", "id": "phone_text", "label": "Fallback text", "default": "+918130267067" }
+      ]
+    }
+  ],
+  "presets": [
+    { "name": "New Footer" }
+  ]
+}
+{% endschema %}

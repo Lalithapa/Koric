@@ -2,6 +2,59 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "new_footer_jarLmW": {
+      "type": "new-footer",
+      "blocks": {
+        "phone_9A6CWL": {
+          "type": "phone",
+          "settings": {
+            "phone_label": "+91 8130267067",
+            "phone_url": "https:\/\/wa.me\/+918130267067",
+            "phone_text": "+918130267067"
+          }
+        },
+        "phone_CWk3np": {
+          "type": "phone",
+          "settings": {
+            "phone_label": "+91 9717738294",
+            "phone_url": "https:\/\/wa.me\/+919717738294",
+            "phone_text": "+919717738294"
+          }
+        },
+        "phone_X86AkM": {
+          "type": "phone",
+          "settings": {
+            "phone_label": "+918130267067",
+            "phone_url": "https:\/\/wa.me\/+918130267067",
+            "phone_text": "+918130267067"
+          }
+        }
+      },
+      "block_order": [
+        "phone_9A6CWL",
+        "phone_CWk3np",
+        "phone_X86AkM"
+      ],
+      "name": "New Footer",
+      "settings": {
+        "headline": "Your inbox deserves a bubble or two",
+        "kicker": "Join The Clean Crew  By signing up you consent to receive emails.",
+        "short_copy": "<p>We make care simple — because good skin shouldn’t be complicated.<\/p>",
+        "logo": "shopify:\/\/shop_images\/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
+        "logo_alt": "Main Logo",
+        "menu_1": "shop-by-concern",
+        "menu_1_title": "Shop by Concern",
+        "menu_2": "help",
+        "menu_2_title": "Help",
+        "address_heading": "Locate us at :",
+        "address": "A-26, Ground Floor, Phase-2, Naraina Industrial Area, New Delhi-110028",
+        "hours": "Mon–Fri | 10 AM - 7 PM",
+        "call_heading": "Call us:",
+        "show_payments": true,
+        "show_payments_mobile": true,
+        "bottom_note": ""
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
@@ -47,7 +100,7 @@
             "text_LWt8Pz": {
               "type": "text",
               "settings": {
-                "text": "<p>Friends let friends know about fresh product & fresh news.<\/p>",
+                "text": "<p>Your inbox deserves<\/p><p> a bubble or two<br\/><br\/>Join the clean crew<br\/><\/p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -65,7 +118,8 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "descriptive_text": ""
               },
               "blocks": {}
             },
@@ -116,7 +170,8 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
-                "padding-inline-end": 0
+                "padding-inline-end": 0,
+                "descriptive_text": ""
               },
               "blocks": {}
             }
@@ -242,6 +297,7 @@
         "group_H6VpwJ",
         "group_9jjqhY"
       ],
+      "disabled": true,
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
@@ -296,6 +352,7 @@
         "footer_policy_list_VCdnpa",
         "social_links_Ew63Kq"
       ],
+      "disabled": true,
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
@@ -323,6 +380,7 @@
       "block_order": [
         "banner_cEbWXr"
       ],
+      "disabled": true,
       "custom_css": [
         ".w-full {background: #add1f2;}"
       ],
@@ -331,6 +389,7 @@
     }
   },
   "order": [
+    "new_footer_jarLmW",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U",
     "responsive_banner_nL3dpp"

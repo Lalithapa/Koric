@@ -1,45 +1,24 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "disabled": true,
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "image_1": "shopify://shop_images/Rectangle_34625240.png",
-        "media_type_2": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
-      }
+    "responsive_banner_pWYktA": {
+      "type": "responsive-banner",
+      "blocks": {
+        "banner_mpTjPP": {
+          "type": "banner",
+          "settings": {
+            "desktop_image": "shopify:\/\/shop_images\/Desktop_header_banner.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/mobile_header_banner.jpg",
+            "alt": "Banner",
+            "link": "#",
+            "link_target": "_self"
+          }
+        }
+      },
+      "block_order": [
+        "banner_mpTjPP"
+      ],
+      "name": "Responsive Banner",
+      "settings": {}
     },
     "custom_featured_collection_WU7wiY": {
       "type": "custom-featured-collection",
@@ -55,7 +34,7 @@
         "heading": "Good skin starts with a good cleanse",
         "copy": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
         "cta_label": "Know more",
-        "cta_link": "shopify://collections/dark-circles",
+        "cta_link": "shopify:\/\/collections\/dark-circles",
         "text-area": ""
       }
     },
@@ -100,7 +79,7 @@
               "type": "_product-list-text",
               "name": "t:names.collection_title",
               "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
+                "text": "<h3>{{ closest.collection.title }}<\/h3>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
@@ -299,7 +278,7 @@
         "card_zDEeNy": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -310,7 +289,7 @@
         "card_pXmWHD": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -321,7 +300,7 @@
         "card_RnqJcw": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -332,7 +311,7 @@
         "card_pFgh7L": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -352,7 +331,7 @@
       "settings": {
         "heading": "Shop by skin need",
         "subtext": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
-        "cta_url": "shopify://collections/all",
+        "cta_url": "shopify:\/\/collections\/all",
         "cta_label": "KNOW MORE",
         "cta_label_mobile": "BROWSE ALL",
         "bg": "#f7f5f2",
@@ -372,7 +351,7 @@
         "card_M4Ai43": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -383,7 +362,7 @@
         "card_bxbyzh": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -394,7 +373,7 @@
         "card_dtCbjY": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -405,7 +384,7 @@
         "card_8NWBx4": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625274.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
             "title": "",
             "cta_text": "View Product",
             "title-bottom": "ALPHA ARBUTIN",
@@ -420,11 +399,12 @@
         "card_dtCbjY",
         "card_8NWBx4"
       ],
+      "disabled": true,
       "name": "hover card animation",
       "settings": {
         "heading": "Shop by skin need",
         "subtext": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
-        "cta_url": "shopify://collections",
+        "cta_url": "shopify:\/\/collections",
         "cta_label": "KNOW MORE",
         "cta_label_mobile": "BROWSE ALL",
         "bg": "#fafafa",
@@ -440,10 +420,10 @@
     },
     "micro_foaming_banner_AYDtar": {
       "type": "micro-foaming-banner",
-      "name": "Micro Foaming Banner (D/M)",
+      "name": "Micro Foaming Banner (D\/M)",
       "settings": {
-        "desktop_image": "shopify://shop_images/Screenshot_2025-10-27_at_12.13.54_PM_2.png",
-        "mobile_image": "shopify://shop_images/Screenshot_2025-10-27_at_12.13.54_PM_3.png",
+        "desktop_image": "shopify:\/\/shop_images\/Screenshot_2025-10-27_at_12.13.54_PM_2.png",
+        "mobile_image": "shopify:\/\/shop_images\/Screenshot_2025-10-27_at_12.13.54_PM_3.png",
         "alt": "Micro foaming technology banner",
         "show_overlay": true,
         "kicker": "REMOVES UP TO 99.2%",
@@ -453,7 +433,7 @@
         "footnote": "*Based on internal tests comparing micro-foaming vs. traditional cleansing bars.",
         "button_label": "Know more",
         "button_link": "",
-        "right_image": "shopify://shop_images/image_8.png"
+        "right_image": "shopify:\/\/shop_images\/image_8.png"
       }
     },
     "after_before_effect_NqTt6t": {
@@ -462,9 +442,9 @@
         "slide_NmWHzG": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify://shop_images/first.jpg",
+            "before_image": "shopify:\/\/shop_images\/first.jpg",
             "before_alt": "Before",
-            "after_image": "shopify://shop_images/clean.jpg",
+            "after_image": "shopify:\/\/shop_images\/clean.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -473,9 +453,9 @@
         "slide_kPLLkP": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify://shop_images/first.jpg",
+            "before_image": "shopify:\/\/shop_images\/first.jpg",
             "before_alt": "Before",
-            "after_image": "shopify://shop_images/clean.jpg",
+            "after_image": "shopify:\/\/shop_images\/clean.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -484,9 +464,9 @@
         "slide_attmL8": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify://shop_images/Hydration_Heroes_Featured_Banner_-_Anti_Aging_Range.jpg",
+            "before_image": "shopify:\/\/shop_images\/Hydration_Heroes_Featured_Banner_-_Anti_Aging_Range.jpg",
             "before_alt": "Before",
-            "after_image": "shopify://shop_images/746935569792-05.jpg",
+            "after_image": "shopify:\/\/shop_images\/746935569792-05.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -495,9 +475,9 @@
         "slide_DjJEKB": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify://shop_images/Featured_Banner_-_Wellness_Range.jpg",
+            "before_image": "shopify:\/\/shop_images\/Featured_Banner_-_Wellness_Range.jpg",
             "before_alt": "Before",
-            "after_image": "shopify://shop_images/746935569792-02.jpg",
+            "after_image": "shopify:\/\/shop_images\/746935569792-02.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -510,7 +490,7 @@
         "slide_attmL8",
         "slide_DjJEKB"
       ],
-      "name": "Before / After Card (IDs)",
+      "name": "Before \/ After Card (IDs)",
       "settings": {
         "heading": "Soap that shows results",
         "subheading": "Backed by science, loved by skin.",
@@ -535,14 +515,14 @@
           "name": "t:names.video",
           "settings": {
             "source": "uploaded",
-            "video": "shopify://files/videos/Lamel Video.mp4",
+            "video": "shopify:\/\/files\/videos\/Lamel Video.mp4",
             "video_url": "",
             "video_autoplay": false,
             "video_loop": true,
             "alt": "",
             "custom_width": 100,
             "custom_width_mobile": 100,
-            "aspect_ratio": "16/9",
+            "aspect_ratio": "16\/9",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -593,7 +573,7 @@
         "card_RRCk78": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Frame_38386.png",
+            "image": "shopify:\/\/shop_images\/Frame_38386.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -604,7 +584,7 @@
         "card_GBVaTH": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Frame_38387.png",
+            "image": "shopify:\/\/shop_images\/Frame_38387.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -615,7 +595,7 @@
         "card_gkRpLp": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Frame_38385.png",
+            "image": "shopify:\/\/shop_images\/Frame_38385.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -626,7 +606,7 @@
         "card_U4U4Vz": {
           "type": "card",
           "settings": {
-            "image": "shopify://shop_images/Frame_38381.png",
+            "image": "shopify:\/\/shop_images\/Frame_38381.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -645,7 +625,7 @@
       "settings": {
         "heading": "Shop by skin need",
         "subtext": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
-        "cta_url": "shopify://collections/all",
+        "cta_url": "shopify:\/\/collections\/all",
         "cta_label": "KNOW MORE",
         "cta_label_mobile": "BROWSE ALL",
         "bg": "#bfd7ea",
@@ -666,25 +646,25 @@
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/image_4.png",
+            "image": "shopify:\/\/shop_images\/image_4.png",
             "alt": "Nykaa",
-            "link": "shopify://collections"
+            "link": "shopify:\/\/collections"
           }
         },
         "logo_Db7EGx": {
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/image_7.png",
+            "image": "shopify:\/\/shop_images\/image_7.png",
             "alt": "Nykaa",
-            "link": "shopify://products/protein-superfood-cleansing-balm"
+            "link": "shopify:\/\/products\/protein-superfood-cleansing-balm"
           }
         },
         "logo_JBBrJL": {
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/image_6.png",
+            "image": "shopify:\/\/shop_images\/image_6.png",
             "alt": "Nykaa",
             "link": ""
           }
@@ -693,7 +673,7 @@
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/image_5.png",
+            "image": "shopify:\/\/shop_images\/image_5.png",
             "alt": "Nykaa",
             "link": ""
           }
@@ -727,16 +707,16 @@
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/Rectangle_34625292.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625292.png",
             "alt": "Nykaa",
-            "link": "shopify://collections"
+            "link": "shopify:\/\/collections"
           }
         },
         "logo_qPjU7E": {
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/Rectangle_34625294.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625294.png",
             "alt": "Nykaa",
             "link": ""
           }
@@ -745,7 +725,7 @@
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/Rectangle_34625293.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625293.png",
             "alt": "Nykaa",
             "link": ""
           }
@@ -754,7 +734,7 @@
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify://shop_images/Rectangle_34625292.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625292.png",
             "alt": "Nykaa",
             "link": ""
           }
@@ -831,7 +811,7 @@
               "type": "icon",
               "settings": {
                 "icon": "eye",
-                "image_upload": "shopify://shop_images/Rectangle_34625292.png",
+                "image_upload": "shopify:\/\/shop_images\/Rectangle_34625292.png",
                 "width": 200,
                 "link": "",
                 "open_in_new_tab": false
@@ -886,7 +866,7 @@
               "type": "icon",
               "settings": {
                 "icon": "heart",
-                "image_upload": "shopify://shop_images/Rectangle_34625291.png",
+                "image_upload": "shopify:\/\/shop_images\/Rectangle_34625291.png",
                 "width": 200,
                 "link": "",
                 "open_in_new_tab": false
@@ -989,7 +969,7 @@
                 "text_Ph4AcG": {
                   "type": "text",
                   "settings": {
-                    "text": "<h2>A team with a goal</h2>",
+                    "text": "<h2>A team with a goal<\/h2>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1007,14 +987,15 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "descriptive_text": ""
                   },
                   "blocks": {}
                 },
                 "text_JizPGn": {
                   "type": "text",
                   "settings": {
-                    "text": "<p>Real people making great products</p>",
+                    "text": "<p>Real people making great products<\/p>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "center",
@@ -1032,7 +1013,8 @@
                     "padding-block-start": 0,
                     "padding-block-end": 0,
                     "padding-inline-start": 0,
-                    "padding-inline-end": 0
+                    "padding-inline-end": 0,
+                    "descriptive_text": ""
                   },
                   "blocks": {}
                 }
@@ -1090,28 +1072,28 @@
         "icon_PCkz94": {
           "type": "icon",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625292.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625292.png",
             "alt_text": "Core Icon"
           }
         },
         "icon_aHhPyj": {
           "type": "icon",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625294.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625294.png",
             "alt_text": "Core Icon"
           }
         },
         "icon_eNYRj9": {
           "type": "icon",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625291.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625291.png",
             "alt_text": "Core Icon"
           }
         },
         "icon_p437p6": {
           "type": "icon",
           "settings": {
-            "image": "shopify://shop_images/Rectangle_34625293.png",
+            "image": "shopify:\/\/shop_images\/Rectangle_34625293.png",
             "alt_text": "Core Icon"
           }
         }
@@ -1127,9 +1109,9 @@
         "heading": "Our Core"
       }
     }
-  }, 
+  },
   "order": [
-    "hero_jVaWmY",
+    "responsive_banner_pWYktA",
     "custom_featured_collection_WU7wiY",
     "product_list_aRyFdG",
     "shop_by_skin_need_DnnFmN",
@@ -1142,5 +1124,5 @@
     "authorised_retailers_rnL7bV",
     "section_kxXnyd",
     "our_core_icons_yxWDFV"
-  ] 
+  ]
 }

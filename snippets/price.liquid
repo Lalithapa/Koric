@@ -41,7 +41,7 @@
   endif
 -%}
 
-<div ref="priceContainer" class="text-[18px]! lg:text-[24px]! flex items-center gap-4">
+<div ref="priceContainer" class="text-[24px]! flex items-center gap-2 lg:gap-4">
   {% if show_sale_price_first == false and show_compare_price %}
     <span role="group">
       <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
@@ -64,7 +64,7 @@
       <span class="compare-at-price text-black font-light!">{{- compare_at_price -}}</span>
     </span>
   {% endif %}
-  <span class="text-[#B965CC] font-bold ml-1 text-[14px] lg:text-[17px]">
+  <span class="text-[#B965CC] font-bold ml-1 text-[17px]">
      {{
       product.compare_at_price
       | minus: product.price

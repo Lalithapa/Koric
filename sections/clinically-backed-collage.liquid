@@ -7,27 +7,27 @@
 <section id="cbc-{{ section.id }}" class="w-full bg-[#EDE5E2]">
   <div class="mx-auto section section--page-width py-[72px] my-25 lg:my-30">
     <!-- Header row -->
-    <div class="d-grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+    <div class="d-grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 items-center">
       <div>
         {% if section.settings.heading != blank %}
-          <p class="text-[24px] md:text-[32px] font-extrabold leading-tight text-[#2A5072] max-w-[390px]">
+          <p class="max-w-[620px] text-[26px] lf:text-[28px] leading-none md:text-[40px] font-[Groteska] font-medium text-[#2A5072]">
             {{ section.settings.heading }}
           </p>
         {% endif %}
       </div>
       <div>
         {% if section.settings.subheading != blank %}
-          <p class="text-[13px] md:text-[17px] text-[#2A5072] font-medium leading-[22px] ml-auto max-w-[320px]  lg:max-w-[450px]">
+          <p class="text-[14px] md:text-[17px] text-[#2A5072] leading-[22px] md:ml-auto max-w-[320px] font-medium lg:font-normal lg:max-w-[450px]">
             {{ section.settings.subheading }}
           </p>
         {% endif %}
       </div>
     </div>
     <!-- Cards grid: images only -->
-    <div class="mt-6 md:mt-14 d-grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+    <div class="mt-6 md:mt-14 d-grid grid-cols-[repeat(4,minmax(285px,1fr))] md:grid-cols-4 gap-4 md:gap-6 overflow-auto snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
      {% for block in section.blocks %}
         {% assign b = block.settings %}
-        <div class="rounded-2xl bg-[#F7F5F2] p-5 md:p-6 flex flex-col text-left" {{ block.shopify_attributes }}>
+        <div class="snap-center rounded-2xl bg-[#F7F5F2] p-5 md:p-6 flex flex-col text-left" {{ block.shopify_attributes }}>
           <div class="flex gap-0! flex-col">
             <!-- Top Heading -->
             {% if b.title != blank %}
@@ -60,7 +60,7 @@
           <div class="flex gap-2! flex-col">
               <!-- Footer Text -->
             {% if b.footer_heading != blank %}
-              <p class="font-semibold text-[12px] md:text-[12px] text-black uppercase tracking-wide">
+              <p class="font-medium text-[12px] md:text-[12px] text-black uppercase tracking-wide">
                 {{ b.footer_heading }}
               </p>
             {% endif %}

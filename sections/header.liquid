@@ -256,7 +256,7 @@
           style="{{ style | strip }}"
         {%- endif -%}
       >
-        <div class="header__columns spacing-style">
+        <div class="header__columns spacing-style max-w-[98%] m-auto">
           {{ content }}
         </div>
       </div>
@@ -410,6 +410,7 @@
 
     /* will default to bg from its color scheme unless --header-bg-color is transparent */
     background-color: var(--header-bg-color, var(--color-background));
+    padding: 0px 30px;
   }
 
   .header__row--top:not(.divider--page-width),
@@ -575,7 +576,12 @@
   .header__icon--menu {
     transition: opacity var(--animation-speed) var(--animation-easing);
   }
-
+   .menu-list__list-item{
+    margin-right: 32px;
+   }
+   /* .search-action{
+    margin-left: 32px;
+   } */
   /* Extend hover area through padding to prevent flickering on actual menu items */
   .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__link[aria-haspopup],
   .menu-list__list-item:where(:not([slot='overflow'])) > .menu-list__link,

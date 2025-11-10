@@ -2,6 +2,11 @@
   "type": "header",
   "name": "Header",
   "sections": {
+    "marguee_text_header_TagAg3": {
+      "type": "marguee-text-header",
+      "name": "Marquee notice",
+      "settings": {}
+    },
     "header_announcements_9jGBFp": {
       "type": "header-announcements",
       "blocks": {
@@ -22,11 +27,14 @@
       "block_order": [
         "announcement_BxgCk9"
       ],
+      "custom_css": [
+        "@media (max-width: 768px) {.announcement-bar {display: none; }}"
+      ],
       "name": "t:names.announcement_bar",
       "settings": {
         "speed": 5,
         "section_width": "page-width",
-        "color_scheme": "scheme-4",
+        "color_scheme": "scheme-e89c70c7-71b3-4f43-8f53-943385184770",
         "divider_width": 0,
         "padding-block-start": 12,
         "padding-block-end": 12
@@ -40,8 +48,8 @@
           "static": true,
           "settings": {
             "hide_logo_on_home_page": false,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
+            "padding-block-start": 20,
+            "padding-block-end": 20,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
@@ -106,6 +114,7 @@
     }
   },
   "order": [
+    "marguee_text_header_TagAg3",
     "header_announcements_9jGBFp",
     "header_section"
   ]

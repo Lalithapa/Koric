@@ -39,7 +39,7 @@
       "settings": {
         "headline": "Your inbox deserves a bubble or two",
         "kicker": "Join The Clean Crew  By signing up you consent to receive emails.",
-        "short_copy": "<p>We make care simple — because good skin shouldn’t be complicated.<\/p>",
+        "short_copy": "We make care simple — because good skin shouldn’t be complicated.",
         "logo": "shopify:\/\/shop_images\/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
         "logo_alt": "Main Logo",
         "menu_1": "shop-by-concern",
@@ -52,7 +52,11 @@
         "call_heading": "Call us:",
         "show_payments": true,
         "show_payments_mobile": true,
-        "bottom_note": ""
+        "bottom_note": "",
+        "padding_top_desktop": 132,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 100,
+        "padding_bottom_mobile": 20
       }
     },
     "footer_m9NzUG": {

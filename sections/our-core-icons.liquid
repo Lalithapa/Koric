@@ -1,22 +1,43 @@
 <!--our-core-icons.liquid-->
-<section id="our-core-{{ section.id }}" class="bg-[#F9F7F3] py-12 md:py-16">
-  <div class="max-w-[1180px] mx-auto px-4 md:px-6 text-center">
+{%- style -%}
+  .section-{{ section.id }}-margin {
+  margin-top: {{ section.settings.margin_top_desktop }}px;
+  margin-bottom: {{ section.settings.margin_bottom_desktop }}px;
+  }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+  .section-{{ section.id }}-margin {
+  margin-top: {{ section.settings.margin_top_mobile }}px;
+  margin-bottom: {{ section.settings.margin_bottom_mobile }}px;
+  }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top_mobile }}px;
+  padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  }
+{% endstyle %}
+<section id="our-core-{{ section.id }}" class="bg-[#F9F7F3]  section-{{ section.id }}-padding">
+  <div class="mx-auto section section--page-width px-4 md:px-6 text-center">
 
     {% if section.settings.heading != blank %}
-      <h2 class="text-[#2A5072] text-[28px] md:text-[36px] font-bold leading-none mb-8 md:mb-10">
+      <h2 class="text-[#2A5072]! text-[24px]! lg:text-[40px]! md:text-[36px] font-bold leading-normal mb-8 md:mb-10 ">
         {{ section.settings.heading }}
       </h2>
     {% endif %}
 
-    <div class="flex items-center justify-center flex-wrap">
+    <div class="flex items-center justify-center flex-wrap gap-2 lg:gap-4">
       {% for block in section.blocks %}
-        <div class="flex items-center justify-center ">
+        <div class="flex items-center justify-center flex-1">
           {% if block.settings.image != blank %}
              {{
               block.settings.image
-              | image_url: width: 600
+              | image_url: width: 1200
               | image_tag:
-                class: 'block pointer-events-none select-none object-contain lg:!max-h-[200px] !max-h-[130px] !w-auto !max-w-none'
+                class: 'block pointer-events-none select-none object-contain lg:!max-h-[240px] 2xl:!max-h-[270px] !max-h-[135px] !w-auto !max-w-none'
             }}
           {% endif %}
         </div>
@@ -35,6 +56,86 @@
       "id": "heading",
       "label": "Section Heading",
       "default": "Our Core"
+    },
+    {
+      "type": "range",
+      "id": "margin_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Desktop)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_desktop",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Desktop)",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Margin Bottom (Mobile)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top (Mobile)",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom (Mobile)",
+      "default": 20
     }
   ],
   "blocks": [
@@ -71,3 +172,4 @@
   ]
 }
 {% endschema %}
+

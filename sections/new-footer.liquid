@@ -1,38 +1,42 @@
-{% comment %}
-  New Footer (Tailwind)
-  - Newsletter left, menus + contact right (desktop)
-  - Stacked vertically on mobile
-  - Uses dynamic menus, logo, address, phone numbers (blocks) and payment icons
-{% endcomment %}
+<!--section/new-footer.liquid-->
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top_desktop }}px;
+  padding-bottom: {{ section.settings.padding_bottom_desktop }}px;
+}
+@media screen and (max-width: 768px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+}
+{%- endstyle -%}
 
 <section id="footer-{{ section.id }}" class="w-full bg-[#BFD9F0] text-[#274b6b]">
-  <div class="mx-auto section section--page-width py-10 md:py-14">
-    <!-- Top d-grid -->
+  <div class="mx-auto section section--page-width section-{{ section.id }}-padding">
     <div class="d-grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12">
-
-      <!-- COLUMN: Newsletter / Copy -->
-      <div class="lg:col-span-5">
+      <div class="lg:col-span-5 flex flex-col lg:gap-8 gap:[19px]!">
         {% if section.settings.headline != blank %}
-          <h3 class="text-[26px] leading-tight md:text-[32px] font-bold tracking-[-0.3px]">
+          <h3 class="text-[#2A5072] lg:text-[40px]! text-[24px]! not-italic font-bold leading-normal">
             {{ section.settings.headline }}
           </h3>
         {% endif %}
-
-        {% if section.settings.kicker != blank %}
-          <p class="mt-4 text-[13px] text-[#274b6b]/80">
-            {{ section.settings.kicker }}
-          </p>
-        {% endif %}
-
-        <!-- Newsletter form -->
-        <div class="mt-4">
-          {% form 'customer', class: 'mt-2' %}
+        <div>
+          {% if section.settings.kicker != blank %}
+            <p class="lg:text-[24px]! text-[14px]! not-italic font-normal leading-normal capitalize">{{ 'join the clean crew' }}</p>
+            <p class="text-[#6D94B8]! lg:text-[16px]! text-[12px]! not-italic font-medium leading-normal">
+              {{ section.settings.kicker }}
+            </p>
+          {% endif %}
+        </div>
+        <div class="flex justify-start lg:mt-4">
+          {% form 'customer', class: 'w-full ' %}
             {% if form.posted_successfully? %}
-              <p class="text-[13px] text-[#274b6b]">Thanks! Please check your inbox.</p>
+              <p class="text-[13px] text-[#274b6b] text-center">Thanks! Please check your inbox.</p>
             {% else %}
-              <div class="flex items-stretch gap-2 bg-transparent">
+              <div class="relative w-full">
                 <input
-                  class="flex-1 rounded-[10px] border border-[#274b6b]/30 bg-transparent px-3 py-2 text-[14px] placeholder:text-[#274b6b]/50 focus:outline-none focus:ring-2 focus:ring-[#274b6b]/40"
+                  class="w-full h-[54px] rounded-[10px]! border-2! border-[#2A5072]! bg-transparent! focus-visible:outline-none! focus-visible:outline-offset-0! px-4 pr-12 text-[14px] text-[#2A5072] placeholder:text-[#2A5072]! placeholder:text-[14px]! t] bg:[#2A5072]!"
                   type="email"
                   name="contact[email]"
                   value="{{ customer.email }}"
@@ -41,20 +45,28 @@
                   required
                 >
                 <button
-                  class="shrink-0 inline-flex items-center justify-center rounded-[10px] border border-[#274b6b]/30 px-3 py-2 text-[14px] font-semibold hover:bg-[#274b6b] hover:text-white transition"
                   type="submit"
+                  class="absolute right-4 top-1/2 -translate-y-1/2 text-[#274b6b] text-[18px] hover:text-[#1b3550] transition"
+                  aria-label="Subscribe"
                 >
-                  → 
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                    <path d="M0.599609 3.81846C0.268238 3.81846 -0.000390678 4.08709 -0.000390649 4.41846C-0.00039062 4.74983 0.268239 5.01846 0.599609 5.01846L0.599609 4.41846L0.599609 3.81846ZM15.0239 4.84272C15.2582 4.60841 15.2582 4.22851 15.0239 3.99419L11.2055 0.175815C10.9712 -0.0584993 10.5913 -0.0584993 10.357 0.175815C10.1227 0.41013 10.1227 0.790029 10.357 1.02434L13.7511 4.41846L10.357 7.81257C10.1227 8.04688 10.1227 8.42678 10.357 8.6611C10.5913 8.89541 10.9712 8.89541 11.2055 8.6611L15.0239 4.84272ZM0.599609 4.41846L0.599609 5.01846L14.5996 5.01846L14.5996 4.41846L14.5996 3.81846L0.599609 3.81846L0.599609 4.41846Z" fill="#2A5072"/>
+                  </svg>
                 </button>
               </div>
               {% if form.errors %}
-                <p class="mt-2 text-[12px] text-red-700">{{ form.errors | default_errors }}</p>
+                <p class="mt-2 text-[12px] text-red-700 text-center">{{ form.errors | default_errors }}</p>
               {% endif %}
             {% endif %}
           {% endform %}
         </div>
 
-        <!-- Payment icons -->
+        {% if section.settings.show_payments_mobile %}
+          <div class="lg:flex! items-center gap-3 hidden max-w-[300px] lg:mt-4">
+            <img src="https://cdn.shopify.com/s/files/1/0730/4269/0301/files/Frame_38502.png?v=1762255970" alt="Payment icons" width="100%" height="100%" loading="lazy">
+          </div>
+        {% endif %}
+
         {% if section.settings.show_payments %}
           <div class="mt-4 flex items-center gap-3">
             {% for type in shop.enabled_payment_types %}
@@ -62,120 +74,112 @@
             {% endfor %}
           </div>
         {% endif %}
-
-        <!-- Big brand mark -->
-        <div class="mt-8 md:mt-10">
-          {% if section.settings.logo != blank %}
-            <img
-              src="{{ section.settings.logo | image_url: width: 900 }}"
-              alt="{{ section.settings.logo_alt | default: shop.name | escape }}"
-              width="{{ section.settings.logo.width }}"
-              height="{{ section.settings.logo.height }}"
-              class="h-auto w-[240px] md:w-[360px] object-contain"
-              loading="lazy">
-          {% else %}
-            <div class="text-[40px] md:text-[64px] font-black">{{ shop.name }}</div>
-          {% endif %}
-        </div>
       </div>
 
-      <!-- COLUMN: Menus + Contact -->
-      <div class="lg:col-span-7">
-        <p class="text-[14px] text-[#274b6b]/80 max-w-[48ch]">
-          {{ section.settings.short_copy | default: "We make care simple — because good skin shouldn’t be complicated." }}
-        </p>
+      <div class="lg:col-span-7 lg:justify-end! lg:flex">
+        <div class="w-full max-w-[600px]">
+          <p class="lg:text-[17px]! text-[14px]! lg:text-center not-italic font-normal leading-5 tracking-[0.28px]  lg:w-[78%] text-left mx-auto">
+            {{ section.settings.short_copy | default: "We make care simple — because good skin shouldn’t be complicated." }}
+          </p>
 
-        <div class="mt-6 d-grid grid-cols-2 gap-10">
-          <!-- Menu 1 -->
-          <div>
-            {% if section.settings.menu_1_title != blank %}
-              <div class="text-[13px] font-semibold mb-3">{{ section.settings.menu_1_title }}</div>
-            {% endif %}
-            {% if section.settings.menu_1 != blank %}
-              <ul class="space-y-2">
-                {% for link in linklists[section.settings.menu_1].links %}
-                  <li>
-                    <a href="{{ link.url }}" class="text-[13px] text-[#274b6b]/90 hover:underline decoration-white/0 hover:decoration-[#274b6b]">
-                      {{ link.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
-
-          <!-- Menu 2 -->
-          <div>
-            {% if section.settings.menu_2_title != blank %}
-              <div class="text-[13px] font-semibold mb-3">{{ section.settings.menu_2_title }}</div>
-            {% endif %}
-            {% if section.settings.menu_2 != blank %}
-              <ul class="space-y-2">
-                {% for link in linklists[section.settings.menu_2].links %}
-                  <li>
-                    <a href="{{ link.url }}" class="text-[13px] text-[#274b6b]/90 hover:underline decoration-white/0 hover:decoration-[#274b6b]">
-                      {{ link.title }}
-                    </a>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </div>
-        <!-- Contact/Address -->
-          <div>
-            {% if section.settings.address_heading != blank %}
-              <div class="text-[13px] font-semibold mb-3">{{ section.settings.address_heading }}</div>
-            {% endif %}
-            {% if section.settings.address %}
-              <div class="text-[12px] text-[#274b6b]/90 whitespace-pre-line">
-                {{ section.settings.address }}
-              </div>
-            {% endif %}
-            {% if section.settings.hours %}
-              <div class="mt-2 text-[12px] text-[#274b6b]/90">
-                {{ section.settings.hours }}
-              </div>
-            {% endif %}
-            {% if section.settings.show_payments_mobile %}
-              <div class="mt-4 flex items-center gap-3 md:hidden">
-                <img src="https://cdn.shopify.com/s/files/1/0730/4269/0301/files/Frame_38502.png?v=1762255970" alt="Payment icons" width="100%" height="100%" loading="lazy">
-                {% comment %} {% for type in shop.enabled_payment_types %}
-                  {{ type | payment_type_svg_tag: class: 'h-5 w-auto' }}
-                {% endfor %} {% endcomment %}
-              </div>
-            {% endif %}
-          </div>
-          <div>
-            {% if section.blocks.size > 0 %}
-              <div class="mt-4">
-                <div class="text-[13px] font-semibold mb-2">{{ section.settings.call_heading | default: 'Call us:' }}</div>
-                <ul class="space-y-1">
-                  {% for block in section.blocks %}
-                    {% assign bs = block.settings %}
-                    <li class="text-[12px]">
-                      {% if bs.phone_url != blank %}<a href="{{ bs.phone_url }}" class="hover:underline decoration-white/0 hover:decoration-[#274b6b]">{% endif %}
-                        {{ bs.phone_label | default: bs.phone_text }}
-                      {% if bs.phone_url != blank %}</a>{% endif %}
+          <div class="mt-6 d-grid lg:grid-cols-2 grid-cols-1 gap-10">
+            <div class="lg:mx-auto">
+              {% if section.settings.menu_1_title != blank %}
+                <div class="text-[#37546E]! lg:text-[14px]! text-[12px]! not-italic font-bold leading-normal mb-3">{{ section.settings.menu_1_title }}</div>
+              {% endif %}
+              {% if section.settings.menu_1 != blank %}
+                <ul class="space-y-2">
+                  {% for link in linklists[section.settings.menu_1].links %}
+                    <li class="text-[#395A77]! lg:text-[14px]! text-[12px]! not-italic font-normal leading-5 tracking-[0.28px] lg:m-1 m-0">
+                      <a href="{{ link.url }}" class="text-[#395A77]! lg:text-[14px]! text-[12px]! font-normal leading-5 tracking-[0.28px]">{{ link.title }}</a>
                     </li>
                   {% endfor %}
                 </ul>
-              </div>
-            {% endif %}
+              {% endif %}
+            </div>
+
+            <div class="lg:mx-auto">
+              {% if section.settings.menu_2_title != blank %}
+                <div class="text-[#37546E]! lg:text-[14px]! text-[12px]! not-italic font-bold leading-normal mb-3">{{ section.settings.menu_2_title }}</div>
+              {% endif %}
+              {% if section.settings.menu_2 != blank %}
+                <ul class="space-y-2">
+                  {% for link in linklists[section.settings.menu_2].links %}
+                    <li class="text-[#395A77]! lg:text-[14px]! text-[12px]! not-italic font-normal leading-5 tracking-[0.28px] lg:m-1 m-0">
+                      <a href="{{ link.url }}" class="text-[#395A77]! lg:text-[14px]! text-[12px]! font-normal leading-5 tracking-[0.28px]">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+
+            <div class="lg:mx-auto lg:max-w-[150px]">
+              {% if section.settings.address_heading != blank %}
+                <div class="text-[#37546E]! lg:text-[14px]! text-[12px]! not-italic font-bold leading-normal mb-3">{{ section.settings.address_heading }}</div>
+              {% endif %}
+              {% if section.settings.address %}
+                <div class="text-[#395A77]! lg:text-[14px]! text-[12px]! font-normal leading-5 tracking-[0.28px] whitespace-normal">{{ section.settings.address }}</div>
+              {% endif %}
+              {% if section.settings.hours %}
+                <div class="mt-2 text-[#395A77]! lg:text-[14px]! text-[12px]! font-normal leading-5 tracking-[0.28px]">{{ section.settings.hours }}</div>
+              {% endif %}
+            </div>
+
+            <div class="lg:mx-auto">
+              {% if section.blocks.size > 0 %}
+                <div>
+                  <div class="text-[#37546E]! lg:text-[14px]! text-[12px]! not-italic font-bold leading-normal mb-3">{{ section.settings.call_heading | default: 'Call us:' }}</div>
+                  <ul class="space-y-1">
+                    {% for block in section.blocks %}
+                      {% assign bs = block.settings %}
+                      <li class="text-[#395A77]! lg:text-[14px]! text-[12px]! not-italic font-normal leading-5 tracking-[0.28px] lg:m-1 m-0">
+                        {% if bs.phone_url != blank %}
+                          <a href="{{ bs.phone_url }}" class="text-[#395A77]! lg:text-[14px]! text-[12px]! font-normal leading-5 tracking-[0.28px]">
+                        {% endif %}
+                        {{ bs.phone_label | default: bs.phone_text }}
+                        {% if bs.phone_url != blank %}</a>{% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bottom bar -->
-    <div class="mt-10 md:mt-14 border-t border-[#274b6b]/20 pt-4 text-[12px] text-[#274b6b]/70 flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
-      <div>
-        Made with care © {{ 'now' | date: '%Y' }} <span class="font-semibold">{{ shop.name | escape }}</span>. All rights reserved.
+    {% if section.settings.show_payments_mobile %}
+      <div class="mt-4 flex! items-center gap-3 lg:hidden! max-w-[200px]">
+        <img src="https://cdn.shopify.com/s/files/1/0730/4269/0301/files/Frame_38502.png?v=1762255970" alt="Payment icons" width="100%" height="100%" loading="lazy">
+      </div>
+    {% endif %}
+
+    <div class="mt-26 md:mt-10 lg:w-[30%] w-100%">
+      {% if section.settings.logo != blank %}
+        <img
+          src="{{ section.settings.logo | image_url: width: 900 }}"
+          alt="{{ section.settings.logo_alt | default: shop.name | escape }}"
+          width="{{ section.settings.logo.width }}"
+          height="{{ section.settings.logo.height }}"
+          class="h-auto w-[240px] md:w-[360px] object-contain"
+          loading="lazy"
+        >
+      {% else %}
+        <div class="text-[40px] md:text-[64px] font-black">{{ shop.name }}</div>
+      {% endif %}
+    </div>
+
+    
+  </div>
+  <div class="lg:mt-30 md:mt-14 border-t border-[#274b6b]/20  text-[12px] text-[#274b6b]/70 flex flex-col md:flex-row items-start md:items-center gap-3 justify-between">
+      <div class="lg:block lg:w-[69%] mx-auto lg:py-[38px] py-4">
+        Made with care © <span class="font-semibold">{{ 'now' | date: '%Y' }} {{ shop.name | escape }}</span>. All rights reserved.
       </div>
       {% if section.settings.bottom_note != blank %}
         <div class="text-[#274b6b]/80">{{ section.settings.bottom_note }}</div>
       {% endif %}
     </div>
-  </div>
 </section>
 
 {% schema %}
@@ -184,26 +188,24 @@
   "settings": [
     { "type": "text", "id": "headline", "label": "Newsletter headline", "default": "Your inbox deserves a bubble or two" },
     { "type": "text", "id": "kicker", "label": "Newsletter helper text", "default": "Join The Clean Crew\nBy signing up you consent to receive emails." },
-    { "type": "richtext", "id": "short_copy", "label": "Short mission copy", "default": "<p>We make care simple — because good skin shouldn’t be complicated.</p>" },
-
+    { "type": "text", "id": "short_copy", "label": "Short mission copy", "default": "We make care simple — because good skin shouldn’t be complicated." },
     { "type": "image_picker", "id": "logo", "label": "Large footer logo" },
     { "type": "text", "id": "logo_alt", "label": "Logo alt text" },
-
     { "type": "link_list", "id": "menu_1", "label": "Menu 1" },
     { "type": "text", "id": "menu_1_title", "label": "Menu 1 title", "default": "Shop by Concern" },
-
     { "type": "link_list", "id": "menu_2", "label": "Menu 2" },
     { "type": "text", "id": "menu_2_title", "label": "Menu 2 title", "default": "Help" },
-
     { "type": "text", "id": "address_heading", "label": "Address heading", "default": "Locate us at :" },
     { "type": "textarea", "id": "address", "label": "Address", "default": "A-26, Ground Floor, Phase-2, Naraina Industrial Area, New Delhi-110028" },
     { "type": "text", "id": "hours", "label": "Working hours", "default": "Mon–Fri | 10 AM - 7 PM" },
     { "type": "text", "id": "call_heading", "label": "Call heading", "default": "Call us:" },
-
     { "type": "checkbox", "id": "show_payments", "label": "Show payment icons (desktop)", "default": true },
     { "type": "checkbox", "id": "show_payments_mobile", "label": "Show payment icons (mobile in contact column)", "default": true },
-
-    { "type": "text", "id": "bottom_note", "label": "Bottom right note" }
+    { "type": "text", "id": "bottom_note", "label": "Bottom right note" },
+    { "type": "range", "id": "padding_top_desktop", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Padding Top (Desktop)", "default": 0 },
+    { "type": "range", "id": "padding_bottom_desktop", "min": 0, "max": 200, "step": 2, "unit": "px", "label": "Padding Bottom (Desktop)", "default": 0 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 100, "step": 2, "unit": "px", "label": "Padding Bottom (Mobile)", "default": 20 }
   ],
   "blocks": [
     {

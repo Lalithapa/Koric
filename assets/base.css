@@ -47,7 +47,54 @@ img {
   width: 100%;
   height: auto;
 }
+.hover-card-section{
+  background-color:#294e6b ;
+}
+@media (min-width: 768px) {
+ .menu-list__list-item.menu-list__list-item-8 ,.menu-list__list-item.menu-list__list-item-3,.menu-list__list-item.menu-list__list-item-4,.menu-list__list-item.menu-list__list-item-5,.menu-list__list-item.menu-list__list-item-6,.menu-list__list-item.menu-list__list-item-7{
+    display: none !important;
+  }
+  .header__column{
+  margin-top: 30px;
+  }
 
+}
+.cart-items-component .cart-items__quantity quantity-selector-component{
+  border-radius: 100px;
+}
+.menu-drawer__list-item--deep.menu-drawer__list-item--deep-4 .menu-drawer__menu-item,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-5  .menu-drawer__menu-item,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-6 .menu-drawer__menu-item,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-7 .menu-drawer__menu-item,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-8 .menu-drawer__menu-item{
+ color: #ADC1D3 ;
+font-size: 16px ;
+font-style: normal ;
+font-weight: 400 ;
+line-height: 17px ; 
+letter-spacing: 0.28px;
+
+}
+
+.menu-drawer__list-item--deep.menu-drawer__list-item--deep-4{
+  margin-top: 25px;
+}
+#HeaderDrawer-your-account{
+  border-bottom: 1px solid #76A0C5;
+}
+.menu-drawer__list-item--deep.menu-drawer__list-item--deep-1 .menu-drawer__menu-item-text,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-2 .menu-drawer__menu-item-text,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-3 .menu-drawer__menu-item-text{
+text-transform: uppercase;
+color: #F9F9F9;
+font-size: 14px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+#HeaderDrawer-faq,.menu-drawer__menu-item-text.wrap-text{
+  color: #CBDDED;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; 
+letter-spacing: 0.28px;
+}
+.menu-drawer__list-item--deep.menu-drawer__list-item--deep-3 ,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-4 ,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-5,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-6 ,.menu-drawer__list-item--deep.menu-drawer__list-item--deep-7 {max-height: 35px;}
 input,
 textarea,
 select {

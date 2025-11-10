@@ -1,8 +1,7 @@
 <!-- section/micro-foaming-banner.liquid -->
 <section class="w-full">
-  <div class="mx-auto max-w-[100%] ">
-    <div class="relative overflow-hidden rounded-2xl shadow-sm">
-
+  <div class="mx-auto max-w-full ">
+    <div class="relative overflow-hidden ">
       <!-- Responsive image swap -->
       <picture>
         {% if section.settings.desktop_image %}
@@ -14,171 +13,182 @@
               {{ section.settings.desktop_image | image_url: width: 1440 }} 1440w,
               {{ section.settings.desktop_image | image_url: width: 1920 }} 1920w
             "
-            sizes="(min-width: 1280px) 1200px, (min-width: 1024px) 960px, (min-width: 768px) 720px, 100vw">
+            sizes="(min-width: 1280px) 1200px, (min-width: 1024px) 960px, (min-width: 768px) 720px, 100vw"
+          >
         {% endif %}
 
         {% assign fallback = section.settings.mobile_image | default: section.settings.desktop_image %}
         <img
           src="{{ fallback | image_url: width: 1200 }}"
           srcset="
-                {{ fallback | image_url: width: 480 }} 480w,
-                {{ fallback | image_url: width: 768 }} 768w,
-                {{ fallback | image_url: width: 1024 }} 1024w,
-                {{ fallback | image_url: width: 1440 }} 1440w
-            "
+            {{ fallback | image_url: width: 480 }} 480w,
+            {{ fallback | image_url: width: 768 }} 768w,
+            {{ fallback | image_url: width: 1024 }} 1024w,
+            {{ fallback | image_url: width: 1440 }} 1440w
+          "
           sizes="100vw"
           alt="{{ section.settings.alt | escape }}"
           loading="lazy"
           width="{{ fallback.width }}"
           height="{{ fallback.height }}"
-          class="block w-full object-cover" />
-
-
+          class="block w-full object-cover"
+        >
       </picture>
 
       {% if section.settings.show_overlay %}
         <!-- Overlay content -->
-        <div class="absolute inset-0 flex items-center justify-center p-4 md:p-10">
-          <div class="max-w-[90%] lg:!gap-[108px] rounded-2xl bg-white/10 backdrop-blur-md text-white lg:py-[50px] lg:px-[100px] ring-1 ring-white/20 flex  flex-col lg:flex-row ">
-            <div class="lg:m-auto max-w-[445px]">
-              <p class="text-[#F7F5F2]  text-[16px] not-italic font-medium leading-[22px] uppercase">
+        <div class="absolute inset-0 flex items-center justify-center  lg:max-w-[95%] max-w-[90%] m-auto">
+          <div class=" lg:gap-[108px]!  rounded-2xl bg-[rgb(159_208_233_/_37%)] backdrop-blur-[21px] text-white! lg:py-[50px] lg:px-[126px] py-[53px] px-5  flex gap-6! justify-around flex-col  lg:flex-row  lg:w-[80%] ">
+            <div class="lg:my-auto lg:mx-0 max-w-[445px] lg:max-w-[670px] px-[18px] py-0">
+              <p class="text-[#F7F5F2]  text-[16px]! not-italic font-medium leading-[22px] uppercase">
                 {{ section.settings.kicker }}
               </p>
 
-              <h2 class="mt-[8px] mb-[32px] text-white text-[38px] not-italic font-bold leading-normal uppercase">
+              <h2 class="mt-2 mb-8 text-white text-[24px]! lg:text-[38px]! not-italic font-bold leading-[1.3]! uppercase max-w-[400px]">
                 {{ section.settings.title }}
               </h2>
 
               {% if section.settings.show_stat %}
-                <div class="flex items-center mt-4 rounded-xl border border-white/30 p-4">
-                  <div class="text-sm opacity-90">
-                    Cleanses <span class="inline-flex items-center rounded-full border border-white/60 bg-white/10 px-[4px] py-[1px] text-[10px] font-semibold leading-none tracking-wide">
-                      pH 7–8
-                    </span><br>
+                <div class="flex items-center mt-4 rounded-xl border border-white/30 py-2 px-4 mb-[32] flex-col lg:flex-row">
+                  <div class="text-[#F7F5F2]  text-[20px]! not-italic font-medium leading-normal w-full lg:max-w-[160px]">
+                    Cleanses
+                    <span class="inline-flex items-center rounded-full border border-white bg-white/10 px-2.5 py-[5px] text-[12px]! text-[#F7F5F2] font-medium leading-none tracking-wide float-right lg:mt-[15px] md:float-none md:mt-0 ">
+                      pH 7–8 </span
+                    ><br>
                     more effectively
                   </div>
-                  <div class="mt-1 flex items-center gap-2">
-                    <span class="text-3xl font-semibold md:text-4xl">
+                  <div class="mt-1 flex items-center gap-2 w-full">
+                    <span class="text-[#F7F5F2]! text-[46px]! not-italic font-medium leading-normal">
                       {{ section.settings.stat_value }}
                     </span>
-                    <span class="text-lg md:text-xl">×</span>
-                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full border border-white/40 text-xs bg-[#fff]"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
-                    <path d="M4.77344 12.75C4.77344 13.1642 5.10922 13.5 5.52344 13.5C5.93765 13.5 6.27344 13.1642 6.27344 12.75L5.52344 12.75L4.77344 12.75ZM6.05377 0.21967C5.76087 -0.0732231 5.286 -0.0732231 4.99311 0.21967L0.220137 4.99264C-0.0727564 5.28553 -0.0727565 5.76041 0.220137 6.0533C0.51303 6.34619 0.987904 6.34619 1.2808 6.0533L5.52344 1.81066L9.76608 6.0533C10.059 6.34619 10.5338 6.34619 10.8267 6.0533C11.1196 5.76041 11.1196 5.28553 10.8267 4.99264L6.05377 0.21967ZM5.52344 12.75L6.27344 12.75L6.27344 0.75L5.52344 0.75L4.77344 0.75L4.77344 12.75L5.52344 12.75Z" fill="#101010"/>
-                    </svg></span>
+                    <span class="text-[#F7F5F2]! text-[26px]! not-italic font-medium leading-normal">×</span>
+                    <span class="inline-flex h-[26px] w-[26px] items-center justify-center rounded-full border border-white/40 text-xs bg-[#fff]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
+                        <path d="M4.77344 12.75C4.77344 13.1642 5.10922 13.5 5.52344 13.5C5.93765 13.5 6.27344 13.1642 6.27344 12.75L5.52344 12.75L4.77344 12.75ZM6.05377 0.21967C5.76087 -0.0732231 5.286 -0.0732231 4.99311 0.21967L0.220137 4.99264C-0.0727564 5.28553 -0.0727565 5.76041 0.220137 6.0533C0.51303 6.34619 0.987904 6.34619 1.2808 6.0533L5.52344 1.81066L9.76608 6.0533C10.059 6.34619 10.5338 6.34619 10.8267 6.0533C11.1196 5.76041 11.1196 5.28553 10.8267 4.99264L6.05377 0.21967ZM5.52344 12.75L6.27344 12.75L6.27344 0.75L5.52344 0.75L4.77344 0.75L4.77344 12.75L5.52344 12.75Z" fill="#101010"/>
+                      </svg>
+                    </span>
                   </div>
                 </div>
               {% endif %}
 
-              <p class="mt-3 text-[11px] leading-snug opacity-80">
+              <p class="text-[#F7F5F2]  text-[14px]! not-italic font-medium leading-[22px] mt-8">
                 {{ section.settings.footnote }}
               </p>
 
               {% if section.settings.button_label != blank and section.settings.button_link != blank %}
                 <div class="mt-5">
-                  <a href="{{ section.settings.button_link }}" class="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-white/90">
+                  <a
+                    href="{{ section.settings.button_link }}"
+                    class="inline-flex items-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-gray-900 hover:bg-white/90"
+                  >
                     {{ section.settings.button_label }}
                   </a>
                 </div>
               {% endif %}
-
             </div>
-            <div class="relative flex items-center justify-center md:justify-end p-6 md:p-10 max-w-[393px] max-h-[392px]">
+            <div class="relative flex items-center justify-center md:justify-end  max-w-[393px] max-h-[392px]">
               {% if section.settings.right_image %}
                 <img
                   src="{{ section.settings.right_image | image_url: width: 900 }}"
                   srcset="
-                            {{ section.settings.right_image | image_url: width: 480 }} 480w,
-                            {{ section.settings.right_image | image_url: width: 768 }} 768w,
-                            {{ section.settings.right_image | image_url: width: 1024 }} 1024w,
-                            {{ section.settings.right_image | image_url: width: 1440 }} 1440w
-                        "
+                    {{ section.settings.right_image | image_url: width: 480 }} 480w,
+                    {{ section.settings.right_image | image_url: width: 768 }} 768w,
+                    {{ section.settings.right_image | image_url: width: 1024 }} 1024w,
+                    {{ section.settings.right_image | image_url: width: 1440 }} 1440w
+                  "
                   sizes="(min-width: 768px) 50vw, 100vw"
                   alt="{{ section.settings.right_image_alt | default: 'Micro-foaming molecule' | escape }}"
                   loading="lazy"
                   width="{{ section.settings.right_image.width }}"
                   height="{{ section.settings.right_image.height }}"
-                  class="w-[68%] md:w-[70%] max-w-[420px] object-contain drop-shadow pointer-events-none select-none" />
-
+                  class="w-[68%] md:w-[70%] max-w-[420px] object-contain drop-shadow pointer-events-none select-none"
+                >
               {% endif %}
             </div>
           </div>
-
         </div>
       {% endif %}
     </div>
-
   </div>
 </section>
 
 {% schema %}
-  {
-    "name": "Micro Foaming Banner",
-    "settings": [
-      {
-        "type": "image_picker",
-        "id": "desktop_image",
-        "label": "Desktop image (≥768px)"
-      },
-      {
-        "type": "image_picker",
-        "id": "mobile_image",
-        "label": "Mobile image (<768px)"
-      },
-      {
-        "type": "text",
-        "id": "alt",
-        "label": "Image alt text",
-        "default": "Micro foaming technology banner"
-      },
-      {
-        "type": "checkbox",
-        "id": "show_overlay",
-        "label": "Show overlay card",
-        "default": true
-      }, {
-        "type": "text",
-        "id": "kicker",
-        "label": "Kicker (small line)",
-        "default": "REMOVES UP TO 99.2%"
-      }, {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "MICRO FOAMING TECHNOLOGY"
-      }, {
-        "type": "checkbox",
-        "id": "show_stat",
-        "label": "Show stat box",
-        "default": true
-      }, {
-        "type": "text",
-        "id": "stat_value",
-        "label": "Stat value",
-        "default": "3.5"
-      }, {
-        "type": "textarea",
-        "id": "footnote",
-        "label": "Footnote",
-        "default": "*Based on internal tests comparing micro-foaming vs. traditional cleansing bars."
-      }, {
-        "type": "text",
-        "id": "button_label",
-        "label": "Button label",
-        "default": "Know more"
-      }, {
-        "type": "url",
-        "id": "button_link",
-        "label": "Button link"
-      }, {
-        "type": "image_picker",
-        "id": "right_image",
-        "label": "Desktop image right image(≥768px)"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Micro Foaming Banner (Desktop + Mobile)"
-      }
-    ]
-  }
+{
+  "name": "Micro Foaming Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "desktop_image",
+      "label": "Desktop image (≥768px)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image (<768px)"
+    },
+    {
+      "type": "text",
+      "id": "alt",
+      "label": "Image alt text",
+      "default": "Micro foaming technology banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_overlay",
+      "label": "Show overlay card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker (small line)",
+      "default": "REMOVES UP TO 99.2%"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "MICRO FOAMING TECHNOLOGY"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stat",
+      "label": "Show stat box",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stat_value",
+      "label": "Stat value",
+      "default": "3.5"
+    },
+    {
+      "type": "textarea",
+      "id": "footnote",
+      "label": "Footnote",
+      "default": "*Based on internal tests comparing micro-foaming vs. traditional cleansing bars."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "browse all"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Desktop image right image(≥768px)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Micro Foaming Banner (Desktop + Mobile)"
+    }
+  ]
+}
 {% endschema %}

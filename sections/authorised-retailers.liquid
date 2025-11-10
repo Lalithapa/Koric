@@ -1,24 +1,24 @@
 <!--authorised-retailers.liquid-->
 <section id="retailers-{{ section.id }}" class="w-full" style="background-color: {{ section.settings.bg | default: '#F7F5F2' }}">
-  <div class="mx-auto max-w-[1180px] px-4 md:px-6 py-10">
+  <div class="mx-auto section section--page-width   lg:py-[100px] py-[60px]">
 
     
     <div
-      class="px-4 md:px-8 py-8 md:py-10"
+      class="  lg:py-[60px] py-[30px]"
       style="
         border-radius: {{ section.settings.panel_radius | default: 10 }}px;
         border: {{ section.settings.panel_border_width | default: 1 }}px solid {{ section.settings.panel_border_color | default: '#EEEAE4' }};
         background: transparent;
       "
     >
-      <div class="text-center">
+      <div class="text-center lg:mb-[60px]  mb-[30px] mx-auto">
         {% if section.settings.kicker != blank %}
-          <div class="text-[12px] tracking-[0.18em] font-semibold text-[#376182]/80!">
+          <div class="text-[12px] tracking-[0.18em] font-normal text-[#2A5072]!">
             {{ section.settings.kicker | upcase }}
           </div>
         {% endif %}
         {% if section.settings.heading != blank %}
-          <h2 class="mt-1 text-[28px] md:text-[36px] font-bold leading-tight text-[#2A4A63]!">
+          <h2 class="mt-1 lg:text-[38px]! text-[24px]! font-medium! leading-normal text-[#2A5072]!">
             {{ section.settings.heading }}
           </h2>
         {% endif %}
@@ -39,7 +39,7 @@
       </style>
 
       <!-- Logos (centered row, wraps) -->
-      <div class="mt-8 flex flex-wrap justify-center gap-4 md:gap-6">
+      <div class="mt-8 flex flex-wrap justify-center gap-[22px] md:gap-6 lg:gap-20! ">
         {% for block in section.blocks %}
           {% assign b = block.settings %}
           {% if b.image != blank %}
@@ -48,17 +48,16 @@
                 <a href="{{ b.link }}" class="group block" target="{{ section.settings.link_target }}" rel="{% if section.settings.link_target == '_blank' %}noopener noreferrer{% endif %}">
               {% endif %}
 
-                <div class="">
                   <div class=" flex items-center justify-center">
                     <img
                       src="{{ b.image | image_url: width: 600 }}"
                       alt="{{ b.alt | default: b.title | escape }}"
-                      width="{{ b.image.width }}"
-                      height="{{ b.image.height }}"
-                      class="logo-img w-auto object-contain mx-auto"
+                      width=""
+                      height=""
+                      class="logo-img  object-contain w-20! lg:w-[145px]! max-h-[25px] lg:max-h-[46px]"
                       loading="lazy">
                   </div>
-                </div>
+              
 
               {% if b.link != blank %}</a>{% endif %}
             </div>
@@ -84,13 +83,7 @@
     { "type": "range", "id": "panel_border_width", "label": "Panel border width (px)", "min": 0, "max": 6, "step": 1, "default": 1 },
     { "type": "color", "id": "panel_border_color", "label": "Panel border color", "default": "#EEEAE4" },
 
-    { "type": "header", "content": "Logo sizes" },
-    { "type": "range", "id": "logo_width_mobile", "label": "Tile width – mobile (px)", "min": 100, "max": 220, "step": 5, "default": 150 },
-    { "type": "range", "id": "logo_width_desktop", "label": "Tile width – desktop (px)", "min": 140, "max": 260, "step": 5, "default": 200 },
-    { "type": "range", "id": "img_max_h_mobile", "label": "Image max-height – mobile (px)", "min": 32, "max": 96, "step": 2, "default": 48 },
-    { "type": "range", "id": "img_max_h_desktop", "label": "Image max-height – desktop (px)", "min": 40, "max": 120, "step": 2, "default": 56 },
-
-    { "type": "select", "id": "link_target", "label": "Logo link target", "default": "_blank",
+     { "type": "select", "id": "link_target", "label": "Logo link target", "default": "_blank",
       "options": [
         { "value": "_self", "label": "Open in same tab" },
         { "value": "_blank", "label": "Open in new tab" }

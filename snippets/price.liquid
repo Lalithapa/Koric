@@ -64,18 +64,20 @@
       <span class="compare-at-price text-black font-light!">{{- compare_at_price -}}</span>
     </span>
   {% endif %}
+  {% if template contains 'collection' %}
   <span class="text-[#B965CC] font-bold ml-1 text-[17px]">
-     {{
-      product.compare_at_price
-      | minus: product.price
-      | times: 100.0
-      | divided_by: product.price
-      | money_without_currency
-      | times: 100
-      | remove: '.0'
-    -}}
-    % Off
+   {% render 'discount-percent-badge', product: product_resource %}
   </span>
+{% endif %}
+{% if product.compare_at_price_max > product.price %}
+  {% assign discount_amount = product.compare_at_price_max | minus: product.price %}
+  {% assign discount_percent = discount_amount | times: 100 | divided_by: product.compare_at_price_max %}
+  <span class="text-[#B965CC] font-bold text-[16px]">
+    {{ discount_percent | round }}% OFF
+  </span>
+  {{product.compare_at_price_max }}
+{% endif %}
+
   {%- if selected_variant.unit_price and show_unit_price %}
     {%- liquid
       if product.handle == closest.product.handle and settings.currency_code_enabled_product_pages

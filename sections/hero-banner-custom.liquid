@@ -1,0 +1,117 @@
+<section class="relative w-full overflow-hidden">
+  <div class="grid grid-cols-1 md:grid-cols-2">
+    <!-- Left Side (Image + Overlay Text) -->
+    <div class="relative">
+      {% if section.settings.image_desktop != blank %}
+        <img
+          src="{{ section.settings.image_desktop | image_url: width: 1600 }}"
+          alt="{{ section.settings.heading | escape }}"
+          class="hidden md:block w-full h-full object-cover"
+        >
+      {% endif %}
+      {% if section.settings.image_mobile != blank %}
+        <img
+          src="{{ section.settings.image_mobile | image_url: width: 800 }}"
+          alt="{{ section.settings.heading | escape }}"
+          class="block md:hidden w-full h-full object-cover"
+        >
+      {% endif %}
+
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <!-- Text Content -->
+      <div class="absolute inset-0 flex flex-col justify-center text-left px-6 md:px-16 text-white z-10">
+        {% if section.settings.subheading != blank %}
+          <p class="uppercase text-sm tracking-wide mb-2 opacity-80">
+            {{ section.settings.subheading }}
+          </p>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="text-2xl md:text-4xl font-bold mb-4 leading-tight">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+        {% if section.settings.text != blank %}
+          <p class="text-base md:text-lg mb-6 max-w-md opacity-90">
+            {{ section.settings.text }}
+          </p>
+        {% endif %}
+        {% if section.settings.button_label != blank %}
+          <a href="{{ section.settings.button_link }}" class="inline-block bg-white text-black font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition">
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Right Side Image -->
+    <div>
+      {% if section.settings.right_image != blank %}
+        <img
+          src="{{ section.settings.right_image | image_url: width: 1600 }}"
+          alt="Banner Right Image"
+          class="w-full h-full object-cover"
+        >
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Split Banner Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Side Image"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "LESS FOAM. MORE CARE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "SMART CLEANING STARTS WITH SCIENCE"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Each Koric bar is powered by micro-foaming technology and clinically backed actives."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Split Banner Section",
+      "category": "Banner"
+    }
+  ]
+}
+{% endschema %}

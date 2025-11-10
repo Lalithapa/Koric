@@ -1,0 +1,7 @@
+{%- assign v = product.selected_or_first_available_variant -%}
+{%- assign price = v.price -%}
+{%- assign compare = v.compare_at_price -%}
+{%- if compare and compare > price -%}
+  {%- assign discount = compare | minus: price | times: 100 | divided_by: compare -%}
+  <span class="ds-count-badge">{{ discount }}% OFF</span>
+{%- endif -%}

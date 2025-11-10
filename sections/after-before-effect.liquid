@@ -20,17 +20,17 @@
     }
   }
 {%- endstyle -%}
-<section id="ba-swiper-{{ section.id }}" class="w-full section-{{ section.id }}-margin section-{{ section.id }}-padding">
-  <div class="mx-auto max-w-[100%] px-4 md:px-6 py-10">
+<section id="ba-swiper-{{ section.id }}" class="w-full section-{{ section.id }}-margin section-{{ section.id }}-padding" style="background-color: {{ section.settings.bg | default: '#F7F5F2' }}">
+  <div class="mx-auto max-w-[100%]  py-10">
     {% if section.settings.heading != blank %}
-      <h2 class="text-center text-3xl md:text-5xl font-bold text-[#274b6b]">{{ section.settings.heading }}</h2>
+      <h2 class=" text-center text-[26px]! lg:text-[38px]! font-bold text-[#274b6b]!">{{ section.settings.heading }}</h2>
     {% endif %}
     {% if section.settings.subheading != blank %}
-      <p class="mt-2 text-center text-sm md:text-base text-[#274b6b]/70">{{ section.settings.subheading }}</p>
+      <p class="text-[#2A5072]! text-center  lg:text-[18px]! text-[14px] not-italic font-medium lg:leading-[34px]">{{ section.settings.subheading }}</p>
     {% endif %}
 
     <!-- Swiper -->
-    <div class="swiper ba-swiper overflow-hidden">
+    <div class="swiper ba-swiper overflow-hidden lg:mt-14 mt-10 mx-auto section section--page-width ">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           <div
@@ -38,7 +38,7 @@
             {{ block.shopify_attributes }}
           >
             <!-- Slider container fills the slide -->
-            <div class="relative m-0 w-full h-[420px] md:h-[460px] lg:h-[520px]">
+            <div class="relative m-0 w-full h-[300px] lg:h-[577px]">
               <!-- BEFORE -->
               <div class="absolute inset-0 flex items-center justify-center overflow-hidden">
                 {% if block.settings.before_image %}
@@ -51,7 +51,7 @@
                     height="auto"
                   >
                 {% endif %}
-                <div class="absolute left-5 top-[85%] z-[5]  text-[14px] font-semibold text-[#3a3a3a] px-5 py-2 bg-white/60 rounded-[.3rem] tracking-[.12em]">
+                <div class="absolute left-5 top-[85%] z-[5]  text-[24px]! font-semibold text-[#2A5072]! px-5 py-2 r tracking-[.12em]">
                   {{ block.settings.before_label }}
                 </div>
               </div>
@@ -68,7 +68,7 @@
                     height="auto"
                   >
                 {% endif %}
-                <div class="absolute right-5 top-[85%] z-[3]  text-[14px] font-semibold text-[#3a3a3a] px-5 py-2 bg-white/60 rounded-[.3rem] tracking-[.12em]">
+                <div class="absolute right-5 top-[85%] z-[3]  text-[24px]! font-semibold text-[#2A5072]! px-5 py-2 rounded-[.3rem] tracking-[.12em]">
                   {{ block.settings.after_label }}
                 </div>
               </div>
@@ -108,9 +108,19 @@
       </div>
 
       <!-- UI -->
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev hidden"></div>
-      <div class="swiper-button-next hidden"></div>
+      <div class="swiper-pagination hidden"></div>
+      <div class="swiper-button-prev block! after:hidden lg:left-[5.5%]! left-[3%]! text-white bg-[#2A5072] rounded-full lg:w-[30px]! lg:h-[30px]! w-[25px]! h-[25px]!">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" class="w-8 h-8">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+  </svg>
+</div>
+
+<div class="swiper-button-next block! after:hidden lg:right-[5.5%]! right-[3%]! text-white bg-[#2A5072] rounded-full lg:w-[30px]! lg:h-[30px]! w-[25px]! h-[25px]!">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" class="w-8 h-8">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+  </svg>
+</div>
+
     </div>
   </div>
 </section>
@@ -133,64 +143,121 @@
     const wrapper = document.querySelector('#ba-swiper-{{ section.id }} .ba-swiper');
     if(!wrapper || typeof Swiper === 'undefined') return;
 
-    if(wrapper.swiper) wrapper.swiper.destroy(true,true);
+    if (wrapper.swiper) wrapper.swiper.destroy(true, true);
 
     const swiper = new Swiper(wrapper, {
       slidesPerView: 1.2,
-      spaceBetween: 10,
+      spaceBetween: 0,
       centeredSlides: true,
       loop: {{ section.settings.loop | json }},
       autoplay: {{ section.settings.autoplay | json }}
         ? { delay: {{ section.settings.autoplay_delay | times: 1000 }}, disableOnInteraction: false }
         : false,
       pagination: { el: wrapper.querySelector(".swiper-pagination"), clickable: true },
-      // navigation: { nextEl: wrapper.querySelector(".swiper-button-next"), prevEl: wrapper.querySelector(".swiper-button-prev") },
+      navigation: {
+        nextEl: wrapper.querySelector(".swiper-button-next"),
+        prevEl: wrapper.querySelector(".swiper-button-prev")
+      },
       allowTouchMove: false,
-      simulateTouch: false,
+      simulateTouch: false
     });
 
     // Drag logic
-    wrapper.querySelectorAll('.swiper-slide .relative').forEach(wrap=>{
-      const handle=wrap.querySelector('.slider-handle'),
-            line=wrap.querySelector('.slider-line'),
-            before=wrap.querySelector(':scope > div:nth-child(1)'),
-            after=wrap.querySelector(':scope > div:nth-child(2)');
-      if(!handle||!line||!before||!after) return;
+    wrapper.querySelectorAll('.swiper-slide .relative').forEach(wrap => {
+      const handle = wrap.querySelector('.slider-handle');
+      const line   = wrap.querySelector('.slider-line');
+      const before = wrap.querySelector(':scope > div:nth-child(1)');
+      const after  = wrap.querySelector(':scope > div:nth-child(2)');
+      if (!handle || !line || !before || !after) return;
 
-      let dragging=false;
-      const set=(x)=>{
-        const r=wrap.getBoundingClientRect();
-        let off=x-r.left;
-        if(off<0) off=0; if(off>r.width) off=r.width;
-        const pct=(off/r.width)*100;
-        handle.style.left=pct+'%';
-        line.style.left=pct+'%';
-        before.style.clipPath=`inset(0 ${100-pct}% 0 0)`;
-        after.style.clipPath=`inset(0 0 0 ${pct}%)`;
+      // prevent image dragging / text selection inside slide
+      wrap.style.userSelect = 'none';
+      [...wrap.querySelectorAll('img')].forEach(img => img.setAttribute('draggable','false'));
+      handle.style.touchAction = 'none';
+      line.style.touchAction = 'none';
+
+      let dragging = false;
+
+      const set = (x) => {
+        const r = wrap.getBoundingClientRect();
+        let off = x - r.left;
+        if (off < 0) off = 0;
+        if (off > r.width) off = r.width;
+        const pct = (off / r.width) * 100;
+        handle.style.left = pct + '%';
+        line.style.left = pct + '%';
+        before.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+        after.style.clipPath  = `inset(0 0 0 ${pct}%)`;
       };
-      const start=()=>{ dragging=true; handle.style.transition='none'; line.style.transition='none'; };
-      const end=()=>{ dragging=false; handle.style.transition='left .3s'; line.style.transition='left .3s'; };
-      const move=(e)=>{ if(!dragging) return; const x=e.touches?e.touches[0].clientX:e.clientX; set(x); };
 
-      handle.addEventListener('mousedown',start); line.addEventListener('mousedown',start);
-      window.addEventListener('mousemove',move); window.addEventListener('mouseup',end);
+      const start = (e) => {
+        dragging = true;
+        // stop text selection / scroll / swiper interference
+        e.preventDefault();
+        e.stopPropagation();
+        document.addEventListener('selectstart', preventSelect);
+        document.body.style.userSelect = 'none';
+        handle.style.transition = 'none';
+        line.style.transition = 'none';
 
-      handle.addEventListener('touchstart',start,{passive:true});
-      line.addEventListener('touchstart',start,{passive:true});
-      window.addEventListener('touchmove',move,{passive:true});
-      window.addEventListener('touchend',end,{passive:true});
+        // if user taps/clicks not exactly centered, set immediately
+        const pointX = e.touches ? e.touches[0].clientX : e.clientX;
+        set(pointX);
+      };
+
+      const end = () => {
+        if (!dragging) return;
+        dragging = false;
+        document.removeEventListener('selectstart', preventSelect);
+        document.body.style.userSelect = '';
+        handle.style.transition = 'left .3s';
+        line.style.transition = 'left .3s';
+      };
+
+      const move = (e) => {
+        if (!dragging) return;
+        e.preventDefault(); // needed on touch to stop page scroll
+        const x = e.touches ? e.touches[0].clientX : e.clientX;
+        set(x);
+      };
+
+      const preventSelect = (e) => e.preventDefault();
+
+      // Mouse events
+      handle.addEventListener('mousedown', start);
+      line.addEventListener('mousedown', start);
+      window.addEventListener('mousemove', move, { passive: false });
+      window.addEventListener('mouseup', end);
+
+      // Touch events (passive:false so we can preventDefault)
+      handle.addEventListener('touchstart', start, { passive: false });
+      line.addEventListener('touchstart', start, { passive: false });
+      window.addEventListener('touchmove', move, { passive: false });
+      window.addEventListener('touchend', end, { passive: true });
+      window.addEventListener('touchcancel', end, { passive: true });
+
+      // Click/tap anywhere on wrap to jump handle
+      wrap.addEventListener('mousedown', (e) => {
+        if (e.target === handle || e.target === line) return;
+        set(e.clientX);
+      });
+      wrap.addEventListener('touchstart', (e) => {
+        if (e.target === handle || e.target === line) return;
+        if (!e.touches) return;
+        set(e.touches[0].clientX);
+      }, { passive: true });
 
       // init center
-      handle.style.left='50%';
-      line.style.left='50%';
-      before.style.clipPath='inset(0 50% 0 0)';
-      after.style.clipPath='inset(0 0 0 50%)';
+      handle.style.left = '50%';
+      line.style.left = '50%';
+      before.style.clipPath = 'inset(0 50% 0 0)';
+      after.style.clipPath  = 'inset(0 0 0 50%)';
     });
   }
 
   function waitForSwiper(){
-    if(typeof Swiper!=='undefined'){initSliders();}
-    else setTimeout(waitForSwiper,150);
+    if (typeof Swiper !== 'undefined') { initSliders(); }
+    else setTimeout(waitForSwiper, 150);
   }
   waitForSwiper();
 
@@ -198,11 +265,11 @@
   document.addEventListener('shopify:section:reorder', waitForSwiper);
 })();
 </script>
-
 {% schema %}
 {
   "name": "Before/After Swiper",
   "settings": [
+    { "type": "color", "id": "bg", "label": "Section background", "default": "#F7F5F2" },
     { "type": "text", "id": "heading", "label": "Heading", "default": "See the results" },
     { "type": "text", "id": "subheading", "label": "Subheading", "default": "Drag to compare" },
     { "type": "checkbox", "id": "loop", "label": "Loop slides", "default": true },
@@ -217,25 +284,26 @@
       "default": 4
     },
     {
-      "type": "range",
-      "id": "margin_top_desktop",
-      "min": 0,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Top (Desktop)",
-      "default": 36
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom_desktop",
-      "min": 30,
-      "max": 200,
-      "step": 2,
-      "unit": "px",
-      "label": "Margin Bottom (Desktop)",
-      "default": 36
-    },
+  "type": "range",
+  "id": "margin_top_desktop",
+  "min": 0,
+  "max": 200,
+  "step": 2,
+  "unit": "px",
+  "label": "Margin Top (Desktop)",
+  "default": 0
+},
+{
+  "type": "range",
+  "id": "margin_bottom_desktop",
+  "min": 0,
+  "max": 200,
+  "step": 2,
+  "unit": "px",
+  "label": "Margin Bottom (Desktop)",
+  "default": 0
+},
+
     {
       "type": "range",
       "id": "padding_top_desktop",
@@ -244,7 +312,7 @@
       "step": 2,
       "unit": "px",
       "label": "Padding Top (Desktop)",
-      "default": 36
+      "default": 0
     },
     {
       "type": "range",
@@ -254,7 +322,7 @@
       "step": 2,
       "unit": "px",
       "label": "Padding Bottom (Desktop)",
-      "default": 36
+      "default": 0
     },
     {
       "type": "range",
@@ -264,17 +332,17 @@
       "step": 2,
       "unit": "px",
       "label": "Margin Top (Mobile)",
-      "default": 20
+      "default": 0
     },
     {
       "type": "range",
       "id": "margin_bottom_mobile",
-      "min": 20,
+      "min": 0,
       "max": 100,
       "step": 2,
       "unit": "px",
       "label": "Margin Bottom (Mobile)",
-      "default": 20
+      "default": 0
     },
     {
       "type": "range",

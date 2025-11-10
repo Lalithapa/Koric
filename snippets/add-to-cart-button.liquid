@@ -1,5 +1,5 @@
 {%- doc -%}
-  Renders an "Add to Bag" button with dynamic text and state. It shows different text based on whether the product can be added to the cart and provides visual feedback when an item is added.
+  Renders an "Add to cart" button with dynamic text and state. It shows different text based on whether the product can be added to the cart and provides visual feedback when an item is added.
 
   @param {boolean} can_add_to_cart - Whether the product can be added to the cart.
   @param {string} add_to_cart_text - The text to display on the button.
@@ -36,12 +36,13 @@
     <span
       class="add-to-cart-text"
     >
-    {% if can_add_to_cart %}
+      {% if can_add_to_cart %}
         <span class="svg-wrapper add-to-cart-icon">
           {{- 'icon-add-to-cart.svg' | inline_asset_content -}}
         </span>
       {% endif %}
-      <span class="add-to-cart-text__content{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}">
+     <span class="add-to-cart-text__content{% unless template == 'index' %}{% if icon_only_on_mobile %} is-visually-hidden-mobile{% endif %}{% endunless %}">
+
         {{- add_to_cart_text | default: default_add_to_cart_text -}}
       </span>
     </span>
@@ -52,7 +53,7 @@
       <span class="svg-wrapper add-to-cart-icon--added">
         {{- 'icon-checkmark.svg' | inline_asset_content -}}
       </span>
-      <span class="{% if icon_only_on_mobile %}is-visually-hidden-mobile{% endif %}">
+      <span class="{% unless template == 'index' %}{% if icon_only_on_mobile %}is-visually-hidden-mobile nnn{% endif %}{% endunless %}">
         {{- 'actions.added' | t -}}
       </span>
     </span>

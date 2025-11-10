@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero_banner_custom_Xeh8L9": {
@@ -5,13 +14,13 @@
       "disabled": true,
       "name": "Split Banner Section",
       "settings": {
-        "image_desktop": "shopify:\/\/shop_images\/Desktop_header_banner.jpg",
-        "image_mobile": "shopify:\/\/shop_images\/mobile_header_banner.jpg",
+        "image_desktop": "shopify://shop_images/Desktop_header_banner.jpg",
+        "image_mobile": "shopify://shop_images/mobile_header_banner.jpg",
         "subheading": "LESS FOAM. MORE CARE",
         "heading": "SMART CLEANING STARTS WITH SCIENCE",
         "text": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
         "button_label": "SHOP NOW",
-        "button_link": "shopify:\/\/collections"
+        "button_link": "shopify://collections"
       }
     },
     "responsive_banner_pWYktA": {
@@ -20,8 +29,8 @@
         "banner_mpTjPP": {
           "type": "banner",
           "settings": {
-            "desktop_image": "shopify:\/\/shop_images\/Desktop_header_banner.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/mobile_header_banner.jpg",
+            "desktop_image": "shopify://shop_images/Desktop_header_banner.jpg",
+            "mobile_image": "shopify://shop_images/mobile_header_banner.jpg",
             "alt": "Banner",
             "link": "#",
             "link_target": "_self"
@@ -48,7 +57,7 @@
         "heading": "Good skin starts with a good cleanse",
         "copy": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
         "cta_label": "browse all",
-        "cta_link": "shopify:\/\/collections\/dark-circles",
+        "cta_link": "shopify://collections/dark-circles",
         "text-area": "",
         "margin_top_desktop": 0,
         "margin_bottom_desktop": 0,
@@ -66,18 +75,18 @@
         "card_FBFbVd": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "image_alt": "",
             "title": "ALPHA ARBUTIN",
             "text": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
             "cta_label": "VIEW PRODUCTS",
-            "cta_url": "shopify:\/\/collections"
+            "cta_url": "shopify://collections"
           }
         },
         "card_EpmkcF": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "image_alt": "",
             "title": "ALPHA ARBUTIN",
             "text": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
@@ -88,7 +97,7 @@
         "card_cVcfYc": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "image_alt": "",
             "title": "ALPHA ARBUTIN",
             "text": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
@@ -99,7 +108,7 @@
         "card_JFjEfQ": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "image_alt": "",
             "title": "ALPHA ARBUTIN",
             "text": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
@@ -118,7 +127,7 @@
       "settings": {
         "heading": "Korean cleansing, backed by science.",
         "subtext": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
-        "cta_url": "shopify:\/\/collections",
+        "cta_url": "shopify://collections",
         "cta_label": "browse all",
         "cta_label_mobile": "BROWSE ALL",
         "bg": "#072338",
@@ -138,40 +147,40 @@
         "product_card_chQr3G": {
           "type": "product_card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "title": "ALPHA ARBUTIN",
             "description": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_text": "VIEW PRODUCTS"
           }
         },
         "product_card_GUERR7": {
           "type": "product_card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "title": "ALPHA ARBUTIN",
             "description": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_text": "VIEW PRODUCTS"
           }
         },
         "product_card_j4gx3w": {
           "type": "product_card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "title": "ALPHA ARBUTIN",
             "description": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_text": "VIEW PRODUCTS"
           }
         },
         "product_card_jTMXDc": {
           "type": "product_card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625274.png",
+            "image": "shopify://shop_images/Rectangle_34625274.png",
             "title": "ALPHA ARBUTIN",
             "description": "Visibly fades tan and uneven tone while revealing a brighter, more even complexion",
-            "button_link": "shopify:\/\/collections",
+            "button_link": "shopify://collections",
             "button_text": "VIEW PRODUCTS"
           }
         }
@@ -186,7 +195,7 @@
       "settings": {
         "heading": "Korean cleansing, backed by science.",
         "subtext": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
-        "cta_url": "shopify:\/\/collections",
+        "cta_url": "shopify://collections",
         "cta_label": "browse all",
         "cta_label_mobile": "BROWSE ALL",
         "padding_top_mobile": 100,
@@ -195,10 +204,10 @@
     },
     "micro_foaming_banner_AYDtar": {
       "type": "micro-foaming-banner",
-      "name": "Micro Foaming Banner (D\/M)",
+      "name": "Micro Foaming Banner (D/M)",
       "settings": {
-        "desktop_image": "shopify:\/\/shop_images\/Screenshot_2025-10-27_at_12.13.54_PM_2.png",
-        "mobile_image": "shopify:\/\/shop_images\/Screenshot_2025-10-27_at_12.13.54_PM_3.png",
+        "desktop_image": "shopify://shop_images/Screenshot_2025-10-27_at_12.13.54_PM_2.png",
+        "mobile_image": "shopify://shop_images/Screenshot_2025-10-27_at_12.13.54_PM_3.png",
         "alt": "Micro foaming technology banner",
         "show_overlay": true,
         "kicker": "REMOVES UP TO 99.2%",
@@ -208,7 +217,7 @@
         "footnote": "*Based on internal tests comparing micro-foaming vs. traditional cleansing bars.",
         "button_label": "Know more",
         "button_link": "",
-        "right_image": "shopify:\/\/shop_images\/image_8.png"
+        "right_image": "shopify://shop_images/image_8.png"
       }
     },
     "after_before_effect_NqTt6t": {
@@ -217,9 +226,9 @@
         "slide_NmWHzG": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify:\/\/shop_images\/first.jpg",
+            "before_image": "shopify://shop_images/first.jpg",
             "before_alt": "Before",
-            "after_image": "shopify:\/\/shop_images\/clean.jpg",
+            "after_image": "shopify://shop_images/clean.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -228,9 +237,9 @@
         "slide_kPLLkP": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify:\/\/shop_images\/first.jpg",
+            "before_image": "shopify://shop_images/first.jpg",
             "before_alt": "Before",
-            "after_image": "shopify:\/\/shop_images\/clean.jpg",
+            "after_image": "shopify://shop_images/clean.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -239,9 +248,9 @@
         "slide_attmL8": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify:\/\/shop_images\/Hydration_Heroes_Featured_Banner_-_Anti_Aging_Range.jpg",
+            "before_image": "shopify://shop_images/Hydration_Heroes_Featured_Banner_-_Anti_Aging_Range.jpg",
             "before_alt": "Before",
-            "after_image": "shopify:\/\/shop_images\/746935569792-05.jpg",
+            "after_image": "shopify://shop_images/746935569792-05.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -250,9 +259,9 @@
         "slide_DjJEKB": {
           "type": "slide",
           "settings": {
-            "before_image": "shopify:\/\/shop_images\/Featured_Banner_-_Wellness_Range.jpg",
+            "before_image": "shopify://shop_images/Featured_Banner_-_Wellness_Range.jpg",
             "before_alt": "Before",
-            "after_image": "shopify:\/\/shop_images\/746935569792-02.jpg",
+            "after_image": "shopify://shop_images/746935569792-02.jpg",
             "after_alt": "After",
             "before_label": "Before",
             "after_label": "After"
@@ -265,7 +274,7 @@
         "slide_attmL8",
         "slide_DjJEKB"
       ],
-      "name": "Before \/ After Card (IDs)",
+      "name": "Before / After Card (IDs)",
       "settings": {
         "bg": "#f7f5f2",
         "heading": "Soap that shows results",
@@ -289,7 +298,7 @@
         "card_RRCk78": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_38386.png",
+            "image": "shopify://shop_images/Frame_38386.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -300,7 +309,7 @@
         "card_GBVaTH": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_38387.png",
+            "image": "shopify://shop_images/Frame_38387.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -311,7 +320,7 @@
         "card_gkRpLp": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_38385.png",
+            "image": "shopify://shop_images/Frame_38385.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -322,7 +331,7 @@
         "card_U4U4Vz": {
           "type": "card",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Frame_38381.png",
+            "image": "shopify://shop_images/Frame_38381.png",
             "title": "SUN TAN",
             "cta_text": "View Product",
             "title-bottom": "",
@@ -341,7 +350,7 @@
       "settings": {
         "heading": "Shop by skin need",
         "subtext": "Each Koric bar is powered by micro-foaming technology and clinically backed actives.",
-        "cta_url": "shopify:\/\/collections\/all",
+        "cta_url": "shopify://collections/all",
         "cta_label": "browse all",
         "cta_label_mobile": "BROWSE ALL",
         "bg": "#add1f2",
@@ -363,14 +372,14 @@
           "name": "t:names.video",
           "settings": {
             "source": "uploaded",
-            "video": "shopify:\/\/files\/videos\/Lamel Video.mp4",
+            "video": "shopify://files/videos/Lamel Video.mp4",
             "video_url": "",
             "video_autoplay": false,
             "video_loop": true,
             "alt": "",
             "custom_width": 98,
             "custom_width_mobile": 100,
-            "aspect_ratio": "16\/9",
+            "aspect_ratio": "16/9",
             "border": "none",
             "border_width": 1,
             "border_opacity": 100,
@@ -422,25 +431,25 @@
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify:\/\/shop_images\/image_4.png",
+            "image": "shopify://shop_images/image_4.png",
             "alt": "Nykaa",
-            "link": "shopify:\/\/collections"
+            "link": "shopify://collections"
           }
         },
         "logo_Db7EGx": {
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify:\/\/shop_images\/image_7.png",
+            "image": "shopify://shop_images/image_7.png",
             "alt": "Nykaa",
-            "link": "shopify:\/\/products\/protein-superfood-cleansing-balm"
+            "link": "shopify://products/protein-superfood-cleansing-balm"
           }
         },
         "logo_JBBrJL": {
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify:\/\/shop_images\/image_6.png",
+            "image": "shopify://shop_images/image_6.png",
             "alt": "Nykaa",
             "link": ""
           }
@@ -449,7 +458,7 @@
           "type": "logo",
           "settings": {
             "title": "Nykaa",
-            "image": "shopify:\/\/shop_images\/image_5.png",
+            "image": "shopify://shop_images/image_5.png",
             "alt": "Nykaa",
             "link": ""
           }
@@ -478,28 +487,28 @@
         "icon_PCkz94": {
           "type": "icon",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625292.png",
+            "image": "shopify://shop_images/Rectangle_34625292.png",
             "alt_text": "Core Icon"
           }
         },
         "icon_aHhPyj": {
           "type": "icon",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625294.png",
+            "image": "shopify://shop_images/Rectangle_34625294.png",
             "alt_text": "Core Icon"
           }
         },
         "icon_eNYRj9": {
           "type": "icon",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625291.png",
+            "image": "shopify://shop_images/Rectangle_34625291.png",
             "alt_text": "Core Icon"
           }
         },
         "icon_p437p6": {
           "type": "icon",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Rectangle_34625293.png",
+            "image": "shopify://shop_images/Rectangle_34625293.png",
             "alt_text": "Core Icon"
           }
         }

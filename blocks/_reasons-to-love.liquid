@@ -1,0 +1,57 @@
+{% if product.metafields.custom.reasons_to_love_me.value.count > 0 %}
+<div class="w-full bg-[#F9F7F4] max-w-[1180px]">
+    <!-- Heading -->
+    <p class="text-black font-[Groteska] text-[17px]! font-medium leading-[19px] tracking-[0.5px] mb-4">
+      Reasons to love the product
+    </p>
+    <!-- Grid -->
+    <div class="d-grid overflow-auto snap-x grid-cols-[repeat(4,minmax(150px,1fr))] gap-2! [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <!-- All Cards -->
+      {% for images in product.metafields.custom.reasons_to_love_me.value %}
+          <img
+            src="{{ images | image_url }}"
+            alt="{{ images.alt | escape | append: forloop.index | prepend: product.title }}"
+            class="snap-start w-full h-full object-contain rounded-[10px]" width="100%" height="100%"  loading="lazy"
+          />
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Reasons to Love",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:content.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding-block-start",
+      "label": "t:settings.top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding-block-end",
+      "label": "t:settings.bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reasons to Love",
+      "category": "t:categories.layout"
+    }
+  ]
+}
+{% endschema %}

@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "type": "footer",
   "name": "Footer",
@@ -9,7 +18,7 @@
           "type": "phone",
           "settings": {
             "phone_label": "+91 8130267067",
-            "phone_url": "https:\/\/wa.me\/+918130267067",
+            "phone_url": "https://wa.me/+918130267067",
             "phone_text": "+918130267067"
           }
         },
@@ -17,7 +26,7 @@
           "type": "phone",
           "settings": {
             "phone_label": "+91 9717738294",
-            "phone_url": "https:\/\/wa.me\/+919717738294",
+            "phone_url": "https://wa.me/+919717738294",
             "phone_text": "+919717738294"
           }
         },
@@ -25,7 +34,7 @@
           "type": "phone",
           "settings": {
             "phone_label": "+918130267067",
-            "phone_url": "https:\/\/wa.me\/+918130267067",
+            "phone_url": "https://wa.me/+918130267067",
             "phone_text": "+918130267067"
           }
         }
@@ -40,7 +49,7 @@
         "headline": "Your inbox deserves a bubble or two",
         "kicker": "Join The Clean Crew  By signing up you consent to receive emails.",
         "short_copy": "We make care simple — because good skin shouldn’t be complicated.",
-        "logo": "shopify:\/\/shop_images\/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
+        "logo": "shopify://shop_images/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
         "logo_alt": "Main Logo",
         "menu_1": "shop-by-concern",
         "menu_1_title": "Shop by Concern",
@@ -104,7 +113,7 @@
             "text_LWt8Pz": {
               "type": "text",
               "settings": {
-                "text": "<p>Your inbox deserves<\/p><p> a bubble or two<br\/><br\/>Join the clean crew<br\/><\/p>",
+                "text": "<p>Your inbox deserves</p><p> a bubble or two<br/><br/>Join the clean crew<br/></p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -156,7 +165,7 @@
               "type": "text",
               "disabled": true,
               "settings": {
-                "text": "<p>Get exclusive deals and early access to new products.<\/p>",
+                "text": "<p>Get exclusive deals and early access to new products.</p>",
                 "width": "100%",
                 "max_width": "normal",
                 "alignment": "left",
@@ -334,11 +343,11 @@
         "social_links_Ew63Kq": {
           "type": "social-links",
           "settings": {
-            "facebook_url": "https:\/\/www.facebook.com\/",
-            "instagram_url": "https:\/\/www.instagram.com\/",
-            "youtube_url": "https:\/\/www.youtube.com\/",
-            "tiktok_url": "https:\/\/www.tiktok.com\/",
-            "twitter_url": "https:\/\/x.com\/",
+            "facebook_url": "https://www.facebook.com/",
+            "instagram_url": "https://www.instagram.com/",
+            "youtube_url": "https://www.youtube.com/",
+            "tiktok_url": "https://www.tiktok.com/",
+            "twitter_url": "https://x.com/",
             "threads_url": "",
             "linkedin_url": "",
             "bluesky_url": "",
@@ -373,8 +382,8 @@
         "banner_cEbWXr": {
           "type": "banner",
           "settings": {
-            "desktop_image": "shopify:\/\/shop_images\/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
-            "mobile_image": "shopify:\/\/shop_images\/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
+            "desktop_image": "shopify://shop_images/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
+            "mobile_image": "shopify://shop_images/Koric_logo_Deep_blue_logo_2_711d5cf6-e67b-4cb4-b9ef-c6a9aac2c9c2.png",
             "alt": "Banner",
             "link": "#",
             "link_target": "_self"

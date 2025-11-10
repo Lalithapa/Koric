@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -16,7 +25,7 @@
             "slideshow_mobile_controls_style": "dots",
             "thumbnail_position": "right",
             "thumbnail_width": 44,
-            "aspect_ratio": "1\/1.25",
+            "aspect_ratio": "1/1.25",
             "constrain_to_viewport": false,
             "media_fit": "contain",
             "media_radius": 20,
@@ -62,7 +71,7 @@
               "type": "custom-liquid",
               "name": "t:names.custom_liquid",
               "settings": {
-                "custom_liquid": "<div class=\"flex justify-between items-center mt-4\">\n<div class=\"inline-block rounded-full bg-[#ECDCEF] px-[10px] py-[5px]\">\n  <span class=\"text-[#2A5072] text-[12px] font-semibold leading-none\">New<\/span>\n<\/div>\n<div id=\"shareProduct\" class=\"share_product h-full cursor-pointer mobile_screen\">\n    <svg xmlns=\"http:\/\/www.w3.org\/2000\/svg\" width=\"14\" height=\"17\" viewBox=\"0 0 14 17\" fill=\"none\">\n      <path\n        d=\"M11.6349 16C11.1173 16 10.6765 15.8079 10.3127 15.4237C9.94882 15.0405 9.76689 14.5747 9.76689 14.0263C9.76689 13.9211 9.77535 13.8124 9.79228 13.7003C9.8097 13.5876 9.83558 13.4816 9.86992 13.3821L4.0897 9.78132C3.90703 9.99921 3.69449 10.1689 3.4521 10.2905C3.2097 10.4121 2.95038 10.4732 2.67413 10.4737C2.15549 10.4737 1.71499 10.2821 1.35264 9.89895C0.989291 9.51526 0.807617 9.04947 0.807617 8.50158C0.807617 7.95368 0.989291 7.48763 1.35264 7.10342C1.71599 6.71921 2.15649 6.52684 2.67413 6.52632C2.95087 6.52632 3.2102 6.58737 3.4521 6.70947C3.694 6.83158 3.90653 7.00132 4.0897 7.21868L9.87067 3.61711C9.83583 3.51816 9.80995 3.41237 9.79302 3.29974C9.7756 3.18763 9.76689 3.07895 9.76689 2.97368C9.76689 2.42526 9.94832 1.95947 10.3112 1.57632C10.6735 1.19211 11.1138 1 11.6319 1C12.1501 1 12.5908 1.19184 12.9542 1.57553C13.3175 1.95921 13.4994 2.42474 13.4999 2.97211C13.5004 3.51947 13.3187 3.98553 12.9549 4.37026C12.593 4.755 12.1525 4.94737 11.6334 4.94737C11.3567 4.94737 11.0973 4.88632 10.8554 4.76421C10.6135 4.64211 10.401 4.47237 10.2178 4.255L4.43762 7.85658C4.47196 7.95553 4.49759 8.06079 4.51452 8.17237C4.53194 8.28447 4.54065 8.39263 4.54065 8.49684C4.54065 8.60105 4.53194 8.71026 4.51452 8.82447C4.4971 8.93868 4.47121 9.04526 4.43687 9.14421L10.2178 12.745C10.4005 12.5276 10.613 12.3579 10.8554 12.2358C11.0978 12.1137 11.3572 12.0526 11.6334 12.0526C12.1521 12.0526 12.5925 12.2445 12.9549 12.6282C13.3182 13.0113 13.4999 13.4768 13.4999 14.0247C13.4999 14.5726 13.3187 15.0387 12.9564 15.4229C12.594 15.8071 12.1535 15.9995 11.6349 16ZM11.6334 4.15789C11.9405 4.15789 12.2041 4.04184 12.4241 3.80974C12.6436 3.57711 12.7533 3.29842 12.7533 2.97368C12.7533 2.64895 12.6436 2.37026 12.4241 2.13763C12.2041 1.90553 11.9405 1.78947 11.6334 1.78947C11.3263 1.78947 11.0628 1.90553 10.8428 2.13763C10.6232 2.37026 10.5135 2.64895 10.5135 2.97368C10.5135 3.29842 10.6232 3.57711 10.8428 3.80974C11.0628 4.04184 11.3263 4.15789 11.6334 4.15789ZM2.67413 9.68421C2.98124 9.68421 3.24479 9.56816 3.46479 9.33605C3.68429 9.10342 3.79404 8.82474 3.79404 8.5C3.79404 8.17526 3.68429 7.89658 3.46479 7.66395C3.24529 7.43132 2.98173 7.31526 2.67413 7.31579C2.36653 7.31632 2.10298 7.43237 1.88348 7.66395C1.66397 7.89658 1.55422 8.17526 1.55422 8.5C1.55422 8.82474 1.66397 9.10342 1.88348 9.33605C2.10298 9.56868 2.36653 9.68474 2.67413 9.68421ZM11.6334 15.2105C11.9405 15.2105 12.2041 15.0945 12.4241 14.8624C12.6436 14.6297 12.7533 14.3511 12.7533 14.0263C12.7533 13.7016 12.6436 13.4229 12.4241 13.1903C12.2041 12.9582 11.9405 12.8421 11.6334 12.8421C11.3263 12.8421 11.0628 12.9582 10.8428 13.1903C10.6232 13.4229 10.5135 13.7016 10.5135 14.0263C10.5135 14.3511 10.6232 14.6297 10.8428 14.8624C11.0628 15.0945 11.3263 15.2105 11.6334 15.2105Z\"\n        fill=\"#212529\" stroke=\"#212529\" stroke-width=\"0.6\" \/>\n    <\/svg>\n  <\/div>\n<\/div>"
+                "custom_liquid": "<div class=\"flex justify-between items-center mt-4\">\n<div class=\"inline-block rounded-full bg-[#ECDCEF] px-[10px] py-[5px]\">\n  <span class=\"text-[#2A5072] text-[12px] font-semibold leading-none\">New</span>\n</div>\n<div id=\"shareProduct\" class=\"share_product h-full cursor-pointer mobile_screen\">\n    <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"14\" height=\"17\" viewBox=\"0 0 14 17\" fill=\"none\">\n      <path\n        d=\"M11.6349 16C11.1173 16 10.6765 15.8079 10.3127 15.4237C9.94882 15.0405 9.76689 14.5747 9.76689 14.0263C9.76689 13.9211 9.77535 13.8124 9.79228 13.7003C9.8097 13.5876 9.83558 13.4816 9.86992 13.3821L4.0897 9.78132C3.90703 9.99921 3.69449 10.1689 3.4521 10.2905C3.2097 10.4121 2.95038 10.4732 2.67413 10.4737C2.15549 10.4737 1.71499 10.2821 1.35264 9.89895C0.989291 9.51526 0.807617 9.04947 0.807617 8.50158C0.807617 7.95368 0.989291 7.48763 1.35264 7.10342C1.71599 6.71921 2.15649 6.52684 2.67413 6.52632C2.95087 6.52632 3.2102 6.58737 3.4521 6.70947C3.694 6.83158 3.90653 7.00132 4.0897 7.21868L9.87067 3.61711C9.83583 3.51816 9.80995 3.41237 9.79302 3.29974C9.7756 3.18763 9.76689 3.07895 9.76689 2.97368C9.76689 2.42526 9.94832 1.95947 10.3112 1.57632C10.6735 1.19211 11.1138 1 11.6319 1C12.1501 1 12.5908 1.19184 12.9542 1.57553C13.3175 1.95921 13.4994 2.42474 13.4999 2.97211C13.5004 3.51947 13.3187 3.98553 12.9549 4.37026C12.593 4.755 12.1525 4.94737 11.6334 4.94737C11.3567 4.94737 11.0973 4.88632 10.8554 4.76421C10.6135 4.64211 10.401 4.47237 10.2178 4.255L4.43762 7.85658C4.47196 7.95553 4.49759 8.06079 4.51452 8.17237C4.53194 8.28447 4.54065 8.39263 4.54065 8.49684C4.54065 8.60105 4.53194 8.71026 4.51452 8.82447C4.4971 8.93868 4.47121 9.04526 4.43687 9.14421L10.2178 12.745C10.4005 12.5276 10.613 12.3579 10.8554 12.2358C11.0978 12.1137 11.3572 12.0526 11.6334 12.0526C12.1521 12.0526 12.5925 12.2445 12.9549 12.6282C13.3182 13.0113 13.4999 13.4768 13.4999 14.0247C13.4999 14.5726 13.3187 15.0387 12.9564 15.4229C12.594 15.8071 12.1535 15.9995 11.6349 16ZM11.6334 4.15789C11.9405 4.15789 12.2041 4.04184 12.4241 3.80974C12.6436 3.57711 12.7533 3.29842 12.7533 2.97368C12.7533 2.64895 12.6436 2.37026 12.4241 2.13763C12.2041 1.90553 11.9405 1.78947 11.6334 1.78947C11.3263 1.78947 11.0628 1.90553 10.8428 2.13763C10.6232 2.37026 10.5135 2.64895 10.5135 2.97368C10.5135 3.29842 10.6232 3.57711 10.8428 3.80974C11.0628 4.04184 11.3263 4.15789 11.6334 4.15789ZM2.67413 9.68421C2.98124 9.68421 3.24479 9.56816 3.46479 9.33605C3.68429 9.10342 3.79404 8.82474 3.79404 8.5C3.79404 8.17526 3.68429 7.89658 3.46479 7.66395C3.24529 7.43132 2.98173 7.31526 2.67413 7.31579C2.36653 7.31632 2.10298 7.43237 1.88348 7.66395C1.66397 7.89658 1.55422 8.17526 1.55422 8.5C1.55422 8.82474 1.66397 9.10342 1.88348 9.33605C2.10298 9.56868 2.36653 9.68474 2.67413 9.68421ZM11.6334 15.2105C11.9405 15.2105 12.2041 15.0945 12.4241 14.8624C12.6436 14.6297 12.7533 14.3511 12.7533 14.0263C12.7533 13.7016 12.6436 13.4229 12.4241 13.1903C12.2041 12.9582 11.9405 12.8421 11.6334 12.8421C11.3263 12.8421 11.0628 12.9582 10.8428 13.1903C10.6232 13.4229 10.5135 13.7016 10.5135 14.0263C10.5135 14.3511 10.6232 14.6297 10.8428 14.8624C11.0628 15.0945 11.3263 15.2105 11.6334 15.2105Z\"\n        fill=\"#212529\" stroke=\"#212529\" stroke-width=\"0.6\" />\n    </svg>\n  </div>\n</div>"
               },
               "blocks": {}
             },
@@ -110,7 +119,7 @@
                   "type": "text",
                   "name": "Product title",
                   "settings": {
-                    "text": "<h1>{{ closest.product.title }}<\/h1>",
+                    "text": "<h1>{{ closest.product.title }}</h1>",
                     "width": "100%",
                     "max_width": "normal",
                     "alignment": "left",
@@ -134,7 +143,7 @@
                   "blocks": {}
                 },
                 "judge_me_reviews_preview_badge_E6wEHr": {
-                  "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+                  "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
                   "settings": {}
                 },
                 "text_hJJQcg": {
@@ -294,7 +303,7 @@
                     "text_qmHREM": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.get_to_know_me | metafield_tag }}<\/p>",
+                        "text": "<p>{{ closest.product.metafields.custom.get_to_know_me | metafield_tag }}</p>",
                         "width": "fit-content",
                         "max_width": "narrow",
                         "alignment": "left",
@@ -335,7 +344,7 @@
                     "text_Mr9Xwy": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.results_to_expect | metafield_tag }}<\/p>",
+                        "text": "<p>{{ closest.product.metafields.custom.results_to_expect | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -376,7 +385,7 @@
                     "text_PWk3Lf": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.how_to_use | metafield_tag }}<\/p>",
+                        "text": "<p>{{ closest.product.metafields.custom.how_to_use | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -417,7 +426,7 @@
                     "text_iwM8jt": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.pro_tips | metafield_tag }}<\/p>",
+                        "text": "<p>{{ closest.product.metafields.custom.pro_tips | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -458,7 +467,7 @@
                     "text_ifMUMJ": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>{{ closest.product.metafields.custom.whats_inside | metafield_tag }}<\/p>",
+                        "text": "<p>{{ closest.product.metafields.custom.whats_inside | metafield_tag }}</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -543,7 +552,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>You may also like <\/h3>",
+            "text": "<h3>You may also like </h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -715,11 +724,11 @@
       "name": "Visible radiance",
       "settings": {
         "heading": "Visible radiance in <br>  just 7 days",
-        "image": "shopify:\/\/shop_images\/Screenshot_2025-10-30_at_1.46.10_PM_1.png",
-        "image_alt": "Before \/ After skin Desktop",
-        "image_mobile": "shopify:\/\/shop_images\/mobileba.png",
-        "image_alt_mobile": "Before \/ After skin Mobile",
-        "link_url": "shopify:\/\/collections\/all-product",
+        "image": "shopify://shop_images/Screenshot_2025-10-30_at_1.46.10_PM_1.png",
+        "image_alt": "Before / After skin Desktop",
+        "image_mobile": "shopify://shop_images/mobileba.png",
+        "image_alt_mobile": "Before / After skin Mobile",
+        "link_url": "shopify://collections/all-product",
         "link_label": "BROWSE ALL",
         "bg": "#274b6b"
       }
@@ -728,14 +737,14 @@
       "type": "image-collage-3up",
       "name": "Product Features Collage",
       "settings": {
-        "hero_img": "shopify:\/\/shop_images\/skin-care.png",
-        "hero_img_mobile": "shopify:\/\/shop_images\/soap_2f145f5b-2785-4707-b375-009a1a2906f3.png",
+        "hero_img": "shopify://shop_images/skin-care.png",
+        "hero_img_mobile": "shopify://shop_images/soap_2f145f5b-2785-4707-b375-009a1a2906f3.png",
         "hero_alt": "Your skin needs morethan cleansing",
-        "left_img": "shopify:\/\/shop_images\/soap.png",
-        "left_img_mobile": "shopify:\/\/shop_images\/Frame_38448.png",
+        "left_img": "shopify://shop_images/soap.png",
+        "left_img_mobile": "shopify://shop_images/Frame_38448.png",
         "left_alt": "Koric Product image",
-        "right_img": "shopify:\/\/shop_images\/Dual-action.png",
-        "right_img_mobile": "shopify:\/\/shop_images\/Frame_38434.png",
+        "right_img": "shopify://shop_images/Dual-action.png",
+        "right_img_mobile": "shopify://shop_images/Frame_38434.png",
         "right_alt": "Smart Dual-ActionFormula"
       }
     },
@@ -747,7 +756,7 @@
           "settings": {
             "title": "Alpha Arbutin",
             "subtitle": "Visibly brightens and evens skin tone",
-            "image": "shopify:\/\/shop_images\/ingredient_1.png",
+            "image": "shopify://shop_images/ingredient_1.png",
             "image_alt": "Ingredient molecule structure",
             "footer_heading": "Why it's essential",
             "footer_text": "Targets hyperpigmentation, promotes uniform radiance, and reveals a more luminous"
@@ -758,7 +767,7 @@
           "settings": {
             "title": "Niacinamide (Vitamin B3)",
             "subtitle": "Strengthens skin barrier + re nes texturet",
-            "image": "shopify:\/\/shop_images\/ingredient_2.png",
+            "image": "shopify://shop_images/ingredient_2.png",
             "image_alt": "Ingredient molecule structure",
             "footer_heading": "Why it's essential",
             "footer_text": "A stable, water-soluble form of Vitamin B3 that’s easily absorbed to strengthen and soothe the skin barrier."
@@ -769,7 +778,7 @@
           "settings": {
             "title": "Glutathione",
             "subtitle": "Nourishes and replenishes the skin",
-            "image": "shopify:\/\/shop_images\/ingredient_3.png",
+            "image": "shopify://shop_images/ingredient_3.png",
             "image_alt": "Ingredient molecule structure",
             "footer_heading": "Why it's essential",
             "footer_text": "A traditional Korean skincare ingredient known for its brightening and hydrating properties - maintaining skin vitality"
@@ -780,7 +789,7 @@
           "settings": {
             "title": "Vitamin C",
             "subtitle": "Powerful antioxidant duo for glow",
-            "image": "shopify:\/\/shop_images\/ingredient_1.png",
+            "image": "shopify://shop_images/ingredient_1.png",
             "image_alt": "Ingredient molecule structure",
             "footer_heading": "Why it's essential",
             "footer_text": "L-Glutathione and Ascorbic Acid - active, highly absorbable forms that support bright, healthy, and even-toned skin."
@@ -805,8 +814,8 @@
         "banner_3WmxYq": {
           "type": "banner",
           "settings": {
-            "desktop_image": "shopify:\/\/shop_images\/choose_best.png",
-            "mobile_image": "shopify:\/\/shop_images\/choose_best_mobile.png",
+            "desktop_image": "shopify://shop_images/choose_best.png",
+            "mobile_image": "shopify://shop_images/choose_best_mobile.png",
             "alt": "Banner",
             "link": "#",
             "link_target": "_self"
@@ -823,7 +832,7 @@
       "type": "_blocks",
       "blocks": {
         "judge_me_reviews_review_widget_cyM77Y": {
-          "type": "shopify:\/\/apps\/judge-me-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "review_data": "real_data",
             "max_width": 1200,

@@ -84,19 +84,19 @@
   {% endif %}
 
   {% if b.title != blank or b.text != blank or b.cta_label != blank %}
-    <div class="pointer-events-none absolute bottom-0 p-5 md:p-6">
+    <div class="pointer-events-none absolute bottom-0 p-5 md:p-6 w-full">
       {% if b.title != blank %}
         <h3 class="text-[#232323]! text-[16px]! font-bold! leading-normal uppercase">{{ b.title }}</h3>
       {% endif %}
       {% if b.text != blank %}
-        <p class="mt-2 text-[#595959]! text-[12px]! font-normal! leading-[1.3] max-w-[32ch] ">{{ b.text }}</p>
+        <p class="mt-2 text-[#595959]! text-[12px]! font-normal! leading-[1.3] max-w-[160px] ">{{ b.text }}</p>
       {% endif %}
       {% if b.cta_label != blank %}
         <div class="pointer-events-auto mt-4">
           <a
             href="{{ b.cta_url | default: '#' }}"
-            class="inline-flex w-[200px] justify-center rounded-full bg-[#ADD1F2]! text-[#2A5072]! font-semibold! text-[14px]! py-4 px-20 whitespace-nowrap transition-all duration-300 
-                    group-hover:bg-gradient-to-r group-hover:from-[#AEC8F2] group-hover:to-[#F6E7E9]  group-hover:w-[500px]"
+            class="inline-flex justify-center rounded-full bg-[#ADD1F2]! w-full text-[#2A5072]! font-semibold! text-[14px]! py-3 px-20 whitespace-nowrap transition-all duration-300 
+                   group-hover:bg-linear-to-r group-hover:from-[#AEC8F2] group-hover:to-[#F6E7E9]"
           >
             {{ b.cta_label }}
           </a>
@@ -120,49 +120,46 @@
   const cards = row ? row.querySelectorAll('.exp-card') : [];
   if (!cards.length) return;
 
-  // e.g. 40% → 0.40
   const expandRatio = {{ section.settings.expand_percent | default: 40 }} / 100;
-  const shrunkRatio = (1 - expandRatio) / Math.max(1, (cards.length - 1));
-
-  // Precompute strings for smooth CSS transition on flex-basis
-  const expandedBasis = `${(expandRatio * 100).toFixed(3)}%`;
-  const shrunkBasis   = `${(shrunkRatio * 100).toFixed(3)}%`;
+  const shrunkRatio = (1 - expandRatio) / Math.max(1, cards.length - 1);
+  const expandedBasis = `${(expandRatio * 100).toFixed(8)}%`;
+  const shrunkBasis = `${(shrunkRatio * 100).toFixed(8)}%`;
 
   function setExpanded(target) {
     cards.forEach(card => {
       if (card === target) {
-        card.style.flexGrow = '0';
-        card.style.flexShrink = '0';
-        card.style.flexBasis = expandedBasis;     // <- string
-        card.style.transform = 'translateZ(0)';
+        card.style.flexBasis = expandedBasis;
       } else {
-        card.style.flexGrow = '0';
-        card.style.flexShrink = '0';
-        card.style.flexBasis = shrunkBasis;       // <- string
-        card.style.transform = 'translateZ(0)';
+        card.style.flexBasis = shrunkBasis;
       }
     });
   }
 
   function reset() {
     cards.forEach(card => {
-      card.style.flexGrow = '';
-      card.style.flexShrink = '';
-      card.style.flexBasis = '';   // back to class-defined (1 1 0%)
-      card.style.transform = '';
+      card.style.flexBasis = '';
     });
   }
 
+  let hoverTimeout;
   cards.forEach(card => {
-    card.addEventListener('mouseenter', () => setExpanded(card));
+    card.addEventListener('mouseenter', () => {
+      clearTimeout(hoverTimeout);
+      hoverTimeout = setTimeout(() => setExpanded(card), 80);
+    });
+    card.addEventListener('mouseleave', () => clearTimeout(hoverTimeout));
     card.addEventListener('focusin', () => setExpanded(card));
     card.addEventListener('touchstart', () => setExpanded(card), { passive: true });
   });
 
   row.addEventListener('mouseleave', reset);
-  document.addEventListener('touchstart', (e) => {
-    if (!root.contains(e.target)) reset();
-  }, { passive: true });
+  document.addEventListener(
+    'touchstart',
+    e => {
+      if (!root.contains(e.target)) reset();
+    },
+    { passive: true }
+  );
 })();
 </script>
 

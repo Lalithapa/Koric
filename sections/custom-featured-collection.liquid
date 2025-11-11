@@ -24,7 +24,7 @@
 <section class="py-12 md:py-16 {{ section.settings.bg_class | default: 'bg-[#294e6b]' }} text-white section-{{ section.id }}-margin section-{{ section.id }}-padding">
   <div class="mx-auto section section--page-width  ">
     <!-- Header -->
-    <div class="flex flex-col md:flex-row  md:justify-between gap-4! md:gap-8! mb-[75px] lg:mb-16! lg:items-center items-start px-4 lg:px-0">
+    <div class="flex flex-col md:flex-row  md:justify-between gap-4! md:gap-8! mb-10 lg:mb-16! lg:items-center items-start px-4 lg:px-0">
       {% if section.settings.heading != blank %}
         <h2 class="text-[#F7F5F2]! lg:text-[38px]! text-[26px]! not-italic font-medium lg:leading-[1.1] leading-[1.2] lg:max-w-[400px]">
           {{ section.settings.heading }}
@@ -71,7 +71,7 @@
                         Retinol + Vitamin E
                       </p>
                       
-                      <h3 class="text-[#2A5072]! text-[20px]! not-italic font-medium! leading-normal ">
+                      <h3 class="text-[#2A5072]! text-[20px]! not-italic font-semibold! leading-normal ">
                         {{ product.title | escape | truncatewords: 3 }}
                       </h3>
                       <div class=" ">
@@ -80,19 +80,19 @@
                             >Yours at {{ v.price | money -}}
                           </span>
                         {% endif %}
-                      </div>
+                      </div> 
                        <div class="flex items-center justify-center overflow-hidden">
                     {% if product.metafields.custom.product_card_image_at_home != blank %}
                       {{
                         product.metafields.custom.product_card_image_at_home
                         | image_url: width: 740
-                        | image_tag: loading: 'lazy', class: 'block h-full w-full object-contain'
+                        | image_tag: loading: 'lazy', class: 'block h-full w-[185px]! lg:w-full object-contain '
                       }}
                     {% else %}
                       {{
                         product.featured_image
                         | image_url: width: 740
-                        | image_tag: loading: 'lazy', class: 'block h-full w-full object-contain'
+                        | image_tag: loading: 'lazy', class: 'block h-full w-[185px]! lg:w-full object-contain'
                       }}
                     {% endif %}
                   </div>
@@ -158,9 +158,9 @@
             <li
               class="
                 card-outer rounded-2xl bg-[#ADD1F2] py-3 px-[22px] relative group
-                transform transition-all duration-500 ease-in-out
-                hover:scale-y-110 hover:shadow-lg
-              "
+           transform transition-all duration-500 ease-in-out
+           hover:scale-y-110 hover:shadow-lg max-h-[550px]
+            "
             >
               <div class="h-full flex flex-col gap-[20! relative">
                 {% if product.tags contains 'bestseller' %}
@@ -176,15 +176,13 @@
                   >
                     Retinol + Vitamin E
                   </p>
-                  <div
-                    class="hidden! group-hover:block!  translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-in-out mb-2"
-                  >
-                    {% if v.compare_at_price > v.price %}
-                      <span class="text-[#2A5072] text-center text-[14px] not-italic font-normal leading-normal"
-                        >Yours at {{ v.price | money -}}
-                      </span>
-                    {% endif %}
-                  </div>
+                   <div class="text group-hover:opacity-100 transition-opacity duration-500 mb-2">
+                  {% if v.compare_at_price > v.price %}
+                    <span class="text-[#0d2235] text-center text-[14px] font-normal leading-normal  group-hover:text-[#5480a7] transition-opacity duration-500">
+                      Yours at {{ v.price | money }}
+                    </span>
+                  {% endif %}
+                </div>
                   <h3 class="text-[#2A5072]! text-[20px]! not-italic  max-w-[450px]   font-bold! leading-normal mb-[16px]">
                     {{ product.title | escape | truncatewords: 4 }}
                   </h3>

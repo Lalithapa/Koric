@@ -1,10 +1,10 @@
-<section id="banner-{{ section.id }}" class="w-full">
-  <div class="mx-auto">
+<section id="banner-{{ section.id }}" class="w-full h-full">
+  <div class="mx-auto bg-[#2A5072]">
     {% for block in section.blocks %}
       {% assign b = block.settings %}
       {% if b.desktop_image or b.mobile_image %}
           <div {{ block.shopify_attributes }}>
-            <a href="{{ b.link }}" target="{{ b.link_target }}" class="block overflow-hidden rounded-xl">
+            <a href="{{ b.link }}" target="{{ b.link_target }}" class="block overflow-hidden rounded-[0_0px_30px_30px] lg:rounded-[0_0px_40px_40px]">
               <picture>
                 {% if b.mobile_image %}
                   <source media="(max-width: 767px)" srcset="{{ b.mobile_image | image_url: width: 1200 }}">
@@ -21,7 +21,6 @@
     {% endfor %}
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Responsive Banner",

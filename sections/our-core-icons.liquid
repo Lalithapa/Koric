@@ -20,7 +20,7 @@
   }
   }
 {% endstyle %}
-<section id="our-core-{{ section.id }}" class="bg-[#F9F7F3]  section-{{ section.id }}-padding">
+<section id="our-core-{{ section.id }}" class="section-{{ section.id }}-padding">
   <div class="mx-auto section section--page-width px-4 md:px-6 text-center">
 
     {% if section.settings.heading != blank %}
@@ -37,7 +37,7 @@
               block.settings.image
               | image_url: width: 1200
               | image_tag:
-                class: 'block pointer-events-none select-none object-contain lg:!max-h-[240px] 2xl:!max-h-[270px] !max-h-[135px] !w-auto !max-w-none'
+                class: 'block  pointer-events-none select-none object-contain lg:!max-h-[240px] 2xl:!max-h-[270px] !max-h-[123px] !w-auto !max-w-none'
             }}
           {% endif %}
         </div>
@@ -172,4 +172,3 @@
   ]
 }
 {% endschema %}
-

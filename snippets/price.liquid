@@ -40,7 +40,7 @@
     assign compare_at_price = compare_at_price | money_without_trailing_zeros
   endif
 -%}
-
+{% unless template contains 'collection' %}
 <div ref="priceContainer" class="text-[24px]! flex items-center gap-2 lg:gap-4">
   {% if show_sale_price_first == false and show_compare_price %}
     <span role="group">
@@ -75,7 +75,7 @@
   <span class="text-[#B965CC] font-bold text-[16px]">
     {{ discount_percent | round }}% OFF
   </span>
-  {{product.compare_at_price_max }}
+ 
 {% endif %}
 
   {%- if selected_variant.unit_price and show_unit_price %}
@@ -91,3 +91,4 @@
     {% render 'unit-price', price: unit_price, measurement: selected_variant.unit_price_measurement %}
   {%- endif -%}
 </div>
+{% endunless %}

@@ -71,12 +71,12 @@
                         Retinol + Vitamin E
                       </p>
                       
-                      <h3 class="text-[#2A5072]! text-[20px]! not-italic font-semibold! leading-normal ">
+                      <h3 class="text-[#2A5072]! text-[20px]!  not-italic font-semibold! leading-normal ">
                         {{ product.title | escape | truncatewords: 3 }}
                       </h3>
                       <div class=" ">
                         {% if v.compare_at_price > v.price %}
-                          <span class="text-[#2A5072] text-center text-[14px] not-italic font-normal leading-normal"
+                          <span class="text-[#2A5072] text-center  text-[14px] not-italic font-normal leading-normal"
                             >Yours at {{ v.price | money -}}
                           </span>
                         {% endif %}

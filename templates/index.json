@@ -125,7 +125,7 @@
         "margin_bottom_mobile": 0,
         "padding_top_mobile": 80,
         "padding_bottom_mobile": 80
-      }
+      } 
     },
     "hover_card_section_mobile_mQTJNU": {
       "type": "hover-card-section-mobile",
@@ -184,8 +184,8 @@
         "cta_url": "shopify://collections",
         "cta_label": "browse all",
         "cta_label_mobile": "BROWSE ALL",
-        "padding_top_mobile": 100,
-        "padding_bottom_mobile": 100
+        "padding_top_mobile": 80,
+        "padding_bottom_mobile": 80
       }
     },
     "micro_foaming_banner_AYDtar": {
@@ -274,8 +274,8 @@
         "padding_bottom_desktop": 106,
         "margin_top_mobile": 0,
         "margin_bottom_mobile": 0,
-        "padding_top_mobile": 100,
-        "padding_bottom_mobile": 100
+        "padding_top_mobile": 50,
+        "padding_bottom_mobile": 50
       }
     },
     "shop_by_skin_need_7YDHKw": {

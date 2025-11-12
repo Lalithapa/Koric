@@ -381,7 +381,7 @@ p:empty {
 .page-width-normal,
 .page-width-narrow,
 .page-width-content {
-  --page-margin: 16px;
+  --page-margin: 20px;
 }
 
 @media screen and (min-width: 750px) {
@@ -1528,6 +1528,9 @@ shopify-accelerated-checkout-cart {
   :is(shopify-accelerated-checkout, shopify-accelerated-checkout-cart) {
   --shopify-accelerated-checkout-button-border-radius: var(--style-border-radius-buttons-secondary);
   --shopify-accelerated-checkout-button-block-size: var(--height-buy-buttons);
+}
+.product-information.section .add-to-cart-text , .product-information.section .add-to-cart-text--added{
+  font-size: 15px !important ;
 }
 
 /* Collapsible row */
@@ -4362,7 +4365,7 @@ text-component {
   .h6.h6 input,
   .h6.h6 textarea,
   .h6.h6 select {
-    font-size: max(1rem, 100%);
+    font-size: max(15px, 100%);
   }
 }
 

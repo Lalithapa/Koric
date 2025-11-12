@@ -41,11 +41,11 @@
   endif
 -%}
 {% unless template contains 'collection' %}
-<div ref="priceContainer" class="text-[24px]! flex items-center gap-2 lg:gap-4">
+<div ref="priceContainer" class="text-[22px]! flex items-center gap-2.5! lg:gap-4!">
   {% if show_sale_price_first == false and show_compare_price %}
     <span role="group">
       <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
-      <span class="compare-at-price text-[#717171] font-light!">{{- compare_at_price -}}</span>
+      <span class="compare-at-price text-[18px]! text-[#717171] font-light!">{{- compare_at_price -}}</span>
     </span>
   {% endif %}
 
@@ -61,18 +61,18 @@
   {% if show_sale_price_first == true and show_compare_price %}
     <span role="group">
       <span class="visually-hidden">{{ 'content.price_regular' | t }}&nbsp;</span>
-      <span class="compare-at-price text-black font-light!">{{- compare_at_price -}}</span>
+      <span class="compare-at-price  text-[18px]! text-black font-light!">{{- compare_at_price -}}</span>
     </span>
   {% endif %}
   {% if template contains 'collection' %}
-  <span class="text-[#B965CC] font-bold ml-1 text-[17px]">
+  <span class="text-[#c6538c] font-bold ml-1 text-[17px]">
    {% render 'discount-percent-badge', product: product_resource %}
   </span>
 {% endif %}
 {% if product.compare_at_price_max > product.price %}
   {% assign discount_amount = product.compare_at_price_max | minus: product.price %}
   {% assign discount_percent = discount_amount | times: 100 | divided_by: product.compare_at_price_max %}
-  <span class="text-[#B965CC] font-bold text-[16px]">
+  <span class="text-[#c6538c] font-bold ml-1 text-[14px]">
     {{ discount_percent | round }}% OFF
   </span>
  

@@ -86,7 +86,7 @@
     {{ fallback_text }}
   </div>
 {% elsif plain_text != blank %}
-  <{{ element }} {{ attributes }}>
+<{{ element }}{% if class %} class="{{ class }}" {% endif %}{{ attributes }}>
     {{ block.settings.text }}
   </{{ element }}>
 {% endif %}

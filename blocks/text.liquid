@@ -3,7 +3,7 @@
   <div id="product_description_text">
   <div class="flex">
 {% endif %} 
-  {% render 'text', block: block %}
+  {% render 'text', block: block , class: 'line-clamp-2 overflow-hidden text-ellipsis text-[15px] text-black font-medium tracking-normal leading-5' %}
   {% if block.settings.descriptive_text == 'product_description' %} 
     <div id="shareProduct" class="share_product desktop_screen h-full cursor-pointer">
     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="17" viewBox="0 0 14 17" fill="none">

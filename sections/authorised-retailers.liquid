@@ -54,12 +54,10 @@
                       alt="{{ b.alt | default: b.title | escape }}"
                       width=""
                       height=""
-                      class="logo-img  object-contain w-20! lg:w-[145px]! max-h-[25px] lg:max-h-[46px]"
+                      class="logo-img object-contain w-full h-[25px] lg:h-[45px]"
                       loading="lazy">
                   </div>
-              
-
-              {% if b.link != blank %}</a>{% endif %}
+                {% if b.link != blank %}</a>{% endif %}
             </div>
           {% endif %}
         {% endfor %}

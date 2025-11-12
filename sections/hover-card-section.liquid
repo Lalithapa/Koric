@@ -27,7 +27,7 @@
 <section id="exp-cards-{{ section.id }}" class="lg:block! hidden! w-full {{ section.settings.wrapper_bg }}! mx-auto section section--page-width section-{{ section.id }}-margin section-{{ section.id }}-padding rounded-t-[32px] bg-[#F7F5F2] ">
   <div class="  py-8 mx-auto section section--page-width">
        <!-- Header -->
-    <span class="inline-block max-w-fit mb-[23px] rounded-[50px] bg-[#F9BDF9] shadow-[0_1px_1px_0_rgba(192,178,178,0.25)] px-4 py-[6px] text-[#2A5072] text-[12px]! font-medium tracking-wide uppercase">{{'Less foam. More care'}}</span>
+    <span class="inline-block max-w-fit mb-[23px] rounded-[50px] bg-[#F9BDF9] shadow-[0_1px_1px_0_rgba(192,178,178,0.25)] px-4 py-[6px] text-[#2A5072] text-[12px]! font-medium tracking-wide">{{'Less foam. More care'}}</span>
     <div class="mb-14 flex flex-col items-start gap-4 md:mb-14 md:flex-row md:items-center md:justify-between md:gap-8">
       
     
@@ -61,9 +61,9 @@
       {% for block in section.blocks %}
         {% assign b = block.settings %}
         <article
-  class="exp-card group relative flex-[1_1_0%] h-[400px] rounded-xl overflow-hidden bg-gray-200 transition-[flex-basis,transform] duration-300 ease-out"
-  {{ block.shopify_attributes }}
->
+          class="exp-card group relative flex-[1_1_0%] h-[400px] rounded-xl overflow-hidden bg-gray-200 transition-[flex-basis,transform] duration-300 ease-out"
+          {{ block.shopify_attributes }}
+        >
   {% if b.image != blank %}
     <img
       src="{{ b.image | image_url: width: 1600 }}"

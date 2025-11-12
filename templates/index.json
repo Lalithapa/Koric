@@ -102,7 +102,7 @@
             "cta_url": ""
           }
         }
-      }, 
+      },
       "block_order": [
         "card_FBFbVd",
         "card_EpmkcF",
@@ -125,7 +125,7 @@
         "margin_bottom_mobile": 0,
         "padding_top_mobile": 80,
         "padding_bottom_mobile": 80
-      } 
+      }
     },
     "hover_card_section_mobile_mQTJNU": {
       "type": "hover-card-section-mobile",
@@ -434,7 +434,7 @@
             "border_opacity": 100,
             "border_radius": 20,
             "padding-block-start": 0,
-            "padding-block-end": 20,
+            "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
           },
